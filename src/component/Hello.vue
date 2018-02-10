@@ -1,11 +1,7 @@
-
 <template>
   <div>
-    <ol>
-      <li v-for="todo in todos">
-        {{ todo.text }}
-      </li>
-    </ol>
+    <p>{{ age }}</p>
+    <input v-model.number="age" type="number"/>
   </div>
 </template>
 
@@ -13,17 +9,13 @@
 export default {
   data() {
     return {
-      todos: [
-        { text: "Learn Es" },
-        { text: "Learn Vue" },
-        { text: "Learn React" },
-      ],
+      age:20,
     }
   },
 }
 </script>
 
-<style>
+<style scoped>
   .green {
     color: #0f0;
   }
