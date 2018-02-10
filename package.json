@@ -1,0 +1,17 @@
+{
+  "name": "vue",
+  "version": "1.0.0",
+  "main": "index.js",
+  "description": "my first vue app",
+  "author": "lisper",
+  "license": "MIT",
+  "dependencies": {
+    "vue": "^2.5.13"
+  },
+  "scripts": {
+    "build": "browserify -t vueify -e src/main.js -o dist/app.js"
+  },
+  "devDependencies": {
+    "vueify": "^9.4.1"
+  }
+}
