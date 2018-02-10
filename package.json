@@ -1,7 +1,7 @@
 {
   "name": "vue",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "dist/index.js",
   "description": "my first vue app",
   "author": "lisper",
   "license": "MIT",
@@ -9,7 +9,10 @@
     "vue": "^2.5.13"
   },
   "scripts": {
-    "build": "browserify -e src/main.js -o dist/app.js"
+    "build": "browserify -e src/main.js -o dist/app.js",
+    "watch": "watchify -vd -e src/main.js -o dist/app.js",
+    "serve": "live-server --open=dist/index.html --watch=dist",
+    "dev": "npm-run-all --parallel watch serve"
   },
   "browserify": {
     "transform": [
@@ -21,6 +24,10 @@
     "babel-core": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "babelify": "^8.0.0",
-    "vueify": "^9.4.1"
+    "browserify": "^16.0.0",
+    "live-server": "^1.2.0",
+    "npm-run-all": "^4.1.2",
+    "vueify": "^9.4.1",
+    "watchify": "^3.10.0"
   }
 }
