@@ -9,11 +9,11 @@
 
 
 <script>
-const Hello = require("./component/Hello.vue")
-module.exports = {
+import Hello from "./component/Hello.vue"
+export default {
   data() {
     return {
-      message: "Hello world!",
+      message: "Hello vue!",
     }
   },
   methods: {

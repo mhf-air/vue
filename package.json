@@ -9,9 +9,18 @@
     "vue": "^2.5.13"
   },
   "scripts": {
-    "build": "browserify -t vueify -e src/main.js -o dist/app.js"
+    "build": "browserify -e src/main.js -o dist/app.js"
+  },
+  "browserify": {
+    "transform": [
+      "babelify",
+      "vueify"
+    ]
   },
   "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babelify": "^8.0.0",
     "vueify": "^9.4.1"
   }
 }
