@@ -9,7 +9,7 @@
 
 
 <script>
-import Hello from "./component/Hello.vue"
+import Hello from "./feature/Hello.vue"
 export default {
   components: {
     Hello,
