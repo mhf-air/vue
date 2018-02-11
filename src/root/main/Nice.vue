@@ -1,6 +1,5 @@
 <template>
   <div>
-    <Hello></Hello>
     <p class="red">{{ message }}</p>
     <p>{{ reversedMessage }}</p>
     <button v-on:click="reverseMessage">Reverse Message</button>
@@ -9,11 +8,7 @@
 
 
 <script>
-import Hello from "./feature/Hello.vue"
 export default {
-  components: {
-    Hello,
-  },
   data() {
     return {
       message: "Hello vue!",
