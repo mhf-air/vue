@@ -1,17 +1,17 @@
 <template>
   <div>
-    <Hello></Hello>
-    <Nice></Nice>
+    <ToolBar/>
+    <Content/>
   </div>
 </template>
 
-
 <script>
-import Hello from "./Hello.vue"
-import Nice from "./Nice.vue"
+import ToolBar from "./ToolBar.vue"
+import Content from "./Content.vue"
+
 export default {
   components: {
-    Hello, Nice
+    ToolBar, Content,
   },
 }
 </script>

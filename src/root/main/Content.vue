@@ -3,6 +3,9 @@
     <p class="red">{{ message }}</p>
     <p>{{ reversedMessage }}</p>
     <button v-on:click="reverseMessage">Reverse Message</button>
+    <p>
+      <router-link to="/about">Go to About</router-link>
+    </p>
   </div>
 </template>
 
