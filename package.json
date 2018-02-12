@@ -1,8 +1,7 @@
 {
   "name": "vue",
   "version": "1.0.0",
-  "main": "dist/index.js",
-  "description": "my first vue app",
+  "description": "my vue app",
   "author": "lisper",
   "license": "MIT",
   "dependencies": {
@@ -13,7 +12,7 @@
   },
   "scripts": {
     "watch": "watchify -vd -e src/app.js -o dist/app.js",
-    "serve": "live-server --watch=dist",
+    "serve": "live-server dist --watch=.",
     "dev": "npm-run-all --parallel watch serve",
     "production": "NODE_ENV=\"production\" browserify -e src/app.js | uglifyjs -c -m > dist/app.js"
   },

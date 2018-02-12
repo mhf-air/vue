@@ -4,6 +4,12 @@ import Vue from "vue"
 import Vuex from "vuex"
 Vue.use(Vuex)
 
+/* const store = new Vuex.Store({
+  modules: {
+    main,
+  },
+}) */
+
 // router
 import VueRouter from "vue-router"
 Vue.use(VueRouter)
@@ -14,9 +20,10 @@ const router = new VueRouter({
   routes,
 })
 
-import App from "./root/App.vue"
+import App from "./root/a.vue"
 new Vue({
+  router,
+  // store,
   el: "#app",
   render: (h) => h(App),
-  router,
 })
