@@ -12,10 +12,10 @@
     "vuex": "^3.0.1"
   },
   "scripts": {
-    "watch": "watchify -vd -e src/main.js -o dist/app.js",
+    "watch": "watchify -vd -e src/app.js -o dist/app.js",
     "serve": "live-server --watch=dist",
     "dev": "npm-run-all --parallel watch serve",
-    "production": "NODE_ENV=\"production\" browserify -e src/main.js | uglifyjs -c -m > dist/app.js"
+    "production": "NODE_ENV=\"production\" browserify -e src/app.js | uglifyjs -c -m > dist/app.js"
   },
   "browserify": {
     "transform": [
