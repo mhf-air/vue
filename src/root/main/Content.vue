@@ -8,7 +8,7 @@
     </p>
 
     <label>enter todo</label>
-    <input @keyup.enter=""/>
+    <input @keyup.enter="addTodo"/>
     <ol>
       <li v-for="todo in todoList">
         {{ todo.value }}
@@ -19,7 +19,7 @@
 
 
 <script>
-import { mapState } from "vuex"
+import { mapState, mapMutations } from "vuex"
 
 export default {
   data() {
@@ -28,18 +28,24 @@ export default {
     }
   },
   computed: {
-    reversedMessage: function() {
+    reversedMessage() {
       return this.message.split("").reverse().join("")
     },
+    todoList() {
+      return this.$store.state.main.todoList
+    },
     ...mapState({
-      "todoList",
+      todoList: state => state.main.todoList
     }),
   },
   methods: {
-    reverseMessage: function() {
+    reverseMessage() {
       this.message = this.message.split("").reverse().join("")
     },
-    addTodo:function(){
+    addTodo(e) {
+      let todo = e.target.value
+      this.$store.dispatch("addTodo", { todo })
+      e.target.value = ""
     },
   },
 }
