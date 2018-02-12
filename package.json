@@ -12,7 +12,7 @@
   },
   "scripts": {
     "watch": "watchify -vd -e src/app.js -o dist/app.js",
-    "serve": "live-server dist --watch=.",
+    "serve": "live-server dist --entry-file=index.html",
     "dev": "npm-run-all --parallel watch serve",
     "production": "NODE_ENV=\"production\" browserify -e src/app.js | uglifyjs -c -m > dist/app.js"
   },

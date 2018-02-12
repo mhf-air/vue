@@ -6,11 +6,21 @@
     <p>
       <router-link to="/about">Go to About</router-link>
     </p>
+
+    <label>enter todo</label>
+    <input @keyup.enter=""/>
+    <ol>
+      <li v-for="todo in todoList">
+        {{ todo.value }}
+      </li>
+    </ol>
   </div>
 </template>
 
 
 <script>
+import { mapState } from "vuex"
+
 export default {
   data() {
     return {
@@ -21,10 +31,15 @@ export default {
     reversedMessage: function() {
       return this.message.split("").reverse().join("")
     },
+    ...mapState({
+      "todoList",
+    }),
   },
   methods: {
     reverseMessage: function() {
       this.message = this.message.split("").reverse().join("")
+    },
+    addTodo:function(){
     },
   },
 }
