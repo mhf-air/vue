@@ -4,26 +4,26 @@ import Vue from "vue"
 import Vuex from "vuex"
 Vue.use(Vuex)
 
-/* const store = new Vuex.Store({
-  modules: {
-    main,
-  },
-}) */
+import modules from "./conf/store-modules"
+const store = new Vuex.Store({
+  modules,
+})
 
 // router
 import VueRouter from "vue-router"
 Vue.use(VueRouter)
 
-import routes from "./root/routes"
+import routes from "./conf/routes"
 const router = new VueRouter({
   mode: "history",
   routes,
 })
 
+// root
 import App from "./root/a.vue"
 new Vue({
   router,
-  // store,
+  store,
   el: "#app",
   render: (h) => h(App),
 })
