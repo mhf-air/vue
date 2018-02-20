@@ -31,9 +31,6 @@ export default {
     reversedMessage() {
       return this.message.split("").reverse().join("")
     },
-    todoList() {
-      return this.$store.state.main.todoList
-    },
     ...mapState({
       todoList: state => state.main.todoList
     }),
