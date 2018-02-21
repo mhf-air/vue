@@ -11,11 +11,13 @@
     "vuex": "^3.0.1"
   },
   "scripts": {
-    "gp":"tar -czf /tmp/dist.tar.gz dist && tar -xzf /tmp/dist.tar.gz -C /home/mhf/js/src/mhf-air.github.io --strip-components 1 && git add . && git commit -m \"fix:\" && git push",
     "watch": "watchify -vd -e src/app.js -o dist/js/app.js",
     "serve": "live-server dist --entry-file=index.html",
     "dev": "npm-run-all --parallel watch serve",
-    "production": "NODE_ENV=\"production\" browserify -e src/app.js | uglifyjs -c -m > dist/js/app.js"
+    "production": "NODE_ENV=\"production\" browserify -e src/app.js | uglifyjs -c -m > dist/js/app.js",
+
+    "gp-move":"tar -czf /tmp/dist.tar.gz dist && tar -xzf /tmp/dist.tar.gz -C /home/mhf/js/src/mhf-air.github.io --strip-components 1",
+    "gp":"yarn run gp-move && cd /home/mhf/js/src/mhf-air.github.io && git add . && git commit -m \"fix:\" && git push"
   },
   "browserify": {
     "transform": [
