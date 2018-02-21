@@ -17,7 +17,7 @@
     "production": "NODE_ENV=production browserify -g envify -e src/app.js | uglifyjs -c -m > dist/js/app.js",
 
     "gp-move": "tar -czf /tmp/dist.tar.gz dist && tar -xzf /tmp/dist.tar.gz -C /home/mhf/js/src/mhf-air.github.io --strip-components 1",
-    "gp-git-push": "cd /home/mhf/js/src/mhf-air.github.io && git add . && git commit -m \"fix:\" && git push",
+    "gp-git-push": "cd /home/mhf/js/src/mhf-air.github.io && git add . && git diff-index --quiet HEAD || git commit -m \"fix:\" && git push",
     "gp": "npm-run-all -s production gp-move gp-git-push"
   },
   "browserify": {
