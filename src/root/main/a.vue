@@ -1,7 +1,7 @@
 <template>
   <div>
     <ToolBar/>
-    <Content/>
+    <!-- <Content/> -->
   </div>
 </template>
 
