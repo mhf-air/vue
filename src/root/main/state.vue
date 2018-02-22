@@ -1,7 +1,20 @@
 <template>
-  <main>
-    this is main
-  </main>
+  <div>
+    <p class="red">{{ message }}</p>
+    <p>{{ reversedMessage }}</p>
+    <button v-on:click="reverseMessage">Reverse Message</button>
+    <p>
+      <router-link to="/about">Go to About</router-link>
+    </p>
+
+    <label>enter todo</label>
+    <input @keyup.enter="addTodo"/>
+    <ol>
+      <li v-for="todo in todoList">
+        {{ todo.value }}
+      </li>
+    </ol>
+  </div>
 </template>
 
 
@@ -36,4 +49,7 @@ export default {
 </script>
 
 <style scoped>
+  .red {
+    color: #f00;
+  }
 </style>

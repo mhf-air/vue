@@ -1,17 +1,19 @@
 <template>
   <div>
     <ToolBar/>
-    <!-- <Content/> -->
+    <Content/>
+    <!-- <Foot/> -->
   </div>
 </template>
 
 <script>
 import ToolBar from "./ToolBar.vue"
 import Content from "./Content.vue"
+import Foot from "./Foot.vue"
 
 export default {
   components: {
-    ToolBar, Content,
+    ToolBar, Content, Foot
   },
 }
 </script>

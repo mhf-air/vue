@@ -7,9 +7,8 @@
       <li class="header-item">朋友</li>
       <li class="header-item">商城</li>
       <li class="header-item">音乐人</li>
-      <li class="header-item">下载客户端</li>
     </ul>
-    <input type="search" placeholder="enter sth" class="web-search"/>
+    <input type="search" placeholder="搜索" class="web-search"/>
   </header>
 </template>
 
@@ -37,21 +36,30 @@ export default {
   .web-logo {
     width: 7rem;
     height: 70%;
-    background-color: green;
+    /* background-color: green; */
   }
 
   .header-item-group {
     display: flex;
+    justify-content: space-around;
     list-style-type: none;
+    margin: 0 3rem 0 -1rem;
   }
 
   .header-item {
-    justify-content: space-evenly;
+    margin-right: 1rem;
   }
 
   .web-search {
     height: 50%;
-    border-radius: 5rem;
-    border-color: #0f0;
+    border: 1px solid #8F5736;
+    border-radius: 0.5rem;
+    padding: 0 0.7rem 0 3rem;
+    background: no-repeat 0.5rem url(image/search.png);
+    color: white;
+  }
+  .web-search:focus {
+    border: none;
+    border-radius: 0.5rem;
   }
 </style>
