@@ -1,6 +1,16 @@
 <template>
   <main>
-    this is main
+    <div class="main-top">Lion's Blog</div>
+    <div>nice</div>
+    <router-link to="/about">about</router-link>
+    <ul style="font-size: 10rem;">
+      <li>abc</li>
+      <li>abc</li>
+      <li>abc</li>
+      <li>abc</li>
+      <li>abc</li>
+      <li>abc</li>
+    </ul>
   </main>
 </template>
 
@@ -36,4 +46,22 @@ export default {
 </script>
 
 <style scoped>
+  main {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .main-top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    color: orange;
+
+    width: 100%;
+    height: 22rem;
+    background-image: url("image/sunset.jpg" );
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+  }
 </style>
