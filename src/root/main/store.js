@@ -1,3 +1,5 @@
+import { addDefaultMutations } from "app"
+
 const state = {
   todoList: [],
 }
@@ -9,16 +11,6 @@ const mutations = {
 }
 
 const actions = {}
-
-function addDefaultMutations(actions, mutations) {
-  for (let k in mutations) {
-    if (!actions.hasOwnProperty(k)) {
-      actions[k] = ({ commit }, s) => {
-        commit(k, s)
-      }
-    }
-  }
-}
 
 addDefaultMutations(actions, mutations)
 export default {
