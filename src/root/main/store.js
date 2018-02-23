@@ -3,17 +3,24 @@ const state = {
 }
 
 const mutations = {
-  addTodo(state, { todo }) {
-    state.todoList.push({ value: todo })
+  addTodo(state, s) {
+    state.todoList.push({ value: s.todo })
   },
 }
 
-const actions = {
-  addTodo({ commit }, todo) {
-    commit("addTodo", todo)
-  },
+const actions = {}
+
+function addDefaultMutations(actions, mutations) {
+  for (let k in mutations) {
+    if (!actions.hasOwnProperty(k)) {
+      actions[k] = ({ commit }, s) => {
+        commit(k, s)
+      }
+    }
+  }
 }
 
+addDefaultMutations(actions, mutations)
 export default {
   state,
   // getters,
