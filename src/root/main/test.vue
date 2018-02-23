@@ -20,6 +20,7 @@
 
 <script>
 import { mapState, mapMutations } from "vuex"
+import api from "app/api"
 
 export default {
   data() {
@@ -40,6 +41,10 @@ export default {
       this.message = this.message.split("").reverse().join("")
     },
     addTodo(e) {
+      api.GetUser().then((resp)=>{
+        console.log(resp)
+      })
+      // console.log(api.GetUser())
       let todo = e.target.value
       this.$store.dispatch("main/addTodo", { todo })
       e.target.value = ""

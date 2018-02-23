@@ -1,5 +1,5 @@
 // root shared state
-import { addDefaultMutations } from "app"
+import { addDefaultMutations } from "app/util"
 
 const state = {
   todoList: [],
