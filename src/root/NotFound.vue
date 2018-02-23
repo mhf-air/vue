@@ -10,7 +10,4 @@ export default {
 </script>
 
 <style scoped>
-  .green {
-    color: #0f0;
-  }
 </style>
