@@ -1,3 +1,4 @@
+// root shared state
 import { addDefaultMutations } from "app"
 
 const state = {

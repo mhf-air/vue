@@ -41,7 +41,7 @@ export default {
     },
     addTodo(e) {
       let todo = e.target.value
-      this.$store.dispatch("addTodo", { todo })
+      this.$store.dispatch("main/addTodo", { todo })
       e.target.value = ""
     },
   },
