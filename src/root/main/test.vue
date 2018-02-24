@@ -46,8 +46,7 @@ export default {
           console.log(data)
         })
         .catch((err) => {
-          // console.log(err.msg)
-          alert(err.msg)
+          console.log(err)
         })
 
       let todo = e.target.value
