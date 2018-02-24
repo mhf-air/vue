@@ -4,7 +4,8 @@
     <p>{{ reversedMessage }}</p>
     <button v-on:click="reverseMessage">Reverse Message</button>
     <p>
-      <router-link to="/about">Go to About</router-link>
+      <router-link to="/login">Go to Login</router-link>
+      <router-link to="/login/register">Go to Register</router-link>
     </p>
 
     <label>enter todo</label>

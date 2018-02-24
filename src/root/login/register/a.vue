@@ -1,5 +1,6 @@
+
 <template>
   <div>
-    <p>this is the about page</p>
+    <p>register</p>
   </div>
 </template>
