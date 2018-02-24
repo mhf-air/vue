@@ -43,11 +43,15 @@ export default {
     addTodo(e) {
       api.GetUser().then((resp)=>{
         console.log(resp)
+      }).catch((err)=>{
+        console.log("hello",err)
       })
-      // console.log(api.GetUser())
+
       let todo = e.target.value
-      this.$store.dispatch("main/addTodo", { todo })
-      e.target.value = ""
+      if (todo != "") {
+        this.$store.dispatch("main/addTodo", { todo })
+        e.target.value = ""
+      }
     },
   },
 }
