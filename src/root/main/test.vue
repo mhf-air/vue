@@ -19,7 +19,7 @@
 
 
 <script>
-import { mapState, mapMutations } from "vuex"
+import { mapState } from "vuex"
 import api from "app/api"
 
 export default {
@@ -41,11 +41,14 @@ export default {
       this.message = this.message.split("").reverse().join("")
     },
     addTodo(e) {
-      api.GetUser().then((resp)=>{
-        console.log(resp)
-      }).catch((err)=>{
-        console.log("hello",err)
-      })
+      api.GetUser()
+        .then((data) => {
+          console.log(data)
+        })
+        .catch((err) => {
+          // console.log(err.msg)
+          alert(err.msg)
+        })
 
       let todo = e.target.value
       if (todo != "") {
