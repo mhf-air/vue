@@ -8,10 +8,6 @@
       <router-link to="/profile/info">Go to Profile Info</router-link>
     </p>
 
-    <el-badge :value="12">
-      <el-button>评论</el-button>
-    </el-badge>
-
     <label>enter todo</label>
     <input @keyup.enter="addTodo"/>
     <ol>
@@ -19,6 +15,11 @@
         {{ todo.value }}
       </li>
     </ol>
+
+    <el-badge :value="12">
+      <el-button>评论</el-button>
+    </el-badge>
+
   </div>
 </template>
 
