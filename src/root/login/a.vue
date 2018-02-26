@@ -3,7 +3,7 @@
   <div id="login-section">
     <div id="login-body">
       <el-row type="flex" justify="end">
-        <el-button type="text" id="register">注册</el-button>
+        <el-button type="text" id="register" @click="changeToRegister">注册</el-button>
       </el-row>
       <div id="title">用户登录</div>
       <el-input placeholder="用户名" id="username" />
@@ -32,6 +32,7 @@ export default {
     login() {
       console.log("click")
     },
+    changeToRegister() {},
   }
 }
 </script>
