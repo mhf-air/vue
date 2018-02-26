@@ -1,28 +1,26 @@
 <template>
-  <div>
-    <p class="red">{{ message }}</p>
-    <p>{{ reversedMessage }}</p>
-    <button v-on:click="reverseMessage">Reverse Message</button>
-    <p>
-      <router-link to="/profile">Go to Profile</router-link>
-      <router-link to="/profile/info">Go to Profile Info</router-link>
-    </p>
+<div>
+  <p class="red">{{ message }}</p>
+  <p>{{ reversedMessage }}</p>
+  <button v-on:click="reverseMessage">Reverse Message</button>
+  <p>
+    <router-link to="/login">Login</router-link>
+  </p>
 
-    <label>enter todo</label>
-    <input @keyup.enter="addTodo"/>
-    <ol>
-      <li v-for="todo in todoList">
-        {{ todo.value }}
-      </li>
-    </ol>
+  <label>enter todo</label>
+  <input @keyup.enter="addTodo" />
+  <ol>
+    <li v-for="todo in todoList">
+      {{ todo.value }}
+    </li>
+  </ol>
 
-    <el-badge :value="12">
-      <el-button>评论</el-button>
-    </el-badge>
+  <el-badge :value="12">
+    <el-button>评论</el-button>
+  </el-badge>
 
-  </div>
+</div>
 </template>
-
 
 <script>
 import { mapState } from "vuex"
@@ -66,7 +64,7 @@ export default {
 </script>
 
 <style scoped>
-  .red {
-    color: #f00;
-  }
+.red {
+  color: #f00;
+}
 </style>
