@@ -1,19 +1,8 @@
 <template>
-<!-- 登录页 -->
+<!-- 注册页 -->
 <div>
   <div id="login-section">
-    <div id="login-body">
-      <el-row type="flex" justify="end">
-        <el-button type="text" @click="changeToRegister" id="register">注册</el-button>
-      </el-row>
-      <div id="title">用户登录</div>
-      <el-input placeholder="用户名" v-model="username" />
-      <el-input placeholder="密码" type="password" v-model="password" />
-      <el-checkbox v-model="toRemember" label="记住我" id="remember" />
-    </div>
-    <el-row type="flex" justify="center">
-      <el-button type="primary" round :loading="loading" @click="login" id="login-button">登录</el-button>
-    </el-row>
+    注册
   </div>
 </div>
 </template>
@@ -46,9 +35,6 @@ export default {
         .finally(() => {
           this.loading = false
         })
-    },
-    changeToRegister() {
-      this.$router.push("/login/register")
     },
   }
 }
