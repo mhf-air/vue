@@ -7,8 +7,8 @@
         <el-button type="text" @click="changeToRegister" id="register">注册</el-button>
       </el-row>
       <div id="title">用户登录</div>
-      <el-input placeholder="用户名" v-model="username" />
-      <el-input placeholder="密码" type="password" v-model="password" />
+      <el-input placeholder="用户名" clearable v-model="username" />
+      <el-input placeholder="密码" clearable type="password" v-model="password" />
       <el-checkbox v-model="toRemember" label="记住我" id="remember" />
     </div>
     <el-row type="flex" justify="center">
