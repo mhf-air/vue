@@ -1,9 +1,9 @@
 <template>
-<div class="el-card">
-  <div class="el-card__header" v-if="$slots.header || header">
+<div class="g-card">
+  <div class="g-card__header" v-if="$slots.header || header">
     <slot name="header">{{ header }}</slot>
   </div>
-  <div class="el-card__body" :style="bodyStyle">
+  <div class="g-card__body" :style="bodyStyle">
     <slot></slot>
   </div>
 </div>
@@ -12,7 +12,7 @@
 <script>
 const a = 1
 export default {
-  name: 'Card',
+  name: 'g-card',
   props: ['header', 'bodyStyle']
 }
 </script>

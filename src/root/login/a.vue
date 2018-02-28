@@ -15,9 +15,6 @@
       <el-button type="primary" round :loading="loading" @click="login" id="login-button">登录</el-button>
     </el-row>
   </div>
-  <card id="login-section">
-    注册
-  </card>
 </div>
 </template>
 
