@@ -1,9 +1,9 @@
 <template>
 <!-- 注册页 -->
 <div>
-  <div id="login-section">
+  <card id="login-section">
     注册
-  </div>
+  </card>
 </div>
 </template>
 

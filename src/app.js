@@ -24,6 +24,14 @@ import ElementUI from "element-ui"
 // import "element-ui/lib/theme-chalk/index.css"
 Vue.use(ElementUI)
 
+// app specific components
+import Components from "./components"
+Vue.use(Components)
+/* import { use, Card } from "./components"
+use(Vue, [
+  Card,
+]) */
+
 // root
 import App from "./root/a.vue"
 new Vue({
