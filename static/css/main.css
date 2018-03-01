@@ -99,6 +99,11 @@ textarea {
 
 a {
   text-decoration: none;
+  color: #6f6660;
+}
+
+a:hover {
+  color: black;
 }
 
 
