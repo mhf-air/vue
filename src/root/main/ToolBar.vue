@@ -1,65 +1,94 @@
 <template>
-  <header>
-    <img src="image/lion.svg" alt="logo" class="web-logo"/>
-    <ul class="header-item-group">
-      <li class="header-item">发现音乐</li>
-      <li class="header-item">我的音乐</li>
-      <li class="header-item">朋友</li>
-      <li class="header-item">商城</li>
-      <li class="header-item">音乐人</li>
-    </ul>
-    <input type="search" placeholder="搜索" class="web-search"/>
-  </header>
+<el-header class="page-header">
+  <div id="logo">SWISS</div>
+  <nav class="nav">
+    <el-popover ref="book" trigger="hover">
+      <div class="popover">
+        <div>
+          a
+        </div>
+        <div>
+          b
+        </div>
+        <div>
+          c
+        </div>
+        <div>
+          d
+        </div>
+        <div>
+          e
+        </div>
+      </div>
+    </el-popover>
+
+    <el-button v-popover:book>预定</el-button>
+    <el-button>准备</el-button>
+    <el-button>飞行</el-button>
+    <el-button>探索</el-button>
+  </nav>
+  <div id="login">
+    <router-link to="/login">登录</router-link>
+  </div>
+</el-header>
 </template>
 
 <script>
 export default {
   data() {
     return {
-      age:20,
+      age: 20,
     }
   },
 }
 </script>
 
 <style scoped>
-  header {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    font-size: 1.3rem;
-    height: 5rem;
-    color: white;
-    background-color: #292929;
-  }
+.page-header {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  width: 100%;
+  margin-top: 2rem;
+}
 
-  .web-logo {
-    width: 7rem;
-    height: 70%;
-    /* background-color: green; */
-  }
+#logo {
+  font-size: 2rem;
+  color: red;
+}
 
-  .header-item-group {
-    display: flex;
-    justify-content: space-around;
-    list-style-type: none;
-    margin: 0 3rem 0 -1rem;
-  }
+.nav {
+  margin-left: -30rem;
+}
 
-  .header-item {
-    margin-right: 1rem;
-  }
+.nav>.el-button {
+  font-size: 1.3rem;
+  border-style: none;
+}
 
-  .web-search {
-    height: 50%;
-    border: 1px solid #8F5736;
-    border-radius: 0.5rem;
-    padding: 0 0.7rem 0 3rem;
-    background: no-repeat 0.5rem url(image/search.png);
-    color: white;
-  }
-  .web-search:focus {
-    border: none;
-    border-radius: 0.5rem;
-  }
+.nav>.el-button:hover {
+  background-color: transparent;
+  color: red;
+}
+
+#login {
+  font-size: 1.5rem;
+}
+
+#login a:hover {
+  color: red;
+}
+
+.popover {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  background-color: cyan;
+}
+
+.popover>div {
+  border-right: 1px solid;
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+}
 </style>

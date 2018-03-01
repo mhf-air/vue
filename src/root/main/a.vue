@@ -1,12 +1,7 @@
 <template>
 <el-container id="app">
-  <el-header class="page-header">
-    <router-link to="/login">登录</router-link>
-  </el-header>
-
-  <el-main>
-  </el-main>
-
+  <ToolBar/>
+  <!-- <Content/> -->
   <Foot/>
 </el-container>
 </template>
@@ -28,11 +23,6 @@ export default {
 </script>
 
 <style scoped>
-.page-header {
-  width: 100%;
-  background-color: cyan;
-}
-
 #app {
   display: flex;
   align-items: center;
