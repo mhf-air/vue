@@ -1,28 +1,19 @@
 <template>
 <el-header class="page-header">
+  <el-popover ref="book" trigger="hover">
+    <div class="popover">
+      <div>
+        a
+      </div>
+      <div>
+        c
+      </div>
+    </div>
+  </el-popover>
   <g-h justify-content="space-around" align-items="center">
     <div id="logo">SWISS</div>
     <nav class="nav">
-      <el-popover ref="book" trigger="hover">
-        <div class="popover">
-          <div>
-            a
-          </div>
-          <div>
-            b
-          </div>
-          <div>
-            c
-          </div>
-          <div>
-            d
-          </div>
-          <div>
-            e
-          </div>
-        </div>
-      </el-popover>
-      <el-button>预定</el-button>
+      <el-button v-popover:book>预定</el-button>
       <el-button>准备</el-button>
       <el-button>飞行</el-button>
       <el-button>探索</el-button>
@@ -77,11 +68,15 @@ export default {
   color: red;
 }
 
+.el-popover {
+  background-color: cyan;
+  padding: -12px -12px;
+}
+
 .popover {
   display: flex;
   justify-content: center;
   width: 100%;
-  background-color: cyan;
 }
 
 .popover>div {

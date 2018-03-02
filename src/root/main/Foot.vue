@@ -1,73 +1,75 @@
 <template>
 <el-footer class="page-footer">
-  <nav id="footer-top">
-    <div class="footer-col">
-      <h3>关于</h3>
-      <ul>
-        <li>
-          <router-link to="">招聘信息</router-link>
-        </li>
-        <li>
-          <router-link to="">公司信息</router-link>
-        </li>
-        <li>
-          <router-link to="">媒体</router-link>
-        </li>
-      </ul>
-    </div>
-
-    <div class="footer-col">
-      <h3>服务</h3>
-      <ul>
-        <li>
-          <router-link to="">到达和出发</router-link>
-        </li>
-        <li>
-          <router-link to="">值机手续办理信息</router-link>
-        </li>
-        <li>
-          <router-link to="">行李</router-link>
-        </li>
-      </ul>
-    </div>
-
-    <div class="footer-col">
-      <h3>客户支持</h3>
-      <ul>
-        <li>
-          <router-link to="">联系方式</router-link>
-        </li>
-        <li>
-          <router-link to="">常见问题/帮助</router-link>
-        </li>
-        <li>
-          <router-link to="">退款</router-link>
-        </li>
-      </ul>
-    </div>
-
-    <div class="footer-col">
-      <h3>电子通讯</h3>
-      <div id="register">
-        <router-link to="">注册</router-link>
+  <g-v wrap justify-content="center">
+    <g-h wrap justify-content="center">
+      <div class="footer-col">
+        <h3>关于</h3>
+        <ul>
+          <li>
+            <router-link to="">招聘信息</router-link>
+          </li>
+          <li>
+            <router-link to="">公司信息</router-link>
+          </li>
+          <li>
+            <router-link to="">媒体</router-link>
+          </li>
+        </ul>
       </div>
-    </div>
-  </nav>
 
-  <div id="footer-bottom">
-    <span>© Swiss International Air Lines</span>
-    <ul>
-      <li>
-        <router-link to="">汉莎航空集团</router-link>
-      </li>
-      <li>
-        <router-link to="">网站地图</router-link>
-      </li>
-      <li>
-        <router-link to="">法规</router-link>
-      </li>
-    </ul>
-  </div>
+      <div class="footer-col">
+        <h3>服务</h3>
+        <ul>
+          <li>
+            <router-link to="">到达和出发</router-link>
+          </li>
+          <li>
+            <router-link to="">值机手续办理信息</router-link>
+          </li>
+          <li>
+            <router-link to="">行李</router-link>
+          </li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>客户支持</h3>
+        <ul>
+          <li>
+            <router-link to="">联系方式</router-link>
+          </li>
+          <li>
+            <router-link to="">常见问题/帮助</router-link>
+          </li>
+          <li>
+            <router-link to="">退款</router-link>
+          </li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>电子通讯</h3>
+        <div id="register">
+          <router-link to="">注册</router-link>
+        </div>
+      </div>
+    </g-h>
+
+    <g-h justify-content="center" align-items="center" id="footer-bottom">
+      <span>© Swiss International Air Lines</span>
+      <ul>
+        <li>
+          <router-link to="">汉莎航空集团</router-link>
+        </li>
+        <li>
+          <router-link to="">网站地图</router-link>
+        </li>
+        <li>
+          <router-link to="">法规</router-link>
+        </li>
+      </ul>
+    </g-h>
+  </g-v>
 </el-footer>
 </template>
 
@@ -82,24 +84,8 @@ export default {
 </script>
 
 <style scoped>
-.page-footer {
-  display: flex;
-  flex-flow: wrap;
-  flex: 1 20rem;
-  justify-content: center;
-  width: 100%;
-  padding: 0;
-  /* background-color: cyan; */
-}
-
 .page-footer ul {
   list-style: none;
-}
-
-#footer-top {
-  display: flex;
-  flex-flow: wrap;
-  justify-content: center;
 }
 
 .footer-col {
@@ -128,15 +114,11 @@ export default {
 }
 
 #footer-bottom {
-  display: flex;
-  flex-flow: wrap;
-  justify-content: center;
-  align-items: center;
   width: 100%;
   background-color: rgb(237, 236, 232);
 }
 
-#footer-bottom>ul>li {
+#footer-bottom li {
   display: inline-block;
   margin-right: 1rem;
 }
