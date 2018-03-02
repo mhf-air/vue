@@ -18,11 +18,17 @@ export function use(Vue, componentList) {
 
 // component list
 import Card from "./card.vue"
+import V from "./v.vue"
+import H from "./h.vue"
 
 export {
   Card,
+  V,
+  H,
 }
 
 const components = [
   Card,
+  V,
+  H,
 ]

@@ -10,7 +10,6 @@
 </template>
 
 <script>
-const a = 1
 export default {
   name: 'g-card',
   props: ['header', 'bodyStyle']
