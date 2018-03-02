@@ -1,27 +1,113 @@
 <template>
 <el-header class="page-header">
-  <el-popover ref="book" trigger="hover">
-    <div class="popover">
-      <div>
-        a
-      </div>
-      <div>
-        c
-      </div>
-    </div>
-  </el-popover>
   <g-h justify-content="space-around" align-items="center">
     <div id="logo">SWISS</div>
     <nav class="nav">
-      <el-button v-popover:book>预定</el-button>
-      <el-button>准备</el-button>
-      <el-button>飞行</el-button>
-      <el-button>探索</el-button>
+      <el-button @mouseenter.native="togglePopover('showBook')" @mouseleave.native="togglePopover('showBook')">预定</el-button>
+      <el-button @mouseenter.native="togglePopover('showPrepare')" @mouseleave.native="togglePopover('showPrepare')">准备</el-button>
+      <el-button @mouseenter.native="togglePopover('showFly')" @mouseleave.native="togglePopover('showFly')">飞行</el-button>
+      <el-button @mouseenter.native="togglePopover('showExplore')" @mouseleave.native="togglePopover('showExplore')">探索</el-button>
     </nav>
     <div id="login">
       <router-link to="/login">登录</router-link>
     </div>
   </g-h>
+
+  <g-h id="showBook" class="popover" v-show="showBook">
+    <g-v>
+      <h3>预定航班</h3>
+      <p>这次去哪里</p>
+      <el-button>选择目的地</el-button>
+    </g-v>
+    <g-v align-items="flex-start">
+      <h3>最佳优惠</h3>
+      <ul>
+        <li>
+          <router-link to="">特价从苏黎世</router-link>
+        </li>
+        <li>
+          <router-link to="">飞行优惠券</router-link>
+        </li>
+        <li>
+          <router-link to="">瑞航高尔夫会员(SWISS Golf Traveller)</router-link>
+        </li>
+        <li>
+          <router-link to="">新的欧洲收费标准</router-link>
+        </li>
+        <li>
+          <router-link to="">航线网络</router-link>
+        </li>
+      </ul>
+    </g-v>
+    <g-v align-items="flex-start">
+      <h3>SWISS Choice</h3>
+      <ul>
+        <li>
+          <router-link to="">预定座位</router-link>
+        </li>
+        <li>
+          <router-link to="">额外行李</router-link>
+        </li>
+        <li>
+          <router-link to="">升级预定</router-link>
+        </li>
+        <li>
+          <router-link to="">预定惊喜</router-link>
+        </li>
+        <li>
+          <router-link to="">免税预定</router-link>
+        </li>
+        <li>
+          <router-link to="">SWISS Mobile</router-link>
+        </li>
+      </ul>
+    </g-v>
+    <g-v align-items="flex-start">
+      <h3>合作伙伴服务项目</h3>
+      <ul>
+        <li>
+          <router-link to="">预定租车</router-link>
+        </li>
+        <li>
+          <router-link to="">预定机场接送</router-link>
+        </li>
+        <li>
+          <router-link to="">预定酒店</router-link>
+        </li>
+        <li>
+          <router-link to="">预定活动</router-link>
+        </li>
+      </ul>
+    </g-v>
+    <g-v align-items="flex-start">
+      <h3>企业客户</h3>
+      <ul>
+        <li>
+          <router-link to="">商业计划</router-link>
+        </li>
+        <li>
+          <router-link to="">团队旅行</router-link>
+        </li>
+        <li>
+          <router-link to="">瑞航为您宣传</router-link>
+        </li>
+        <li>
+          <router-link to="">会议和活动</router-link>
+        </li>
+      </ul>
+    </g-v>
+  </g-h>
+
+  <g-h class="popover" v-show="showPrepare">
+    <div>prepare</div>
+  </g-h>
+  <g-h class="popover" v-show="showFly">
+    <div>fly</div>
+  </g-h>
+  <g-h class="popover" v-show="showExplore">
+    <div>explore</div>
+  </g-h>
+
 </el-header>
 </template>
 
@@ -29,8 +115,16 @@
 export default {
   data() {
     return {
-      age: 20,
+      showBook: false,
+      showPrepare: false,
+      showFly: false,
+      showExplore: false,
     }
+  },
+  methods: {
+    togglePopover(a) {
+      this[a] = !this[a]
+    },
   },
 }
 </script>
@@ -39,11 +133,26 @@ export default {
 .page-header {
   width: 100%;
   margin-top: 2rem;
+  padding: 0;
+}
+
+.page-header ul {
+  list-style: none;
+  padding: 0;
+}
+
+.page-header li {
+  border-top: 1px solid;
+  padding: 0.1rem 1rem;
+}
+
+.page-header li:last-child {
+  border-bottom: 1px solid;
 }
 
 #logo {
   font-size: 2rem;
-  color: red;
+  color: #be1902;
 }
 
 .nav {
@@ -57,7 +166,7 @@ export default {
 
 .nav>.el-button:hover {
   background-color: transparent;
-  color: red;
+  color: #be1902;
 }
 
 #login {
@@ -65,23 +174,28 @@ export default {
 }
 
 #login a:hover {
-  color: red;
-}
-
-.el-popover {
-  background-color: cyan;
-  padding: -12px -12px;
+  color: #be1902;
 }
 
 .popover {
   display: flex;
   justify-content: center;
   width: 100%;
+  background-color: #f5f4f1;
+  position: absolute;
+  padding-bottom: 2rem;
 }
 
-.popover>div {
-  border-right: 1px solid;
-  border-top: 1px solid;
-  border-bottom: 1px solid;
+.popover>.g-v {
+  border-right: 1px solid #aaa;
+  padding: 1rem 0;
+}
+
+.popover>.g-v>h3 {
+  padding: 1rem;
+}
+
+#showBook .el-button {
+  background-color: red;
 }
 </style>
