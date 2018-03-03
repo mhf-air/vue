@@ -3,7 +3,7 @@
   <g-h justify-content="space-around" align-items="center">
     <div id="logo">SWISS</div>
     <nav class="nav">
-      <el-button>预定a</el-button>
+      <el-button>预定</el-button>
       <el-button>准备</el-button>
       <el-button>飞行</el-button>
       <el-button>探索</el-button>

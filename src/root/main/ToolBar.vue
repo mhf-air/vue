@@ -3,17 +3,17 @@
   <g-h justify-content="space-around" align-items="center">
     <div id="logo">SWISS</div>
     <nav class="nav">
-      <el-button @mouseenter.native="togglePopover('showBook')" @mouseleave.native="togglePopover('showBook')">预定</el-button>
-      <el-button @mouseenter.native="togglePopover('showPrepare')" @mouseleave.native="togglePopover('showPrepare')">准备</el-button>
-      <el-button @mouseenter.native="togglePopover('showFly')" @mouseleave.native="togglePopover('showFly')">飞行</el-button>
-      <el-button @mouseenter.native="togglePopover('showExplore')" @mouseleave.native="togglePopover('showExplore')">探索</el-button>
+      <el-button @mouseenter.native="showPopover('showBook')" @mouseleave.native="hidePopover('showBook')">预定</el-button>
+      <el-button @mouseenter.native="showPopover('showPrepare')" @mouseleave.native="hidePopover('showPrepare')">准备</el-button>
+      <el-button @mouseenter.native="showPopover('showFly')" @mouseleave.native="hidePopover('showFly')">飞行</el-button>
+      <el-button @mouseenter.native="showPopover('showExplore')" @mouseleave.native="hidePopover('showExplore')">探索</el-button>
     </nav>
     <div id="login">
       <router-link to="/login">登录</router-link>
     </div>
   </g-h>
 
-  <g-h id="showBook" class="popover" v-show="showBook">
+  <g-h id="showBook" class="popover" v-show="showBook" @mouseenter.native="showPopover('showBook')" @mouseleave.native="hidePopover('showBook')">
     <g-v>
       <h3>预定航班</h3>
       <p>这次去哪里</p>
@@ -122,8 +122,11 @@ export default {
     }
   },
   methods: {
-    togglePopover(a) {
-      this[a] = !this[a]
+    showPopover(a) {
+      this[a] = true
+    },
+    hidePopover(a) {
+      this[a] = false
     },
   },
 }
