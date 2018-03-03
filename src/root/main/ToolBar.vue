@@ -2,22 +2,23 @@
 <el-header class="page-header">
   <g-h justify-content="space-around" align-items="center">
     <div id="logo">SWISS</div>
-    <nav class="nav">
+    <g-h class="nav">
       <el-button @mouseenter.native="showPopover('showBook')" @mouseleave.native="hidePopover('showBook')">预定</el-button>
       <el-button @mouseenter.native="showPopover('showPrepare')" @mouseleave.native="hidePopover('showPrepare')">准备</el-button>
       <el-button @mouseenter.native="showPopover('showFly')" @mouseleave.native="hidePopover('showFly')">飞行</el-button>
       <el-button @mouseenter.native="showPopover('showExplore')" @mouseleave.native="hidePopover('showExplore')">探索</el-button>
-    </nav>
+    </g-h>
     <div id="login">
       <router-link to="/login">登录</router-link>
     </div>
   </g-h>
 
-  <g-h id="showBook" class="popover" v-show="showBook" @mouseenter.native="showPopover('showBook')" @mouseleave.native="hidePopover('showBook')">
-    <g-v>
+  <!-- book popover -->
+  <g-h justify-content="center" id="showBook" class="popover" v-show="showBook" @mouseenter.native="showPopover('showBook')" @mouseleave.native="hidePopover('showBook')">
+    <g-v class="first-col">
       <h3>预定航班</h3>
       <p>这次去哪里</p>
-      <el-button>选择目的地</el-button>
+      <el-button id="chooseDestination">选择目的地</el-button>
     </g-v>
     <g-v align-items="flex-start">
       <h3>最佳优惠</h3>
@@ -98,15 +99,101 @@
     </g-v>
   </g-h>
 
-  <g-h class="popover" v-show="showPrepare">
-    <div>prepare</div>
+  <!-- prepare popover -->
+  <g-h justify-content="center" id="showPrepare" class="popover" v-show="showPrepare" @mouseenter.native="showPopover('showPrepare')" @mouseleave.native="hidePopover('showPrepare')">
+    <g-v class="first-col">
+      <h3>准备我的旅程</h3>
+      <p>这里是为您量身定做的旅馆信息</p>
+      <el-button id="chooseDestination">个人总览</el-button>
+    </g-v>
+    <g-v align-items="flex-start">
+      <h3>行李</h3>
+      <ul>
+        <li>
+          <router-link to="">随身行李</router-link>
+        </li>
+        <li>
+          <router-link to="">托运行李</router-link>
+        </li>
+        <li>
+          <router-link to="">超重行李</router-link>
+        </li>
+        <li>
+          <router-link to="">危险物品</router-link>
+        </li>
+        <li>
+          <router-link to="">特殊行李</router-link>
+        </li>
+        <li>
+          <router-link to="">更多</router-link>
+        </li>
+      </ul>
+    </g-v>
+    <g-v align-items="flex-start">
+      <h3>值机手续办理信息</h3>
+      <ul>
+        <li>
+          <router-link to="">值班时间</router-link>
+        </li>
+        <li>
+          <router-link to="">在线值机</router-link>
+        </li>
+        <li>
+          <router-link to="">自助办理值机手续</router-link>
+        </li>
+        <li>
+          <router-link to="">在机场办理值机手续</router-link>
+        </li>
+        <li>
+          <router-link to="">自助值机手续</router-link>
+        </li>
+        <li>
+          <router-link to="">更多</router-link>
+        </li>
+      </ul>
+    </g-v>
+    <g-v align-items="flex-start">
+      <h3>入境规定</h3>
+      <ul>
+        <li>
+          <router-link to="">世界各地的入境规定</router-link>
+        </li>
+        <li>
+          <router-link to="">美国入境规定</router-link>
+        </li>
+        <li>
+          <router-link to="">南非入境规定</router-link>
+        </li>
+        <li>
+          <router-link to="">加拿大入境规定</router-link>
+        </li>
+        <li>
+          <router-link to="">申根区域</router-link>
+        </li>
+      </ul>
+    </g-v>
+    <g-v align-items="flex-start">
+      <h3>特殊服务</h3>
+      <ul>
+        <li>
+          <router-link to="">带儿童搭乘飞机</router-link>
+        </li>
+        <li>
+          <router-link to="">无障碍旅行</router-link>
+        </li>
+        <li>
+          <router-link to="">旅行和健康</router-link>
+        </li>
+        <li>
+          <router-link to="">带动物旅行</router-link>
+        </li>
+      </ul>
+    </g-v>
   </g-h>
-  <g-h class="popover" v-show="showFly">
-    <div>fly</div>
-  </g-h>
-  <g-h class="popover" v-show="showExplore">
-    <div>explore</div>
-  </g-h>
+
+  <!-- fly popover -->
+
+  <!-- explore popover -->
 
 </el-header>
 </template>
@@ -142,6 +229,7 @@ export default {
 .page-header ul {
   list-style: none;
   padding: 0;
+  width: 100%;
 }
 
 .page-header li {
@@ -181,24 +269,32 @@ export default {
 }
 
 .popover {
-  display: flex;
-  justify-content: center;
+  z-index: 100;
+  position: absolute;
+  top: 5rem;
+  padding-bottom: 2rem;
   width: 100%;
   background-color: #f5f4f1;
-  position: absolute;
-  padding-bottom: 2rem;
 }
 
 .popover>.g-v {
   border-right: 1px solid #aaa;
   padding: 1rem 0;
+  width: 15rem;
 }
 
 .popover>.g-v>h3 {
-  padding: 1rem;
+  padding-left: 1rem;
 }
 
-#showBook .el-button {
+.first-col>:not(:first-child) {
+  margin-left: 1rem;
+  width: 60%;
+}
+
+#chooseDestination {
   background-color: red;
+  color: white;
+  width: 50%;
 }
 </style>
