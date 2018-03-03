@@ -8,6 +8,9 @@
       <el-button @mouseenter.native="showPopover('showFly')" @mouseleave.native="hidePopover('showFly')">飞行</el-button>
       <el-button @mouseenter.native="showPopover('showExplore')" @mouseleave.native="hidePopover('showExplore')">探索</el-button>
     </g-h>
+    <div id="search">
+      <el-input v-model="search" placeholder="Search" prefix-icon="el-icon-search" />
+    </div>
     <div id="login">
       <router-link to="/login">登录</router-link>
     </div>
@@ -357,6 +360,7 @@ export default {
       showPrepare: false,
       showFly: false,
       showExplore: false,
+      search: "",
     }
   },
   methods: {
