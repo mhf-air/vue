@@ -1,8 +1,8 @@
 <template>
 <el-header class="page-header">
-  <g-h justify-content="space-around" align-items="center">
+  <g-h wrap justify-content="center" align-items="center" class="page-header-main">
     <div id="logo">SWISS</div>
-    <g-h justify-content="center" class="nav">
+    <g-h justify-content="center" id="nav">
       <el-button @mouseenter.native="showPopover('showBook')" @mouseleave.native="hidePopover('showBook')">预定</el-button>
       <el-button @mouseenter.native="showPopover('showPrepare')" @mouseleave.native="hidePopover('showPrepare')">准备</el-button>
       <el-button @mouseenter.native="showPopover('showFly')" @mouseleave.native="hidePopover('showFly')">飞行</el-button>
@@ -381,6 +381,10 @@ export default {
   padding: 0;
 }
 
+.page-header-main {
+  /* background: cyan; */
+}
+
 .page-header ul {
   list-style: none;
   padding: 0;
@@ -399,25 +403,33 @@ export default {
 #logo {
   font-size: 2rem;
   color: #be1902;
+  flex: 1;
+  text-align: end;
 }
 
-.nav {
-  margin-left: -30rem;
+#nav {
+  flex: 1;
 }
 
-.nav>.el-button {
+#nav>.el-button {
   font-size: 1.3rem;
   border-style: none;
   margin: 0;
 }
 
-.nav>.el-button:hover {
+#nav>.el-button:hover {
   background-color: transparent;
   color: #be1902;
 }
 
+#search {
+  flex: 1;
+}
+
 #login {
+  flex: 1;
   font-size: 1.5rem;
+  text-align: center;
 }
 
 #login a:hover {
