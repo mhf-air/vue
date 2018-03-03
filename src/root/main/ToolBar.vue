@@ -192,8 +192,159 @@
   </g-h>
 
   <!-- fly popover -->
+  <g-h justify-content="center" id="showFly" class="popover" v-show="showFly" @mouseenter.native="showPopover('showFly')" @mouseleave.native="hidePopover('showFly')">
+    <g-v class="first-col">
+      <h3>我的下个航班</h3>
+      <p>从餐食到座位，期待您下次的瑞航航班</p>
+      <el-button id="chooseDestination">个人总览</el-button>
+    </g-v>
+    <g-v align-items="flex-start">
+      <h3>在机场</h3>
+      <ul>
+        <li>
+          <router-link to="">瑞航苏黎世机室</router-link>
+        </li>
+        <li>
+          <router-link to="">瑞航日内瓦机室</router-link>
+        </li>
+        <li>
+          <router-link to="">全球各地的候机室</router-link>
+        </li>
+        <li>
+          <router-link to="">苏黎世机场</router-link>
+        </li>
+        <li>
+          <router-link to="">日内瓦机场</router-link>
+        </li>
+      </ul>
+    </g-v>
+    <g-v align-items="flex-start">
+      <h3>机上服务</h3>
+      <ul>
+        <li>
+          <router-link to="">瑞航头等舱</router-link>
+        </li>
+        <li>
+          <router-link to="">瑞航商务舱</router-link>
+        </li>
+        <li>
+          <router-link to="">瑞航经济舱</router-link>
+        </li>
+        <li>
+          <router-link to="">机上餐饮</router-link>
+        </li>
+        <li>
+          <router-link to="">机上娱乐</router-link>
+        </li>
+        <li>
+          <router-link to="">免税购物</router-link>
+        </li>
+      </ul>
+    </g-v>
+    <g-v align-items="flex-start">
+      <h3>机队</h3>
+      <ul>
+        <li>
+          <router-link to="">空客</router-link>
+        </li>
+        <li>
+          <router-link to="">波音</router-link>
+        </li>
+        <li>
+          <router-link to="">庞巴迪</router-link>
+        </li>
+      </ul>
+    </g-v>
+    <g-v align-items="flex-start">
+      <h3>航班信息</h3>
+      <ul>
+        <li>
+          <router-link to="">到达和起飞</router-link>
+        </li>
+        <li>
+          <router-link to="">飞行计划</router-link>
+        </li>
+        <li>
+          <router-link to="">航线网络</router-link>
+        </li>
+        <li>
+          <router-link to="">手机Apps</router-link>
+        </li>
+      </ul>
+    </g-v>
+  </g-h>
 
   <!-- explore popover -->
+  <g-h justify-content="center" id="showExplore" class="popover" v-show="showExplore" @mouseenter.native="showPopover('showExplore')" @mouseleave.native="hidePopover('showExplore')">
+    <g-v class="first-col">
+      <h3>探索您的目的地</h3>
+      <p>住宿、购物、美食，当地人和瑞航机组的私房秘籍</p>
+      <el-button id="chooseDestination">选择城市</el-button>
+    </g-v>
+    <g-v align-items="flex-start">
+      <h3>寻找旅行目的地</h3>
+      <ul>
+        <li>
+          <router-link to="">沙滩和阳光</router-link>
+        </li>
+        <li>
+          <router-link to="">城市</router-link>
+        </li>
+        <li>
+          <router-link to="">自然</router-link>
+        </li>
+        <li>
+          <router-link to="">浪漫</router-link>
+        </li>
+        <li>
+          <router-link to="">家庭</router-link>
+        </li>
+      </ul>
+    </g-v>
+    <g-v align-items="flex-start">
+      <h3>SWISS Travel Guide</h3>
+      <ul>
+        <li>
+          <router-link to="">纽约</router-link>
+        </li>
+        <li>
+          <router-link to="">伦敦</router-link>
+        </li>
+        <li>
+          <router-link to="">巴黎</router-link>
+        </li>
+        <li>
+          <router-link to="">苏黎世</router-link>
+        </li>
+        <li>
+          <router-link to="">曼谷</router-link>
+        </li>
+      </ul>
+    </g-v>
+    <g-v align-items="flex-start">
+      <h3>World of SWISS</h3>
+      <ul>
+        <li>
+          <router-link to="">飞行</router-link>
+        </li>
+        <li>
+          <router-link to="">员工</router-link>
+        </li>
+        <li>
+          <router-link to="">瑞士特色</router-link>
+        </li>
+        <li>
+          <router-link to="">高端</router-link>
+        </li>
+        <li>
+          <router-link to="">地勤服务</router-link>
+        </li>
+        <li>
+          <router-link to="">交流互动</router-link>
+        </li>
+      </ul>
+    </g-v>
+  </g-h>
 
 </el-header>
 </template>
