@@ -2,7 +2,7 @@
 <el-header class="page-header">
   <g-h justify-content="space-around" align-items="center">
     <div id="logo">SWISS</div>
-    <g-h class="nav">
+    <g-h justify-content="center" class="nav">
       <el-button @mouseenter.native="showPopover('showBook')" @mouseleave.native="hidePopover('showBook')">预定</el-button>
       <el-button @mouseenter.native="showPopover('showPrepare')" @mouseleave.native="hidePopover('showPrepare')">准备</el-button>
       <el-button @mouseenter.native="showPopover('showFly')" @mouseleave.native="hidePopover('showFly')">飞行</el-button>
@@ -404,6 +404,7 @@ export default {
 .nav>.el-button {
   font-size: 1.3rem;
   border-style: none;
+  margin: 0;
 }
 
 .nav>.el-button:hover {
