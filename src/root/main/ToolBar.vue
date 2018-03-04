@@ -1,6 +1,6 @@
 <template>
-<el-header class="page-header">
-  <g-h wrap justify-content="center" align-items="center" class="page-header-main">
+<div class="page-header">
+  <g-h wrap justify-content="flex-start" align-items="center" class="page-header-main">
     <div id="logo">SWISS</div>
     <g-h justify-content="center" id="nav">
       <el-button @mouseenter.native="showPopover('showBook')" @mouseleave.native="hidePopover('showBook')">预定</el-button>
@@ -349,7 +349,7 @@
     </g-v>
   </g-h>
 
-</el-header>
+</div>
 </template>
 
 <script>
@@ -382,7 +382,13 @@ export default {
 }
 
 .page-header-main {
-  /* background: cyan; */
+  margin: 0 20rem;
+}
+
+@media (max-width: 400px) {
+  .page-header-main {
+    margin: 0;
+  }
 }
 
 .page-header ul {
@@ -403,13 +409,10 @@ export default {
 #logo {
   font-size: 2rem;
   color: #be1902;
-  flex: 1;
-  text-align: end;
+  margin-right: 7rem;
 }
 
-#nav {
-  flex: 1;
-}
+#nav {}
 
 #nav>.el-button {
   font-size: 1.3rem;
@@ -423,13 +426,12 @@ export default {
 }
 
 #search {
-  flex: 1;
+  margin: 0 9.5rem;
 }
 
 #login {
-  flex: 1;
   font-size: 1.5rem;
-  text-align: center;
+  text-align: end;
 }
 
 #login a:hover {
