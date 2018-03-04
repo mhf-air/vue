@@ -1,9 +1,9 @@
 <template>
-<el-container id="app">
+<div id="app">
   <ToolBar/>
   <!-- <Content/> -->
   <Foot/>
-</el-container>
+</div>
 </template>
 
 <script>

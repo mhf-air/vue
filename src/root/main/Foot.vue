@@ -1,5 +1,5 @@
 <template>
-<el-footer class="page-footer">
+<footer class="page-footer">
   <g-v wrap justify-content="center">
     <g-h wrap justify-content="center">
       <div class="footer-col">
@@ -70,7 +70,7 @@
       </ul>
     </g-h>
   </g-v>
-</el-footer>
+</footer>
 </template>
 
 <script>

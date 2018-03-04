@@ -1,5 +1,5 @@
 <template>
-<div class="page-header">
+<header class="page-header">
   <g-h wrap justify-content="flex-start" align-items="center" class="page-header-main">
     <div id="logo">SWISS</div>
     <g-h justify-content="center" id="nav">
@@ -349,7 +349,7 @@
     </g-v>
   </g-h>
 
-</div>
+</header>
 </template>
 
 <script>
