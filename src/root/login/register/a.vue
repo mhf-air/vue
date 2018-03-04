@@ -1,9 +1,11 @@
 <template>
 <!-- 注册页 -->
 <div>
-  <g-card id="login-section">
-    注册
-  </g-card>
+  <div id="outer">
+    <div id="inner">
+      注册ABC
+    </div>
+  </div>
 </div>
 </template>
 
@@ -41,31 +43,13 @@ export default {
 </script>
 
 <style scoped>
-#login-body {
-  margin: 0 2rem;
+#outer {
+  background: silver;
+  width: 500px;
+  height: 100px;
 }
 
-#title {
-  text-align: start;
-  margin-top: 1rem;
-}
-
-#register {
-  text-align: end;
-  margin-top: 1rem;
-}
-
-#login-body>.el-input {
-  background-color: cyan;
-  margin-top: 0.7rem;
-}
-
-#remember {
-  margin-top: 0.5rem;
-}
-
-#login-button {
-  margin-top: 1rem;
-  width: 60%;
+#inner {
+  background: cyan;
 }
 </style>
