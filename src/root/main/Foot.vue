@@ -1,6 +1,6 @@
 <template>
 <g-v wrap justify-content="center" align-items="center" class="page-footer">
-  <g-h wrap justify-content="center">
+  <g-h wrap justify-content="center" id="footer-top">
     <div class="footer-col">
       <h3>关于</h3>
       <ul>
@@ -90,12 +90,26 @@ export default {
   list-style: none;
 }
 
+#footer-top {
+  width: 100%;
+}
+
 .footer-col {
   margin: 0 1rem;
+  flex: 1;
+  /* background: cyan; */
+}
+
+.footer-col:first-child {
+  margin-left: 23rem;
+}
+
+.footer-col:last-child {
+  margin-right: 23rem;
 }
 
 .footer-col>* {
-  width: 17rem;
+  /* width: 17rem; */
   padding: 0;
 }
 

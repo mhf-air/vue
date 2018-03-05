@@ -19,12 +19,17 @@ export default {
     alignItems: {
       type: String,
       default: "",
-      validator: v => ["", "center", "flex-start", "flex-end"].indexOf(v) > -1
+      validator: v => ["", "center", "flex-start", "flex-end", "baseline", "stretch"].indexOf(v) > -1
+    },
+    alignContent: {
+      type: String,
+      default: "",
+      validator: v => ["", "center", "flex-start", "flex-end", "space-around", "space-between", "stretch"].indexOf(v) > -1
     },
     justifyContent: {
       type: String,
       default: "",
-      validator: v => ["", "center", "flex-start", "flex-end", "space-around", "space-between"].indexOf(v) > -1
+      validator: v => ["", "center", "flex-start", "flex-end", "space-around", "space-between", "space-evenly"].indexOf(v) > -1
     },
   },
   computed: {
