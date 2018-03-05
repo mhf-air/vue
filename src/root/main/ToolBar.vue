@@ -1,9 +1,9 @@
 <template>
 <header id="page-header">
-  <g-h wrap justify-content="flex-start" align-items="center" class="page-header-main">
+  <g-h wrap justify-content="flex-start" align-items="center" id="page-header-main">
     <div id="logo">SWISS</div>
     <el-button @click="toggleHeaderMenu" icon="el-icon-menu" id="header-menu" />
-    <g-h v-show="headerMenu" id="header-rest">
+    <g-h wrap justify-content="space-around" v-show="headerMenu" id="header-rest">
       <g-h justify-content="center" id="nav">
         <el-button @mouseenter.native="showPopover('showBook')" @mouseleave.native="hidePopover('showBook')">预定</el-button>
         <el-button @mouseenter.native="showPopover('showPrepare')" @mouseleave.native="hidePopover('showPrepare')">准备</el-button>
@@ -379,10 +379,13 @@ export default {
     },
   },
   mounted() {
-    let a = window.getComputedStyle(document.body, "::after").getPropertyValue("content")
-    switch (a) {
+    let content = window.getComputedStyle(document.body, "::after").getPropertyValue("content").replace(/\"/g, "")
+    switch (content) {
       case "xs":
         this.headerMenu = false
+        break
+      default:
+        this.headerMenu = true
         break
     }
   },
@@ -396,12 +399,12 @@ export default {
   padding: 0;
 }
 
-.page-header-main {
+#page-header-main {
   margin: 0 20rem;
 }
 
 @media (max-width: 430px) {
-  .page-header-main {
+  #page-header-main {
     margin: 0;
   }
 }
@@ -427,6 +430,12 @@ export default {
   margin-right: 7rem;
 }
 
+#header-rest {
+  flex: 1;
+}
+
+#nav {}
+
 #nav>.el-button {
   font-size: 1.3rem;
   border-style: none;
@@ -438,13 +447,10 @@ export default {
   color: #be1902;
 }
 
-#search {
-  margin: 0 9.5rem;
-}
+#search {}
 
 #login {
   font-size: 1.5rem;
-  text-align: end;
 }
 
 #login a:hover {
