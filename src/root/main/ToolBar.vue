@@ -385,7 +385,7 @@ export default {
   margin: 0 20rem;
 }
 
-@media (max-width: 400px) {
+@media (max-width: 430px) {
   .page-header-main {
     margin: 0;
   }
@@ -466,5 +466,25 @@ export default {
   background-color: red;
   color: white;
   width: 50%;
+}
+
+@media (min-width: 1281px) {
+  /* xl */
+}
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+  /* lg */
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  /* md */
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+  /* sm */
+}
+
+@media (max-width: 480px) {
+  /* xs */
 }
 </style>

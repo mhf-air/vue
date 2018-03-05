@@ -109,8 +109,19 @@ export default {
 }
 
 .footer-col>* {
-  /* width: 17rem; */
   padding: 0;
+}
+
+@media (max-width: 430px) {
+  .footer-col:first-child {
+    margin-left: 1rem;
+  }
+  .footer-col:last-child {
+    margin-right: 1rem;
+  }
+  .footer-col>* {
+    width: 18rem;
+  }
 }
 
 .footer-col>ul>li {
@@ -129,6 +140,7 @@ export default {
 }
 
 #footer-bottom {
+  margin: 1rem 0;
   width: 100%;
   background-color: rgb(237, 236, 232);
 }
