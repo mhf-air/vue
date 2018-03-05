@@ -1,19 +1,22 @@
 <template>
-<header class="page-header">
+<header id="page-header">
   <g-h wrap justify-content="flex-start" align-items="center" class="page-header-main">
     <div id="logo">SWISS</div>
-    <g-h justify-content="center" id="nav">
-      <el-button @mouseenter.native="showPopover('showBook')" @mouseleave.native="hidePopover('showBook')">预定</el-button>
-      <el-button @mouseenter.native="showPopover('showPrepare')" @mouseleave.native="hidePopover('showPrepare')">准备</el-button>
-      <el-button @mouseenter.native="showPopover('showFly')" @mouseleave.native="hidePopover('showFly')">飞行</el-button>
-      <el-button @mouseenter.native="showPopover('showExplore')" @mouseleave.native="hidePopover('showExplore')">探索</el-button>
+    <el-button @click="toggleHeaderMenu" icon="el-icon-menu" id="header-menu" />
+    <g-h v-show="headerMenu" id="header-rest">
+      <g-h justify-content="center" id="nav">
+        <el-button @mouseenter.native="showPopover('showBook')" @mouseleave.native="hidePopover('showBook')">预定</el-button>
+        <el-button @mouseenter.native="showPopover('showPrepare')" @mouseleave.native="hidePopover('showPrepare')">准备</el-button>
+        <el-button @mouseenter.native="showPopover('showFly')" @mouseleave.native="hidePopover('showFly')">飞行</el-button>
+        <el-button @mouseenter.native="showPopover('showExplore')" @mouseleave.native="hidePopover('showExplore')">探索</el-button>
+      </g-h>
+      <div id="search">
+        <el-input v-model="search" placeholder="Search" prefix-icon="el-icon-search" />
+      </div>
+      <div id="login">
+        <router-link to="/login">登录</router-link>
+      </div>
     </g-h>
-    <div id="search">
-      <el-input v-model="search" placeholder="Search" prefix-icon="el-icon-search" />
-    </div>
-    <div id="login">
-      <router-link to="/login">登录</router-link>
-    </div>
   </g-h>
 
   <!-- book popover -->
@@ -361,9 +364,13 @@ export default {
       showFly: false,
       showExplore: false,
       search: "",
+      headerMenu: false,
     }
   },
   methods: {
+    toggleHeaderMenu() {
+      this.headerMenu = !this.headerMenu
+    },
     showPopover(a) {
       this[a] = true
     },
@@ -371,11 +378,19 @@ export default {
       this[a] = false
     },
   },
+  mounted() {
+    let a = window.getComputedStyle(document.body, "::after").getPropertyValue("content")
+    switch (a) {
+      case "xs":
+        this.headerMenu = false
+        break
+    }
+  },
 }
 </script>
 
 <style scoped>
-.page-header {
+#page-header {
   width: 100%;
   margin-top: 2rem;
   padding: 0;
@@ -391,18 +406,18 @@ export default {
   }
 }
 
-.page-header ul {
+#page-header ul {
   list-style: none;
   padding: 0;
   width: 100%;
 }
 
-.page-header li {
+#page-header li {
   border-top: 1px solid;
   padding: 0.1rem 1rem;
 }
 
-.page-header li:last-child {
+#page-header li:last-child {
   border-bottom: 1px solid;
 }
 
@@ -411,8 +426,6 @@ export default {
   color: #be1902;
   margin-right: 7rem;
 }
-
-#nav {}
 
 #nav>.el-button {
   font-size: 1.3rem;
@@ -468,6 +481,14 @@ export default {
   width: 50%;
 }
 
+#header-menu {
+  display: none;
+}
+
+#header-menu:focus {
+  background: none;
+}
+
 @media (min-width: 1281px) {
   /* xl */
 }
@@ -486,5 +507,8 @@ export default {
 
 @media (max-width: 480px) {
   /* xs */
+  #header-menu {
+    display: inline;
+  }
 }
 </style>

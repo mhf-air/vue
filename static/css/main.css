@@ -120,6 +120,40 @@ a:hover {
 
 
 
+@media (min-width: 1281px) {
+  body::after {
+    content: "xl";
+    display: none;
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+  body::after {
+    content: "lg";
+    display: none;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  body::after {
+    content: "md";
+    display: none;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+  body::after {
+    content: "sm";
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  body::after {
+    content: "xs";
+    display: none;
+  }
+}
 
 /* ==========================================================================
    Helper classes
