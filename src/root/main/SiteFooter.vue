@@ -1,5 +1,6 @@
 <template>
-
+<footer id="site-footer">
+</footer>
 </template>
 
 <script>
