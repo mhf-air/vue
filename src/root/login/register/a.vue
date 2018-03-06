@@ -2,9 +2,12 @@
 <!-- 注册页 -->
 <div>
   <div id="outer">
-    <div id="inner">
-      注册ABC
+    <div id="a" class="inner">
+      <button>button</button>
     </div>
+    <div id="b" class="inner">a</div>
+    <div id="c" class="inner">a</div>
+    <div id="d" class="inner">a</div>
   </div>
 </div>
 </template>
@@ -45,11 +48,32 @@ export default {
 <style scoped>
 #outer {
   background: silver;
-  width: 500px;
+  width: 300px;
   height: 100px;
+  display: flex;
 }
 
-#inner {
+.inner {
+  /* background: green; */
+}
+
+#a {
   background: cyan;
+}
+
+#a>button {
+  height: 100%;
+}
+
+#b {
+  background: red;
+}
+
+#c {
+  background: green;
+}
+
+#d {
+  background: orange;
 }
 </style>

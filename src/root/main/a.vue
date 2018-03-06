@@ -2,7 +2,7 @@
 <div id="app">
   <ToolBar/>
   <!-- <Content/> -->
-  <Foot/>
+  <!-- <Foot/> -->
 </div>
 </template>
 
