@@ -1,31 +1,25 @@
 <template>
-<div id="app">
-  <ToolBar/>
+<div>
+  <SiteHeader/>
   <!-- <Content/> -->
-  <!-- <Foot/> -->
+  <SiteFooter/>
 </div>
 </template>
 
 <script>
-import ToolBar from "./ToolBar.vue"
+import SiteHeader from "./SiteHeader.vue"
+import SiteFooter from "./SiteFooter.vue"
 import Content from "./Content.vue"
-import Foot from "./Foot.vue"
-import test from "./test.vue"
 
 export default {
   components: {
-    ToolBar,
+    SiteHeader,
+    SiteFooter,
     Content,
-    Foot,
-    test
   },
 }
 </script>
 
 <style scoped>
-#app {
-  display: flex;
-  align-items: center;
-  flex-flow: column wrap;
-}
+
 </style>
