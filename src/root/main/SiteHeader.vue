@@ -12,27 +12,21 @@
       <router-link to="">Select Region</router-link>
     </g-h>
     <g-h justify-content="flex-end" id="site-header-top-right">
-      <g-h align-items="center" id="site-header-top-right-user">
-        <el-dropdown placement="bottom">
-          <span class="el-dropdown-link">
+      <el-dropdown placement="bottom" id="site-header-top-right-user">
+        <span class="el-dropdown-link">
           {{ username }}
           <i class="el-icon-arrow-down el-icon-right"></i>
         </span>
-          <el-dropdown-menu slot="dropdown">
-            <el-dropdown-item>个人中心</el-dropdown-item>
-            <el-dropdown-item>评价晒单</el-dropdown-item>
-            <el-dropdown-item>我的喜欢</el-dropdown-item>
-            <el-dropdown-item>小米账户</el-dropdown-item>
-            <el-dropdown-item>退出登录</el-dropdown-item>
-          </el-dropdown-menu>
-        </el-dropdown>
-      </g-h>
-      <g-h align-items="center">
-        <router-link to="">消息通知</router-link>
-      </g-h>
-      <g-h align-items="center">
-        <router-link to="">我的订单</router-link>
-      </g-h>
+        <el-dropdown-menu slot="dropdown">
+          <el-dropdown-item>个人中心</el-dropdown-item>
+          <el-dropdown-item>评价晒单</el-dropdown-item>
+          <el-dropdown-item>我的喜欢</el-dropdown-item>
+          <el-dropdown-item>小米账户</el-dropdown-item>
+          <el-dropdown-item>退出登录</el-dropdown-item>
+        </el-dropdown-menu>
+      </el-dropdown>
+      <router-link to="">消息通知</router-link>
+      <router-link to="">我的订单</router-link>
     </g-h>
   </g-h>
   <div id="site-header-bottom">
@@ -92,24 +86,24 @@ export default {
   /* background: cyan; */
 }
 
-#site-header-top-right>.g-h>* {
+#site-header-top-right>* {
+  display: flex;
+  align-items: center;
   padding: 0 1rem;
   color: #b0b0b0;
 }
 
-#site-header-top-right>.g-h>*:hover {
+#site-header-top-right>*:hover {
   color: white;
 }
 
 #site-header-top-right-user {
-  padding: 0 0.66rem;
+  padding: 0 1.7rem;
+  /* background-color: cyan; */
 }
 
 #site-header-top-right-user:hover {
   background-color: white;
-}
-
-#site-header-top-right-user:hover span {
   color: orange;
 }
 
