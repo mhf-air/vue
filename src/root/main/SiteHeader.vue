@@ -11,9 +11,23 @@
       <router-link to="">有品</router-link>
       <router-link to="">Select Region</router-link>
     </g-h>
-    <div id="site-header-top-right">
-      上右
-    </div>
+    <g-h justify-content="flex-end" id="site-header-top-right">
+      <el-dropdown>
+        <span class="el-dropdown-link">
+          {{ username }}
+          <i class="el-icon-arrow-down el-icon-right"></i>
+        </span>
+        <el-dropdown-menu slot="dropdown">
+          <el-dropdown-item>个人中心</el-dropdown-item>
+          <el-dropdown-item>评价晒单</el-dropdown-item>
+          <el-dropdown-item>我的喜欢</el-dropdown-item>
+          <el-dropdown-item>小米账户</el-dropdown-item>
+          <el-dropdown-item>退出登录</el-dropdown-item>
+        </el-dropdown-menu>
+      </el-dropdown>
+      <router-link to="">消息通知</router-link>
+      <router-link to="">我的订单</router-link>
+    </g-h>
   </g-h>
   <div id="site-header-bottom">
     下
