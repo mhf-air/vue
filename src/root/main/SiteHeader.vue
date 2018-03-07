@@ -12,7 +12,7 @@
       <router-link to="">Select Region</router-link>
     </g-h>
     <g-h justify-content="flex-end" id="site-header-top-right">
-      <el-dropdown placement="bottom" id="site-header-top-right-user">
+      <!-- <el-dropdown placement="bottom" id="site-header-top-right-user">
         <span class="el-dropdown-link">
           {{ username }}
           <i class="el-icon-arrow-down el-icon-right"></i>
@@ -24,12 +24,25 @@
           <el-dropdown-item>小米账户</el-dropdown-item>
           <el-dropdown-item>退出登录</el-dropdown-item>
         </el-dropdown-menu>
-      </el-dropdown>
+      </el-dropdown> -->
+      <div @mouseenter.native="showPopover('popUserInfo')" @mouseleave.native="hidePopover('popUserInfo')">
+        <span>
+          {{ username }}
+          <i class=" el-icon-arrow-down el-icon-right "></i>
+        </span>
+        <div v-show="popUserInfo" class="popover">
+          <div>个人中心</div>
+          <div>评价晒单</div>
+          <div>我的喜欢</div>
+          <div>小米账户</div>
+          <div>退出登录</div>
+        </div>
+      </div>
       <router-link to="">消息通知</router-link>
       <router-link to="">我的订单</router-link>
     </g-h>
   </g-h>
-  <div id="site-header-bottom">
+  <div id="site-header-bottom ">
     下
   </div>
 </header>
@@ -40,9 +53,14 @@ export default {
   data() {
     return {
       username: "Tom",
+      popUserInfo: false,
     }
   },
   methods: {
+    showPopover(a) {
+      this[a] = true
+      console.log(this[a])
+    },
     hidePopover(a) {
       this[a] = false
     },
@@ -112,5 +130,13 @@ export default {
 #site-header-bottom {
   padding: 0 19.3rem;
   font-size: 16px;
+}
+
+/* popover */
+
+.popover {
+  position: absolute;
+  z-index: 100;
+  top: 5rem;
 }
 </style>
