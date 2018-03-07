@@ -1,7 +1,7 @@
 <template>
-<header id="site-header">
-  <g-h justify-content="space-between" id="site-header-top">
-    <g-h align-items="center" id="site-header-top-left">
+<header class="site-header">
+  <g-h justify-content="space-between" class="site-header-top">
+    <g-h align-items="center" class="site-header-top-left">
       <router-link to="">小米商城</router-link>
       <router-link to="">MIUI</router-link>
       <router-link to="">IoT</router-link>
@@ -11,8 +11,8 @@
       <router-link to="">有品</router-link>
       <router-link to="">Select Region</router-link>
     </g-h>
-    <g-h justify-content="flex-end" id="site-header-top-right">
-      <!-- <el-dropdown placement="bottom" id="site-header-top-right-user">
+    <g-h justify-content="flex-end" class="site-header-top-right">
+      <!-- <el-dropdown placement="bottom" class="site-header-top-right-user">
         <span class="el-dropdown-link">
           {{ username }}
           <i class="el-icon-arrow-down el-icon-right"></i>
@@ -25,7 +25,7 @@
           <el-dropdown-item>退出登录</el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown> -->
-      <div id="site-header-top-right-user">
+      <div class="site-header-top-right-user">
         <span>
           {{ username }}
           <i class=" el-icon-arrow-down el-icon-right "></i>
@@ -42,7 +42,7 @@
       <router-link to="">我的订单</router-link>
     </g-h>
   </g-h>
-  <div id="site-header-bottom ">
+  <div class="site-header-bottom ">
     下
   </div>
 </header>
@@ -71,7 +71,7 @@ export default {
 <style scoped>
 /* top */
 
-#site-header-top {
+.site-header-top {
   background-color: #363636;
   color: #b0b0b0;
   padding: 0 19.3rem;
@@ -80,47 +80,47 @@ export default {
 
 /* top left */
 
-#site-header-top-left {
+.site-header-top-left {
   padding: 0.4rem 0;
 }
 
-#site-header-top-left>* {
+.site-header-top-left>* {
   color: #b0b0b0;
   padding-right: 0.6rem;
 }
 
-#site-header-top-left>*:hover {
+.site-header-top-left>*:hover {
   color: white;
 }
 
-#site-header-top-left>*:not(:last-child)::after {
+.site-header-top-left>*:not(:last-child)::after {
   content: " |";
   /* color: #424242; */
 }
 
 /* top right */
 
-#site-header-top-right {
+.site-header-top-right {
   /* background: cyan; */
 }
 
-#site-header-top-right>* {
+.site-header-top-right>* {
   display: flex;
   align-items: center;
   padding: 0 1rem;
   color: #b0b0b0;
 }
 
-#site-header-top-right>*:hover {
+.site-header-top-right>*:hover {
   color: white;
 }
 
-#site-header-top-right-user {
+.site-header-top-right-user {
   padding: 0 1.7rem;
   box-shadow: 0 0 1px black;
 }
 
-#site-header-top-right-user:hover {
+.site-header-top-right-user:hover {
   background-color: white;
   color: orange;
 }
@@ -143,13 +143,13 @@ export default {
   margin: 0.7rem 0;
 }
 
-#site-header-top-right-user:hover .popover {
+.site-header-top-right-user:hover .popover {
   display: block;
 }
 
 /* bottom */
 
-#site-header-bottom {
+.site-header-bottom {
   padding: 0 19.3rem;
   font-size: 16px;
 }
