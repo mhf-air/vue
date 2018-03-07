@@ -25,7 +25,7 @@
           <el-dropdown-item>退出登录</el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown> -->
-      <div @mouseenter.native="showPopover('popUserInfo')" @mouseleave.native="hidePopover('popUserInfo')">
+      <div @mouseenter="showPopover('popUserInfo')" @mouseleave="hidePopover('popUserInfo')" id="site-header-top-right-user">
         <span>
           {{ username }}
           <i class=" el-icon-arrow-down el-icon-right "></i>
@@ -59,7 +59,7 @@ export default {
   methods: {
     showPopover(a) {
       this[a] = true
-      console.log(this[a])
+      console.log("enter")
     },
     hidePopover(a) {
       this[a] = false
@@ -125,6 +125,11 @@ export default {
   color: orange;
 }
 
+#site-header-top-right-user>.popover {
+  background: cyan;
+  width: 100%;
+}
+
 /* bottom */
 
 #site-header-bottom {
@@ -135,8 +140,9 @@ export default {
 /* popover */
 
 .popover {
-  position: absolute;
-  z-index: 100;
-  top: 5rem;
+  /* position: absolute; */
+  /* z-index: 100; */
+  /* top: 2rem; */
+  color: black;
 }
 </style>
