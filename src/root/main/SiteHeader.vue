@@ -25,12 +25,12 @@
           <el-dropdown-item>退出登录</el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown> -->
-      <div @mouseenter="showPopover('popUserInfo')" @mouseleave="hidePopover('popUserInfo')" id="site-header-top-right-user">
+      <div id="site-header-top-right-user">
         <span>
           {{ username }}
           <i class=" el-icon-arrow-down el-icon-right "></i>
         </span>
-        <div v-show="popUserInfo" class="popover">
+        <div class="popover">
           <div>个人中心</div>
           <div>评价晒单</div>
           <div>我的喜欢</div>
@@ -117,7 +117,7 @@ export default {
 
 #site-header-top-right-user {
   padding: 0 1.7rem;
-  /* background-color: cyan; */
+  box-shadow: 0 0 1px black;
 }
 
 #site-header-top-right-user:hover {
@@ -125,9 +125,26 @@ export default {
   color: orange;
 }
 
-#site-header-top-right-user>.popover {
-  background: cyan;
-  width: 100%;
+/* popover */
+
+.popover {
+  position: absolute;
+  top: 2rem;
+  color: black;
+  display: none;
+  /* background: cyan; */
+  transition: height 1s;
+  width: 5.7rem;
+  margin-left: -1.7rem;
+  text-align: center;
+}
+
+.popover>* {
+  margin: 0.7rem 0;
+}
+
+#site-header-top-right-user:hover .popover {
+  display: block;
 }
 
 /* bottom */
@@ -135,14 +152,5 @@ export default {
 #site-header-bottom {
   padding: 0 19.3rem;
   font-size: 16px;
-}
-
-/* popover */
-
-.popover {
-  /* position: absolute; */
-  /* z-index: 100; */
-  /* top: 2rem; */
-  color: black;
 }
 </style>
