@@ -62,11 +62,8 @@
       <div class="site-header-bottom-right">
         <g-h>
           <input type="text" class="site-header-bottom-right-input" />
-          <span class="site-header-bottom-right-search">search</span>
+          <span class="site-header-bottom-right-search el-icon-search" />
         </g-h>
-        <!-- <el-input class="site-header-bottom-right-input">
-          <el-button slot="append" icon="el-icon-search" />
-        </el-input> -->
       </div>
     </g-h>
   </g-h>
@@ -105,7 +102,7 @@ export default {
 
 /* top left */
 .site-header-top-left
-  padding: 0.4rem 0
+  padding: 0.7rem 0
 
 .site-header-top-left>*
   color: #b0b0b0
@@ -157,7 +154,7 @@ export default {
 /* bottom */
 .site-header-bottom
   font-size: 16px
-  padding: 2.3rem 0
+  padding: 1.7rem 0
   /* background: cyan */
 
 .site-header-bottom-left>*
@@ -169,16 +166,24 @@ export default {
 .site-header-bottom-logo
   background: url("/image/search.png")
 
-.site-header-bottom-right
-  &:hover
-    /* border: 1px solid */
+.site-header-bottom-right>.g-h>*
+  border-color: #e0e0e0
+  border-width: 1px
+
+.site-header-bottom-right:hover &>.g-h>*
+  border-color: #999
 
 .site-header-bottom-right-input
-  /* background-color: white */
-  padding: 0.9rem 0;
-  border: 1px solid
+  padding: 0.8rem 0
+  border-style: solid none solid solid
+  width: 15rem
 
 .site-header-bottom-right-search
-  background: no-repeat url("/image/search.png")
-  /* border: 1px solid */
+  display:flex
+  align-items: center
+  border-style: solid
+  padding: 0 1rem
+  &:hover
+    background-color: #ff6700
+    color: #fff
 </style>
