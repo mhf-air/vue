@@ -61,8 +61,8 @@
       </g-h>
       <div class="site-header-bottom-right">
         <g-h>
-          <input type="text" class="site-header-bottom-right-input" />
-          <span class="site-header-bottom-right-search el-icon-search" />
+          <input type="text" class="site-header-bottom-right-input" :class="{searchInputSelected}" @click="selectSearchInput" />
+          <span class="site-header-bottom-right-search el-icon-search" :class="{searchInputSelected}" @click="selectSearchInput" />
         </g-h>
       </div>
     </g-h>
@@ -76,6 +76,7 @@ export default {
     return {
       username: "Tom",
       popUserInfo: false,
+      searchInputSelected: false,
     }
   },
   methods: {
@@ -85,6 +86,10 @@ export default {
     },
     hidePopover(a) {
       this[a] = false
+    },
+    selectSearchInput() {
+      // this.searchInputSelected = true
+      this.searchInputSelected = !this.searchInputSelected
     },
   },
 }
@@ -166,24 +171,29 @@ export default {
 .site-header-bottom-logo
   background: url("/image/search.png")
 
-.site-header-bottom-right>.g-h>*
+/* .site-header-bottom-right>.g-h>*
   border-color: #e0e0e0
-  border-width: 1px
+  border-width: 1px */
 
 .site-header-bottom-right:hover &>.g-h>*
   border-color: #999
 
 .site-header-bottom-right-input
-  padding: 0.8rem 0
+  border-color: #e0e0e0
+  border-width: 1px
   border-style: solid none solid solid
+  padding: 0.8rem 0
   width: 15rem
 
 .site-header-bottom-right-search
   display:flex
   align-items: center
-  border-style: solid
+  border: 1px solid #e0e0e0
   padding: 0 1rem
   &:hover
     background-color: #ff6700
     color: #fff
+
+.searchInputSelected
+  border-color: #ff6700
 </style>
