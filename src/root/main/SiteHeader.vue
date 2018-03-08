@@ -28,15 +28,15 @@
       </el-dropdown> -->
         <div class="site-header-top-right-user">
           <span>
-          {{ username }}
-          <i class="el-icon-arrow-down el-icon-right"></i>
-        </span>
+            {{ username }}
+            <i class="el-icon-arrow-down el-icon-right"></i>
+          </span>
           <div class="popover">
-            <div>个人中心</div>
-            <div>评价晒单</div>
-            <div>我的喜欢</div>
-            <div>小米账户</div>
-            <div>退出登录</div>
+            <router-link to="">个人中心</router-link>
+            <router-link to="">评价晒单</router-link>
+            <router-link to="">我的喜欢</router-link>
+            <router-link to="">小米账户</router-link>
+            <router-link to="">退出登录</router-link>
           </div>
         </div>
         <router-link to="">消息通知</router-link>
@@ -47,7 +47,9 @@
   <g-h justify-content="center" class="site-header-bottom">
     <g-h justify-content="space-between" align-items="center" class="site-header-content">
       <g-h justify-content="space-between" class="site-header-bottom-left">
-        <router-link to="" class="site-header-bottom-logo"></router-link>
+        <router-link to="" class="site-header-bottom-logo">
+          <img src="/image/mi-logo.png" alt="logo" title="小米官网" />
+        </router-link>
         <router-link to="">小米手机</router-link>
         <router-link to="">红米</router-link>
         <router-link to="">电视</router-link>
@@ -144,11 +146,13 @@ export default {
   top: 2rem
   color: black
   display: none
-  /* background: cyan */
   transition: height 1s
   width: 5.7rem
   margin-left: -1.7rem
   text-align: center
+  z-index: 999
+  background: #fff
+  box-shadow: 0 0 10px #ccc
 
 .popover>*
   margin: 0.7rem 0
@@ -163,13 +167,15 @@ export default {
   /* background: cyan */
 
 .site-header-bottom-left>*
+  display: flex
+  align-items: center
   margin-right: 1rem
   color: #333
   &:hover
     color: #ff6700
 
 .site-header-bottom-logo
-  background: url("/image/search.png")
+  background-color: #ff6700
 
 /* .site-header-bottom-right>.g-h>*
   border-color: #e0e0e0
@@ -182,7 +188,7 @@ export default {
   border-color: #e0e0e0
   border-width: 1px
   border-style: solid none solid solid
-  padding: 0.8rem 0
+  padding: 0.8rem 0.5rem
   width: 15rem
 
 .site-header-bottom-right-search
