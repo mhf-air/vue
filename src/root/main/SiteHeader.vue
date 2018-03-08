@@ -170,17 +170,15 @@ export default {
   background: url("/image/search.png")
 
 .site-header-bottom-right
-  background: orange
   &:hover
     /* border: 1px solid */
 
 .site-header-bottom-right-input
   /* background-color: white */
-  background-color: cyan
+  padding: 0.9rem 0;
   border: 1px solid
 
 .site-header-bottom-right-search
-  background-color: cyan
-  /* background-image: url("/image/search.png") */
-  border: 1px solid
+  background: no-repeat url("/image/search.png")
+  /* border: 1px solid */
 </style>
