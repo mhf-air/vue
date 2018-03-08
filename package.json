@@ -46,6 +46,7 @@
     "html-minifier": "^3.5.9",
     "live-server": "^1.2.0",
     "npm-run-all": "^4.1.2",
+    "stylus": "^0.54.5",
     "uglify-js": "^3.3.10",
     "vueify": "^9.4.1",
     "watchify": "^3.10.0"
