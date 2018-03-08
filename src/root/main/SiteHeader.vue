@@ -60,13 +60,13 @@
         <router-link to="">社区</router-link>
       </g-h>
       <div class="site-header-bottom-right">
-        <el-input>
-          <g-h align-items="center" slot="suffix" class="site-header-bottom-right-suffix">
-            <span>abc</span>
-            <span>abc</span>
-          </g-h>
+        <g-h>
+          <input type="text" class="site-header-bottom-right-input" />
+          <span class="site-header-bottom-right-search">search</span>
+        </g-h>
+        <!-- <el-input class="site-header-bottom-right-input">
           <el-button slot="append" icon="el-icon-search" />
-        </el-input>
+        </el-input> -->
       </div>
     </g-h>
   </g-h>
@@ -180,7 +180,7 @@ export default {
 .site-header-bottom {
   font-size: 16px;
   padding: 2.3rem 0;
-  background: cyan;
+  /* background: cyan; */
 }
 
 .site-header-bottom-left>* {
@@ -196,7 +196,23 @@ export default {
   background: url("/image/search.png");
 }
 
-.site-header-bottom-right-suffix {
-  background: cyan;
+.site-header-bottom-right {
+  background: orange;
+}
+
+.site-header-bottom-right-input:hover {
+  /* border: 1px solid; */
+}
+
+.site-header-bottom-right-input {
+  /* background-color: white; */
+  background-color: cyan;
+  border: 1px solid;
+}
+
+.site-header-bottom-right-search {
+  background-color: cyan;
+  /* background-image: url("/image/search.png"); */
+  border: 1px solid;
 }
 </style>
