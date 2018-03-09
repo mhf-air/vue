@@ -59,6 +59,10 @@
       <div class="site-header-bottom-right">
         <g-h>
           <input type="text" class="site-header-bottom-right-input" :class="{searchInputSelected}" @click="selectSearchInput" />
+          <div class="site-header-bottom-right-inner">
+            <router-link to="">红米5 Plus</router-link>
+            <router-link to="">小米Note 3</router-link>
+          </div>
           <span class="site-header-bottom-right-search el-icon-search" :class="{searchInputSelected}" @click="selectSearchInput" />
         </g-h>
       </div>
@@ -148,6 +152,7 @@ export default {
     transition: height 0.1s
     text-align: center
     background: #fff
+    z-index: 999
     box-shadow: 0 5px 10px #ccc
     &>.g-v>*
       padding: 0.3rem 0
@@ -173,13 +178,14 @@ export default {
     background: #fff
     color: #333
     box-shadow: 0 5px 10px #ccc
+    z-index: 999
     transition: height 0.1s
 
 /* bottom */
 .site-header-bottom
   font-size: 16px
   padding: 1.7rem 0
-  background: cyan
+  /* background: cyan */
 
 .site-header-bottom-left>*
   display: flex
@@ -199,12 +205,28 @@ export default {
 .site-header-bottom-right:hover &>.g-h>*
   border-color: #999
 
+.site-header-bottom-right>.g-h
+  position: relative
+
 .site-header-bottom-right-input
   border-color: #e0e0e0
   border-width: 1px
   border-style: solid none solid solid
   padding: 0.8rem 0.5rem
   width: 13rem
+
+.site-header-bottom-right-inner
+  font-size: 12px
+  position: absolute
+  top: 1rem
+  right: 3.3rem
+  >
+    margin-right: 0.2rem
+    padding: 0 0.3rem
+    background: #eee
+    &:hover
+      background: #ff6700
+      color: #fff
 
 .site-header-bottom-right-search
   display:flex
