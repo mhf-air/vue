@@ -74,8 +74,12 @@
       <g-h v-for="(category, i) in categoryList">
         <g-v v-for="(item, i) in category.list" class="site-header-bottom-left-popover" align-items="center">
           <div class="product-tag" :class="{invisible: item.tag === ''}">{{ item.tag ? item.tag : "a" }}</div>
-          <img v-if="item.image !== ''" :src="item.image" />
-          <div class="product-name" :class="{invisible: item.name === ''}">{{ item.name ? item.name : "a"}}</div>
+          <router-link to="" class="product-image">
+            <img v-if="item.image !== ''" :src="item.image" width="160px" />
+          </router-link>
+          <router-link to="" class="product-name">
+            <div :class="{invisible: item.name === ''}">{{ item.name ? item.name : "a"}}</div>
+          </router-link>
           <div class="product-price" :class="{invisible: item.price === ''}">{{ item.price ? item.price : "a"}}</div>
         </g-v>
       </g-h>
@@ -95,11 +99,11 @@ export default {
         {
           name: "xiaomi",
           list: [
-            { name: "小米MIX 2", price: "3299元起", image: "", tag: "热卖" },
-            { name: "小米Note 3", price: "1999元起", image: "", tag: "热卖" },
-            { name: "小米6", price: "2299元起", image: "", tag: "" },
-            { name: "小米MAX 2", price: "1399元起", image: "", tag: "" },
-            { name: "小米5X", price: "1299元起", image: "", tag: "" },
+            { name: "小米MIX 2", price: "3299元起", image: "/image/mi/xiaomi/mix2320-220.png", tag: "热卖" },
+            { name: "小米Note 3", price: "1999元起", image: "/image/mi/xiaomi/note2320x220.png", tag: "热卖" },
+            { name: "小米6", price: "2299元起", image: "/image/mi/xiaomi/xm6-320.png", tag: "" },
+            { name: "小米MAX 2", price: "1399元起", image: "/image/mi/xiaomi/max2_toubu.png", tag: "" },
+            { name: "小米5X", price: "1299元起", image: "/image/mi/xiaomi/5x-2.jpg", tag: "" },
           ],
         },
       ],
@@ -283,8 +287,12 @@ primary = #ff6700
     margin-bottom: 1em
     padding: 0.3em 2em
     color: primary
+  >.product-image
+    margin: 0 0 1rem
   >.product-name
     margin: 0.5em 0
+    &:hover
+      color: #6f6660
   >.product-price
     color: primary
 
