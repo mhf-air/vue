@@ -32,6 +32,11 @@
         <router-link to="">我的订单</router-link>
         <div class="site-header-top-right-cart">
           <span>购物车({{ cartGoodCount }})</span>
+          <div class="popover">
+            <g-v justify-content="center" align-items="center">
+              <span v-if="cartGoodCount===0">购物车中还没有商品，赶紧选购吧！</span>
+            </g-v>
+          </div>
         </div>
       </g-h>
     </g-h>
@@ -136,11 +141,11 @@ export default {
       display: block
 
   .popover
+    display: none
     position: absolute
-    top: 2.5rem
+    top: 2.4rem
     left: 0
     right: 0
-    display: none
     transition: height 1s
     text-align: center
     background: #fff
@@ -152,16 +157,29 @@ export default {
         color: #ff6700
 
 .site-header-top-right-cart
+  position: relative
   background: #424242
   &:hover
     color: #ff6700
     background: #fff
+    .popover
+      display: block
+  .popover
+    display: none
+    position: absolute
+    top: 2.4rem
+    left: -12rem
+    right: 0
+    padding: 2.7rem 0
+    background: #fff
+    color: #333
+    box-shadow: 0 5px 10px #ccc
 
 /* bottom */
 .site-header-bottom
   font-size: 16px
   padding: 1.7rem 0
-  background: cyan
+  /* background: cyan */
 
 .site-header-bottom-left>*
   display: flex
@@ -186,7 +204,7 @@ export default {
   border-width: 1px
   border-style: solid none solid solid
   padding: 0.8rem 0.5rem
-  width: 15rem
+  width: 13rem
 
 .site-header-bottom-right-search
   display:flex
