@@ -170,10 +170,10 @@ primary = #ff6700
   &:hover
     background-color: white
     color: orange
-    .popover
+    &>.popover
       height: 8.5rem
 
-  .popover
+  &>.popover
     height: 0
     overflow: hidden
     position: absolute
@@ -197,9 +197,9 @@ primary = #ff6700
   &:hover
     color: primary
     background: #fff
-    .popover
+    &>.popover
       height: 6.4rem
-  .popover
+  &>.popover
     height: 0
     overflow: hidden
     position: absolute
@@ -272,6 +272,8 @@ primary = #ff6700
   border-color: primary
 
 .site-header-bottom-left-popover-outer
+  height: 0
+  overflow: hidden
   width: 100%
   position: absolute
   box-shadow: 0 1px 4px #ccc
