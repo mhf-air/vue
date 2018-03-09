@@ -33,7 +33,7 @@
         <div class="site-header-top-right-cart">
           <span>购物车({{ cartGoodCount }})</span>
           <g-v justify-content="center" align-items="center" class="popover">
-            <span v-if="cartGoodCount===0">购物车中还没有商品，赶紧选购吧！</span>
+            <span v-if="cartGoodCount === 0">购物车中还没有商品，赶紧选购吧！</span>
           </g-v>
         </div>
       </g-h>
@@ -41,20 +41,27 @@
   </g-h>
   <g-h justify-content="center" class="site-header-bottom">
     <g-h justify-content="space-between" align-items="center" class="site-header-content">
-      <g-h justify-content="space-between" class="site-header-bottom-left">
+      <g-h justify-content="space-between" align-items="center" class="site-header-bottom-left">
         <router-link to="" class="site-header-bottom-logo">
           <img src="/image/mi-logo.png" alt="logo" title="小米官网" />
         </router-link>
-        <router-link to="">小米手机</router-link>
-        <router-link to="">红米</router-link>
-        <router-link to="">电视</router-link>
-        <router-link to="">笔记本</router-link>
-        <router-link to="">盒子</router-link>
-        <router-link to="">新品</router-link>
-        <router-link to="">路由器</router-link>
-        <router-link to="">智能硬件</router-link>
-        <router-link to="">服务</router-link>
-        <router-link to="">社区</router-link>
+        <g-h v-for="(category, i) in categoryList">
+          <router-link to="" class="site-header-bottom-left-category">{{ category.name }}</router-link>
+          <g-h justify-content="center" class="site-header-bottom-left-popover-outer">
+            <g-h>
+              <g-v v-for="(item, j) in category.list" class="site-header-bottom-left-popover" align-items="center">
+                <div class="product-tag" :class="{invisible: item.tag === ''}">{{ item.tag ? item.tag : "a" }}</div>
+                <router-link to="" class="product-image">
+                  <img v-if="item.image !== ''" :src="item.image" width="160px" />
+                </router-link>
+                <router-link to="" class="product-name">
+                  <div :class="{invisible: item.name === ''}">{{ item.name ? item.name : "a"}}</div>
+                </router-link>
+                <div class="product-price" :class="{invisible: item.price === ''}">{{ item.price ? item.price : "a"}}</div>
+              </g-v>
+            </g-h>
+          </g-h>
+        </g-h>
       </g-h>
       <div class="site-header-bottom-right">
         <g-h>
@@ -66,23 +73,6 @@
           <span class="site-header-bottom-right-search el-icon-search" :class="{searchInputSelected}" @click="selectSearchInput" />
         </g-h>
       </div>
-    </g-h>
-  </g-h>
-
-  <g-h justify-content="center" class="site-header-bottom-left-popover-outer">
-    <g-h justify-content="center">
-      <g-h v-for="(category, i) in categoryList">
-        <g-v v-for="(item, i) in category.list" class="site-header-bottom-left-popover" align-items="center">
-          <div class="product-tag" :class="{invisible: item.tag === ''}">{{ item.tag ? item.tag : "a" }}</div>
-          <router-link to="" class="product-image">
-            <img v-if="item.image !== ''" :src="item.image" width="160px" />
-          </router-link>
-          <router-link to="" class="product-name">
-            <div :class="{invisible: item.name === ''}">{{ item.name ? item.name : "a"}}</div>
-          </router-link>
-          <div class="product-price" :class="{invisible: item.price === ''}">{{ item.price ? item.price : "a"}}</div>
-        </g-v>
-      </g-h>
     </g-h>
   </g-h>
 </header>
@@ -97,13 +87,96 @@ export default {
       cartGoodCount: 0,
       categoryList: [
         {
-          name: "xiaomi",
+          name: "小米手机",
           list: [
             { name: "小米MIX 2", price: "3299元起", image: "/image/mi/xiaomi/mix2320-220.png", tag: "热卖" },
             { name: "小米Note 3", price: "1999元起", image: "/image/mi/xiaomi/note2320x220.png", tag: "热卖" },
             { name: "小米6", price: "2299元起", image: "/image/mi/xiaomi/xm6-320.png", tag: "" },
             { name: "小米MAX 2", price: "1399元起", image: "/image/mi/xiaomi/max2_toubu.png", tag: "" },
             { name: "小米5X", price: "1299元起", image: "/image/mi/xiaomi/5x-2.jpg", tag: "" },
+          ],
+        },
+        {
+          name: "红米",
+          list: [
+            { name: "红米5", price: "799元起", image: "/image/mi/xiaomi/mix2320-220.png", tag: "新品" },
+            { name: "红米5 Plus", price: "999元起", image: "/image/mi/xiaomi/note2320x220.png", tag: "新品" },
+            { name: "红米5A", price: "599元起", image: "/image/mi/xiaomi/xm6-320.png", tag: "热卖" },
+            { name: "红米Note 5A标准版", price: "649元", image: "/image/mi/xiaomi/max2_toubu.png", tag: "" },
+            { name: "红米Note 5A高配版", price: "799元", image: "/image/mi/xiaomi/5x-2.jpg", tag: "" },
+            { name: "红米Note 4X", price: "999元起", image: "/image/mi/xiaomi/5x-2.jpg", tag: "" },
+          ],
+        },
+        {
+          name: "电视",
+          list: [
+            { name: "小米电视4A 40英寸", price: "1699元", image: "/image/mi/xiaomi/mix2320-220.png", tag: "新品" },
+            { name: "小米电视4A 32英寸", price: "999元", image: "/image/mi/xiaomi/note2320x220.png", tag: "热卖" },
+            { name: "小米电视4A 43英寸", price: "1899元", image: "/image/mi/xiaomi/xm6-320.png", tag: "热卖" },
+            { name: "小米电视4A 55英寸", price: "2799元", image: "/image/mi/xiaomi/max2_toubu.png", tag: "热卖" },
+            { name: "小米电视4 55英寸", price: "3999元", image: "/image/mi/xiaomi/5x-2.jpg", tag: "超薄旗舰" },
+          ],
+        },
+        {
+          name: "笔记本",
+          list: [
+            { name: "小米笔记本Air 12.5\"", price: "3599元", image: "/image/mi/xiaomi/mix2320-220.png", tag: "热卖" },
+            { name: "小米笔记本Air 13.3\"四核增强", price: "5399元", image: "/image/mi/xiaomi/note2320x220.png", tag: "热卖" },
+            { name: "小米笔记本Air 13.3\"独显", price: "5199元", image: "/image/mi/xiaomi/xm6-320.png", tag: "" },
+            { name: "小米笔记本Air 13.3\"集显", price: "4599元", image: "/image/mi/xiaomi/max2_toubu.png", tag: "" },
+            { name: "小米笔记本Pro 15.6\"", price: "5599元", image: "/image/mi/xiaomi/5x-2.jpg", tag: "" },
+          ],
+        },
+        {
+          name: "盒子",
+          list: [
+            { name: "小米盒子4", price: "349元", image: "/image/mi/xiaomi/mix2320-220.png", tag: "" },
+            { name: "小米盒子4c", price: "249元", image: "/image/mi/xiaomi/note2320x220.png", tag: "" },
+            { name: "小米盒子3s", price: "349元", image: "/image/mi/xiaomi/xm6-320.png", tag: "" },
+            { name: "小米盒子3c", price: "199元", image: "/image/mi/xiaomi/max2_toubu.png", tag: "" },
+            { name: "小米盒子3 增强版", price: "399元", image: "/image/mi/xiaomi/5x-2.jpg", tag: "" },
+            { name: "小米家庭影院", price: "2099元", image: "/image/mi/xiaomi/5x-2.jpg", tag: "" },
+          ],
+        },
+        {
+          name: "新品",
+          list: [
+            { name: "米家 iHealth 体温计", price: "129元", image: "/image/mi/xiaomi/mix2320-220.png", tag: "" },
+            { name: "70 迈智能记录仪", price: "199元", image: "/image/mi/xiaomi/note2320x220.png", tag: "" },
+            { name: "TS太阳镜 旅行者款 米家定制", price: "249元", image: "/image/mi/xiaomi/xm6-320.png", tag: "" },
+            { name: "铜师傅好运铜葫芦", price: "29元", image: "/image/mi/xiaomi/max2_toubu.png", tag: "" },
+            { name: "米家压力IH电饭煲", price: "299元", image: "/image/mi/xiaomi/5x-2.jpg", tag: "" },
+          ],
+        },
+        {
+          name: "路由器",
+          list: [
+            { name: "小米路由器 3A", price: "139元", image: "/image/mi/xiaomi/mix2320-220.png", tag: "" },
+            { name: "小米路由器 HD/Pro", price: "499元", image: "/image/mi/xiaomi/note2320x220.png", tag: "大容量" },
+            { name: "小米路由器 3G", price: "249元", image: "/image/mi/xiaomi/xm6-320.png", tag: "双千兆" },
+            { name: "小米路由器 3", price: "119元", image: "/image/mi/xiaomi/max2_toubu.png", tag: "双频" },
+            { name: "小米路由器 3C", price: "89元", image: "/image/mi/xiaomi/5x-2.jpg", tag: "包邮" },
+            { name: "小米WiFi放大器 Pro ", price: "79元", image: "/image/mi/xiaomi/5x-2.jpg", tag: "" },
+          ],
+        },
+        {
+          name: "智能硬件",
+          list: [
+            { name: "小米无人机", price: "2999元", image: "/image/mi/xiaomi/mix2320-220.png", tag: "航拍利器" },
+            { name: "小米手环2", price: "149元", image: "/image/mi/xiaomi/note2320x220.png", tag: "包邮" },
+            { name: "小米净水器", price: "1499元", image: "/image/mi/xiaomi/xm6-320.png", tag: "" },
+            { name: "米家扫地机器人", price: "1699元", image: "/image/mi/xiaomi/max2_toubu.png", tag: "" },
+            { name: "米家压力IH电饭煲", price: "999元", image: "/image/mi/xiaomi/5x-2.jpg", tag: "" },
+          ],
+        },
+        {
+          name: "服务",
+          list: [
+          ],
+        },
+        {
+          name: "社区",
+          list: [
           ],
         },
       ],
@@ -216,18 +289,23 @@ primary = #ff6700
 .site-header-bottom
   font-size: 16px
   padding: 1.7rem 0
-  /* background: cyan */
 
-.site-header-bottom-left>*
+.site-header-bottom-left-category
   display: flex
   align-items: center
-  margin-right: 1rem
+  padding: 0 1rem
   color: #333
+  height: 4.5rem
   &:hover
     color: primary
 
+.site-header-bottom-left>.g-h:hover
+  &>.site-header-bottom-left-popover-outer
+    height: 14.95rem
+
 .site-header-bottom-logo
   background-color: primary
+  /* margin-right: 1rem */
 
 /* .site-header-bottom-right>.g-h>*
   border-color: #e0e0e0
@@ -274,12 +352,14 @@ primary = #ff6700
 .site-header-bottom-left-popover-outer
   height: 0
   overflow: hidden
-  width: 100%
+  top: 8.5rem
+  right: 0
+  left: 0
   position: absolute
   box-shadow: 0 1px 4px #ccc
-  >.g-h>.g-h
+  /* transition: height 0.1s */
+  >.g-h
     width: 75rem
-    /* background: cyan */
 
 .site-header-bottom-left-popover
   margin: 0 1rem 2rem
