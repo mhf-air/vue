@@ -13,34 +13,26 @@
         <router-link to="">Select Region</router-link>
       </g-h>
       <g-h justify-content="flex-end" class="site-header-top-right">
-        <!-- <el-dropdown placement="bottom" class="site-header-top-right-user">
-        <span class="el-dropdown-link">
-          {{ username }}
-          <i class="el-icon-arrow-down el-icon-right"></i>
-        </span>
-        <el-dropdown-menu slot="dropdown">
-          <el-dropdown-item>个人中心</el-dropdown-item>
-          <el-dropdown-item>评价晒单</el-dropdown-item>
-          <el-dropdown-item>我的喜欢</el-dropdown-item>
-          <el-dropdown-item>小米账户</el-dropdown-item>
-          <el-dropdown-item>退出登录</el-dropdown-item>
-        </el-dropdown-menu>
-      </el-dropdown> -->
         <div class="site-header-top-right-user">
           <span>
             {{ username }}
             <i class="el-icon-arrow-down el-icon-right"></i>
           </span>
           <div class="popover">
-            <router-link to="">个人中心</router-link>
-            <router-link to="">评价晒单</router-link>
-            <router-link to="">我的喜欢</router-link>
-            <router-link to="">小米账户</router-link>
-            <router-link to="">退出登录</router-link>
+            <g-v>
+              <router-link to="">个人中心</router-link>
+              <router-link to="">评价晒单</router-link>
+              <router-link to="">我的喜欢</router-link>
+              <router-link to="">小米账户</router-link>
+              <router-link to="">退出登录</router-link>
+            </g-v>
           </div>
         </div>
         <router-link to="">消息通知</router-link>
         <router-link to="">我的订单</router-link>
+        <div class="site-header-top-right-cart">
+          <span>购物车({{ cartGoodCount }})</span>
+        </div>
       </g-h>
     </g-h>
   </g-h>
@@ -79,6 +71,7 @@ export default {
       username: "Tom",
       popUserInfo: false,
       searchInputSelected: false,
+      cartGoodCount: 0,
     }
   },
   methods: {
@@ -134,37 +127,41 @@ export default {
     color: white
 
 .site-header-top-right-user
+  position: relative
   padding: 0 1.7rem
-  box-shadow: 0 0 1px black
   &:hover
     background-color: white
     color: orange
+    .popover
+      display: block
 
-/* popover */
-.popover
-  position: absolute
-  top: 2rem
-  color: black
-  display: none
-  transition: height 1s
-  width: 5.7rem
-  margin-left: -1.7rem
-  text-align: center
-  z-index: 999
-  background: #fff
-  box-shadow: 0 0 10px #ccc
+  .popover
+    position: absolute
+    top: 2.5rem
+    left: 0
+    right: 0
+    display: none
+    transition: height 1s
+    text-align: center
+    background: #fff
+    box-shadow: 0 5px 10px #ccc
+    &>.g-v>*
+      padding: 0.3rem 0
+      &:hover
+        background: #f5f5f5
+        color: #ff6700
 
-.popover>*
-  margin: 0.7rem 0
-
-.site-header-top-right-user:hover .popover
-  display: block
+.site-header-top-right-cart
+  background: #424242
+  &:hover
+    color: #ff6700
+    background: #fff
 
 /* bottom */
 .site-header-bottom
   font-size: 16px
   padding: 1.7rem 0
-  /* background: cyan */
+  background: cyan
 
 .site-header-bottom-left>*
   display: flex
