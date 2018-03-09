@@ -68,6 +68,19 @@
       </div>
     </g-h>
   </g-h>
+
+  <g-h justify-content="center" class="site-header-bottom-left-popover-outer">
+    <g-h justify-content="center">
+      <g-h v-for="(category, i) in categoryList">
+        <g-v v-for="(item, i) in category.list" class="site-header-bottom-left-popover" align-items="center">
+          <div class="product-tag" :class="{invisible: item.tag === ''}">{{ item.tag ? item.tag : "a" }}</div>
+          <img v-if="item.image !== ''" :src="item.image" />
+          <div class="product-name" :class="{invisible: item.name === ''}">{{ item.name ? item.name : "a"}}</div>
+          <div class="product-price" :class="{invisible: item.price === ''}">{{ item.price ? item.price : "a"}}</div>
+        </g-v>
+      </g-h>
+    </g-h>
+  </g-h>
 </header>
 </template>
 
@@ -78,6 +91,18 @@ export default {
       username: "Tom",
       searchInputSelected: false,
       cartGoodCount: 0,
+      categoryList: [
+        {
+          name: "xiaomi",
+          list: [
+            { name: "小米MIX 2", price: "3299元起", image: "", tag: "热卖" },
+            { name: "小米Note 3", price: "1999元起", image: "", tag: "热卖" },
+            { name: "小米6", price: "2299元起", image: "", tag: "" },
+            { name: "小米MAX 2", price: "1399元起", image: "", tag: "" },
+            { name: "小米5X", price: "1299元起", image: "", tag: "" },
+          ],
+        },
+      ],
     }
   },
   methods: {
@@ -97,6 +122,9 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+/* variables */
+primary = #ff6700
+
 .site-header
   position: relative
 
@@ -157,13 +185,13 @@ export default {
       padding: 0.3rem 0
       &:hover
         background: #f5f5f5
-        color: #ff6700
+        color: primary
 
 .site-header-top-right-cart
   position: relative
   background: #424242
   &:hover
-    color: #ff6700
+    color: primary
     background: #fff
     .popover
       height: 6.4rem
@@ -192,10 +220,10 @@ export default {
   margin-right: 1rem
   color: #333
   &:hover
-    color: #ff6700
+    color: primary
 
 .site-header-bottom-logo
-  background-color: #ff6700
+  background-color: primary
 
 /* .site-header-bottom-right>.g-h>*
   border-color: #e0e0e0
@@ -224,7 +252,7 @@ export default {
     padding: 0 0.3rem
     background: #eee
     &:hover
-      background: #ff6700
+      background: primary
       color: #fff
 
 .site-header-bottom-right-search
@@ -233,9 +261,31 @@ export default {
   border: 1px solid #e0e0e0
   padding: 0 1rem
   &:hover
-    background-color: #ff6700
+    background-color: primary
     color: #fff
 
 .searchInputSelected
-  border-color: #ff6700
+  border-color: primary
+
+.site-header-bottom-left-popover-outer
+  width: 100%
+  position: absolute
+  box-shadow: 0 1px 4px #ccc
+  >.g-h>.g-h
+    width: 75rem
+    /* background: cyan */
+
+.site-header-bottom-left-popover
+  margin: 0 1rem 2rem
+  font-size: 12px
+  >.product-tag
+    border: 1px solid primary
+    margin-bottom: 1em
+    padding: 0.3em 2em
+    color: primary
+  >.product-name
+    margin: 0.5em 0
+  >.product-price
+    color: primary
+
 </style>
