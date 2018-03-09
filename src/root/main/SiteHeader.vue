@@ -32,11 +32,9 @@
         <router-link to="">我的订单</router-link>
         <div class="site-header-top-right-cart">
           <span>购物车({{ cartGoodCount }})</span>
-          <div class="popover">
-            <g-v justify-content="center" align-items="center">
-              <span v-if="cartGoodCount===0">购物车中还没有商品，赶紧选购吧！</span>
-            </g-v>
-          </div>
+          <g-v justify-content="center" align-items="center" class="popover">
+            <span v-if="cartGoodCount===0">购物车中还没有商品，赶紧选购吧！</span>
+          </g-v>
         </div>
       </g-h>
     </g-h>
@@ -138,15 +136,16 @@ export default {
     background-color: white
     color: orange
     .popover
-      display: block
+      height: 8.5rem
 
   .popover
-    display: none
+    height: 0
+    overflow: hidden
     position: absolute
     top: 2.4rem
     left: 0
     right: 0
-    transition: height 1s
+    transition: height 0.1s
     text-align: center
     background: #fff
     box-shadow: 0 5px 10px #ccc
@@ -163,23 +162,24 @@ export default {
     color: #ff6700
     background: #fff
     .popover
-      display: block
+      height: 6.4rem
   .popover
-    display: none
+    height: 0
+    overflow: hidden
     position: absolute
     top: 2.4rem
     left: -12rem
     right: 0
-    padding: 2.7rem 0
     background: #fff
     color: #333
     box-shadow: 0 5px 10px #ccc
+    transition: height 0.1s
 
 /* bottom */
 .site-header-bottom
   font-size: 16px
   padding: 1.7rem 0
-  /* background: cyan */
+  background: cyan
 
 .site-header-bottom-left>*
   display: flex
