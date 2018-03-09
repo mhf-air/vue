@@ -97,6 +97,9 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+.site-header
+  position: relative
+
 /* top */
 .site-header-top
   background-color: #363636
