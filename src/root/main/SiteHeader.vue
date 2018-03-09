@@ -76,7 +76,6 @@ export default {
   data() {
     return {
       username: "Tom",
-      popUserInfo: false,
       searchInputSelected: false,
       cartGoodCount: 0,
     }
@@ -122,10 +121,7 @@ export default {
   /* color: #424242 */
 
 /* top right */
-.site-header-top-right
-  /* background: cyan */
-
-.site-header-top-right>*
+.site-header-top-right>
   display: flex
   align-items: center
   padding: 0 1rem
@@ -154,7 +150,7 @@ export default {
     background: #fff
     z-index: 999
     box-shadow: 0 5px 10px #ccc
-    &>.g-v>*
+    &>.g-v>
       padding: 0.3rem 0
       &:hover
         background: #f5f5f5
@@ -202,7 +198,7 @@ export default {
   border-color: #e0e0e0
   border-width: 1px */
 
-.site-header-bottom-right:hover &>.g-h>*
+.site-header-bottom-right:hover &>.g-h>
   border-color: #999
 
 .site-header-bottom-right>.g-h
