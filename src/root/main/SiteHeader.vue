@@ -173,7 +173,7 @@ export default {
     right: 0
     background: #fff
     color: #333
-    box-shadow: 0 5px 10px #ccc
+    box-shadow: 0 3px 5px #ccc
     z-index: 999
     transition: height 0.1s
 
