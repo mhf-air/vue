@@ -150,11 +150,9 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-/* variables */
 primary = #ff6700
 
 .site-footer
-  /* background: cyan */
   width: 77rem
 
 .site-footer-service
@@ -215,7 +213,7 @@ primary = #ff6700
     margin-right: 7px
     .router-link-active:hover
       color: primary
-    >.vbar
+    .vbar
       width: 1px
       background: #ccc
   &-second>

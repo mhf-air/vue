@@ -228,13 +228,11 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-/* variables */
 primary = #ff6700
 
 .site-header
   position: relative
 
-/* top */
 .site-header-top
   background-color: #363636
   color: #b0b0b0
@@ -243,7 +241,6 @@ primary = #ff6700
 .site-header-content
   width: 77rem
 
-/* top left */
 .site-header-top-left
   padding: 0.7rem 0
 
@@ -259,7 +256,6 @@ primary = #ff6700
     &:last-child
       border-right-style: none
 
-/* top right */
 .site-header-top-right>
   display: flex
   align-items: center
@@ -316,7 +312,6 @@ primary = #ff6700
     z-index: 999
     transition: height 0.1s
 
-/* bottom */
 .site-header-bottom
   font-size: 16px
   padding: 1.7rem 0
@@ -336,11 +331,6 @@ primary = #ff6700
 
 .site-header-bottom-logo
   background-color: primary
-  /* margin-right: 1rem */
-
-/* .site-header-bottom-right>.g-h>*
-  border-color: #e0e0e0
-  border-width: 1px */
 
 .site-header-bottom-right:hover
   .site-header-bottom-right-input,
@@ -410,7 +400,6 @@ primary = #ff6700
   position: absolute
   box-shadow: 0 1px 4px #ccc
   background-color: #fff
-  /* transition: height 0.1s */
   >.g-h
     width: 75rem
 
@@ -430,5 +419,4 @@ primary = #ff6700
       color: #6f6660
   >.product-price
     color: primary
-
 </style>
