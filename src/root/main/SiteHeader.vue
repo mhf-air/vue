@@ -45,11 +45,11 @@
         <router-link to="" class="site-header-bottom-logo">
           <img src="/image/mi-logo.png" alt="logo" title="小米官网" />
         </router-link>
-        <g-h v-for="(category, i) in categoryList">
+        <g-h v-for="category in categoryList">
           <router-link to="" class="site-header-bottom-left-category">{{ category.name }}</router-link>
           <g-h justify-content="center" class="site-header-bottom-left-popover-outer">
             <g-h>
-              <g-v v-for="(item, j) in category.list" class="site-header-bottom-left-popover" align-items="center">
+              <g-v v-for="item in category.list" class="site-header-bottom-left-popover" align-items="center">
                 <div class="product-tag" :class="{invisible: item.tag === ''}">{{ item.tag ? item.tag : "a" }}</div>
                 <router-link to="" class="product-image">
                   <img v-if="item.image !== ''" :src="item.image" width="160px" />
@@ -64,13 +64,13 @@
         </g-h>
       </g-h>
       <g-h class="site-header-bottom-right">
-        <input type="text" class="site-header-bottom-right-input" :class="{searchInputSelected}" @click="selectSearchInput" />
-        <div class="site-header-bottom-right-inner">
+        <input type="text" class="site-header-bottom-right-input" :class="{searchInputSelected}" @click="selectSearchInput" ref="searchInputSelected" />
+        <div class="site-header-bottom-right-inner" v-show="!searchInputSelected">
           <router-link to="">红米5 Plus</router-link>
           <router-link to="">小米Note 3</router-link>
         </div>
         <span class="site-header-bottom-right-search el-icon-search" :class="{searchInputSelected}" @click="selectSearchInput" />
-        <g-v class="search-suggestion-list">
+        <g-v class="search-suggestion-list" :class="{searchInputSelected}">
           <g-h v-for="item in searchSuggestionList" justify-content="space-between">
             <span>{{ item.name }}</span>
             <span class="search-suggestion-item-num">{{ "约有" + item.num + "件" }}</span>
@@ -207,9 +207,21 @@ export default {
       this[a] = false
     },
     selectSearchInput() {
-      // this.searchInputSelected = true
-      this.searchInputSelected = !this.searchInputSelected
+      this.searchInputSelected = true
     },
+    documentClick(e) {
+      let el = this.$refs.searchInputSelected
+      let target = e.target
+      if (el !== target && !el.contains(target)) {
+        this.searchInputSelected = false
+      }
+    },
+  },
+  created() {
+    document.addEventListener("click", this.documentClick)
+  },
+  destroyed() {
+    document.removeEventListener("click", this.documentClick)
   },
 }
 </script>
@@ -327,8 +339,11 @@ primary = #ff6700
   border-color: #e0e0e0
   border-width: 1px */
 
-.site-header-bottom-right:hover &>
-  border-color: #999
+.site-header-bottom-right:hover
+  .site-header-bottom-right-input,
+  .site-header-bottom-right-search
+    &:not(.searchInputSelected)
+      border-color: #999
 
 .site-header-bottom-right
   position: relative
@@ -363,6 +378,7 @@ primary = #ff6700
     color: #fff
 
 .search-suggestion-list
+  display: none
   position: absolute
   top: 2.9rem
   left: 0
@@ -380,6 +396,7 @@ primary = #ff6700
 
 .searchInputSelected
   border-color: primary
+  display: flex
 
 .site-header-bottom-left-popover-outer
   height: 0
@@ -389,6 +406,7 @@ primary = #ff6700
   left: 0
   position: absolute
   box-shadow: 0 1px 4px #ccc
+  background-color: #fff
   /* transition: height 0.1s */
   >.g-h
     width: 75rem
