@@ -24,7 +24,17 @@
         </g-h>
       </g-h>
 
-      <g-h>
+      <g-h justify-content="space-between" class="site-footer-bottom-nav">
+        <g-h>
+          a
+        </g-h>
+        <div class="vbar" />
+        <g-v align-items="center">
+          <div class="nav-phone">400-100-5678</div>
+          <div>周一至周日 8:00-18:00</div>
+          <div>(仅收市话费)</div>
+          <router-link to="">在线客服</router-link>
+        </g-v>
       </g-h>
 
       <g-h justify-content="space-between">
@@ -122,6 +132,24 @@ primary = #ff6700
     width: 1px
     background: #ccc
     margin: 1.7rem 0
+
+.site-footer-bottom-nav
+  padding: 2rem 0
+  >.vbar
+    width: 1px
+    background: #ccc
+  >.g-v
+    font-size: 12px
+    color: #666
+    >.nav-phone
+      font-size: 24px
+      color: primary
+    >.router-link-active
+      font-size: 16px
+      color: primary
+      border: 1px solid primary
+      padding: 0.3em 2em
+      margin-top: 1em
 
 .site-footer-bottom-logo
   background-color: primary
