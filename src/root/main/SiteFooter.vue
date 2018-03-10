@@ -24,9 +24,44 @@
         </g-h>
       </g-h>
 
-      <g-h justify-content="space-between" class="site-footer-bottom-nav">
-        <g-h>
-          a
+      <g-h justify-content="space-around" class="site-footer-bottom-nav">
+        <g-h justify-content="space-between">
+          <g-v class="site-footer-bottom-nav-main">
+            <div>帮助中心</div>
+            <router-link to="">账户管理</router-link>
+            <router-link to="">购物指南</router-link>
+            <router-link to="">订单操作</router-link>
+          </g-v>
+          <g-v class="site-footer-bottom-nav-main">
+            <div>服务支持</div>
+            <router-link to="">售后政策</router-link>
+            <router-link to="">自助服务</router-link>
+            <router-link to="">相关下载</router-link>
+          </g-v>
+          <g-v class="site-footer-bottom-nav-main">
+            <div>线下门店</div>
+            <router-link to="">小米之家</router-link>
+            <router-link to="">服务网点</router-link>
+            <router-link to="">零售网点</router-link>
+          </g-v>
+          <g-v class="site-footer-bottom-nav-main">
+            <div>关于小米</div>
+            <router-link to="">了解小米</router-link>
+            <router-link to="">加入小米</router-link>
+            <router-link to="">联系我们</router-link>
+          </g-v>
+          <g-v class="site-footer-bottom-nav-main">
+            <div>关注我们</div>
+            <router-link to="">新浪微博</router-link>
+            <router-link to="">小米部落</router-link>
+            <router-link to="">官方微信</router-link>
+          </g-v>
+          <g-v class="site-footer-bottom-nav-main">
+            <div>特色服务</div>
+            <router-link to="">Ｆ码通道</router-link>
+            <router-link to="">礼物码</router-link>
+            <router-link to="">防伪查询</router-link>
+          </g-v>
         </g-h>
         <div class="vbar" />
         <g-v align-items="center">
@@ -123,7 +158,7 @@ primary = #ff6700
 
 .site-footer-service
   border-bottom: 1px solid #ccc
-  color: #666
+  color: #616161
   >.g-h
     padding: 2em
     >.router-link-active:hover
@@ -145,17 +180,34 @@ primary = #ff6700
       font-size: 24px
       color: primary
     >.router-link-active
-      font-size: 16px
+      font-size: 12px
       color: primary
       border: 1px solid primary
-      padding: 0.3em 2em
+      padding: 0.3em 3em
       margin-top: 1em
+      &:hover
+        color: white
+        background-color: primary
+
+.site-footer-bottom-nav-main
+  margin: 0 2.77rem
+  >div
+    font-size: 14px
+    padding: 0 0 1em 0
+    color: #424242
+  >.router-link-active
+    font-size: 12px
+    padding: 0.3em 0
+    color: #757575
+    &:hover
+      color: primary
 
 .site-footer-bottom-logo
   background-color: primary
   margin-right: 0.6rem
 
 .site-footer-bottom-logo-nav
+  margin-top: 2rem
   font-size: 12px
   color: #aaa
   &-first>
