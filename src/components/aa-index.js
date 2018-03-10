@@ -20,15 +20,21 @@ export function use(Vue, componentList) {
 import Card from "./card.vue"
 import V from "./v.vue"
 import H from "./h.vue"
+import SiteHeader from "./SiteHeader.vue"
+import SiteFooter from "./SiteFooter.vue"
 
 export {
   Card,
   V,
   H,
+  SiteHeader,
+  SiteFooter,
 }
 
 const components = [
   Card,
   V,
   H,
+  SiteHeader,
+  SiteFooter,
 ]

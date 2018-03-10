@@ -140,6 +140,7 @@
 
 <script>
 export default {
+  name: "SiteFooter",
   data() {
     return {
       age: 20,
@@ -170,6 +171,7 @@ primary = #ff6700
 
 .site-footer-bottom-nav
   padding: 2rem 0
+  margin-bottom: 2rem
   >.vbar
     width: 1px
     background: #ccc
@@ -207,7 +209,6 @@ primary = #ff6700
   margin-right: 0.6rem
 
 .site-footer-bottom-logo-nav
-  margin-top: 2rem
   font-size: 12px
   color: #aaa
   &-first>
