@@ -1,5 +1,6 @@
 # vue
 ## 用Vue实现的[小米商城首页](https://www.mi.com/index.html)
+## [项目展示](https://mhf-air.github.io/)
 
 用到了以下的库：
   1. Vue + Vue-Router + VueX
