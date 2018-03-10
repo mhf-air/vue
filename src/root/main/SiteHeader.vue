@@ -63,16 +63,20 @@
           </g-h>
         </g-h>
       </g-h>
-      <div class="site-header-bottom-right">
-        <g-h>
-          <input type="text" class="site-header-bottom-right-input" :class="{searchInputSelected}" @click="selectSearchInput" />
-          <div class="site-header-bottom-right-inner">
-            <router-link to="">红米5 Plus</router-link>
-            <router-link to="">小米Note 3</router-link>
-          </div>
-          <span class="site-header-bottom-right-search el-icon-search" :class="{searchInputSelected}" @click="selectSearchInput" />
-        </g-h>
-      </div>
+      <g-h class="site-header-bottom-right">
+        <input type="text" class="site-header-bottom-right-input" :class="{searchInputSelected}" @click="selectSearchInput" />
+        <div class="site-header-bottom-right-inner">
+          <router-link to="">红米5 Plus</router-link>
+          <router-link to="">小米Note 3</router-link>
+        </div>
+        <span class="site-header-bottom-right-search el-icon-search" :class="{searchInputSelected}" @click="selectSearchInput" />
+        <g-v class="search-suggestion-list">
+          <g-h v-for="item in searchSuggestionList" justify-content="space-between">
+            <span>{{ item.name }}</span>
+            <span class="search-suggestion-item-num">{{ "约有" + item.num + "件" }}</span>
+          </g-h>
+        </g-v>
+      </g-h>
     </g-h>
   </g-h>
 </header>
@@ -85,6 +89,18 @@ export default {
       username: "Tom",
       searchInputSelected: false,
       cartGoodCount: 0,
+      searchSuggestionList: [
+        { name: "小米手机6", num: "29" },
+        { name: "小米手机5X", num: "8" },
+        { name: "红米note 4X", num: "14" },
+        { name: "红米手机4X", num: "9" },
+        { name: "小米Max2", num: "5" },
+        { name: "小米电视4C", num: "2" },
+        { name: "电视32英寸", num: "1" },
+        { name: "笔记本pro", num: "3" },
+        { name: "空气净化器", num: "17" },
+        { name: "净水器", num: "9" },
+      ],
       categoryList: [
         {
           name: "小米手机",
@@ -311,10 +327,10 @@ primary = #ff6700
   border-color: #e0e0e0
   border-width: 1px */
 
-.site-header-bottom-right:hover &>.g-h>
+.site-header-bottom-right:hover &>
   border-color: #999
 
-.site-header-bottom-right>.g-h
+.site-header-bottom-right
   position: relative
 
 .site-header-bottom-right-input
@@ -345,6 +361,22 @@ primary = #ff6700
   &:hover
     background-color: primary
     color: #fff
+
+.search-suggestion-list
+  position: absolute
+  top: 2.9rem
+  left: 0
+  right: 3.05rem
+  border: 1px solid primary
+  border-top-style: none
+  >.g-h
+    padding: 0.2rem 1rem
+    font-size: 12px
+    &:hover
+      background: #eee
+
+.search-suggestion-item-num
+  color: #aaa
 
 .searchInputSelected
   border-color: primary
