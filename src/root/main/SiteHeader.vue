@@ -47,7 +47,7 @@
         </router-link>
         <g-h v-for="category in categoryList">
           <router-link to="" class="site-header-bottom-left-category">{{ category.name }}</router-link>
-          <g-h justify-content="center" class="site-header-bottom-left-popover-outer">
+          <g-h justify-content="center" class="site-header-bottom-left-popover-outer" v-if="category.list.length > 0">
             <g-h>
               <g-v v-for="item in category.list" class="site-header-bottom-left-popover" align-items="center">
                 <div class="product-tag" :class="{invisible: item.tag === ''}">{{ item.tag ? item.tag : "a" }}</div>
