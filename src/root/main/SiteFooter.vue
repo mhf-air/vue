@@ -30,11 +30,31 @@
       <g-h justify-content="space-between">
         <g-h>
           <router-link to="" class="site-footer-bottom-logo">
-            <img src="/image/mi-logo.png" alt="logo" title="小米官网" />
+            <img src="/image/mi-logo.png" alt="logo" />
           </router-link>
           <g-v class="site-footer-bottom-logo-nav">
-            <g-h>
-              top
+            <g-h class="site-footer-bottom-logo-nav-first">
+              <router-link to="">小米商城</router-link>
+              <div class="vbar" />
+              <router-link to="">MIUI</router-link>
+              <div class="vbar" />
+              <router-link to="">米家</router-link>
+              <div class="vbar" />
+              <router-link to="">米聊</router-link>
+              <div class="vbar" />
+              <router-link to="">多看</router-link>
+              <div class="vbar" />
+              <router-link to="">路由器</router-link>
+              <div class="vbar" />
+              <router-link to="">米粉卡</router-link>
+              <div class="vbar" />
+              <router-link to="">小米天猫店</router-link>
+              <div class="vbar" />
+              <router-link to="">隐私政策</router-link>
+              <div class="vbar" />
+              <router-link to="">问题反馈</router-link>
+              <div class="vbar" />
+              <router-link to="">Select Region</router-link>
             </g-h>
             <g-h class="site-footer-bottom-logo-nav-second">
               ©
@@ -95,11 +115,18 @@ primary = #ff6700
 .site-footer-bottom-logo-nav
   font-size: 12px
   color: #aaa
+  &-first>
+    margin-right: 7px
+    .router-link-active:hover
+      color: primary
+    >.vbar
+      width: 1px
+      background: #ccc
   &-second>
     margin-right: 7px
     color: #aaa
-  &-second>.router-link-active:hover
-    color: primary
+    .router-link-active:hover
+      color: primary
 
 .site-footer-slogan
   font-size: 20px
