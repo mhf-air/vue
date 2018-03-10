@@ -67,7 +67,22 @@
             <div>违法和不良信息举报电话：185-0130-1238，本网站所列数据，除特殊说明，所有数据均出自我司实验室测试</div>
           </g-v>
         </g-h>
-        <g-h>
+        <g-h align-items="center">
+          <router-link to="">
+            <img src="/image/mi/site/truste.png" width="100px">
+          </router-link>
+          <router-link to="">
+            <img src="/image/mi/site/v-logo-1.png">
+          </router-link>
+          <router-link to="">
+            <img src="/image/mi/site/v-logo-2.png">
+          </router-link>
+          <router-link to="">
+            <img src="/image/mi/site/v-logo-3.png">
+          </router-link>
+          <router-link to="">
+            <img src="/image/mi/site/v-logo-4.png">
+          </router-link>
         </g-h>
       </g-h>
       <g-h justify-content="center" class="site-footer-slogan">
