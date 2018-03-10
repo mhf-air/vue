@@ -2,7 +2,7 @@
 <header class="site-header">
   <g-h justify-content="center" class="site-header-top">
     <g-h justify-content="space-between" class="site-header-content">
-      <g-h align-items="center" class="site-header-top-left">
+      <g-h justify-content="space-between" align-items="center" class="site-header-top-left">
         <router-link to="">小米商城</router-link>
         <router-link to="">MIUI</router-link>
         <router-link to="">IoT</router-link>
@@ -246,15 +246,17 @@ primary = #ff6700
 .site-header-top-left
   padding: 0.7rem 0
 
-.site-header-top-left>*
-  color: #b0b0b0
-  padding-right: 0.6rem
-  &:hover
-    color: white
-
-.site-header-top-left>*:not(:last-child)::after
-  content: " |"
-  /* color: #424242 */
+.site-header-top-left
+  >
+    padding-right: 0.6rem
+  >.router-link-active
+    margin-right: 1em
+    color: #b0b0b0
+    border-right: 1px solid #424242
+    &:hover
+      color: white
+    &:last-child
+      border-right-style: none
 
 /* top right */
 .site-header-top-right>
