@@ -1,7 +1,7 @@
 <template>
 <div>
   <SiteHeader/>
-  <!-- <Content/> -->
+  <Content/>
   <SiteFooter/>
 </div>
 </template>

@@ -1,59 +1,86 @@
 <template>
-<main>
-  <g-h justify-content="space-around" align-items="center">
-    <div id="logo">SWISS</div>
-    <nav class="nav">
-      <el-button>预定</el-button>
-      <el-button>准备</el-button>
-      <el-button>飞行</el-button>
-      <el-button>探索</el-button>
-    </nav>
-    <div id="login">
-      <router-link to="/login">登录</router-link>
+<g-v>
+  <g-h justify-content="center">
+    <div class="section-main-product">
+      <el-carousel height="28rem">
+        <el-carousel-item v-for="(item, i) in mainProductList" :key="i">
+          <router-link to="">
+            <img :src="item.src" :alt="item.alt" />
+          </router-link>
+        </el-carousel-item>
+      </el-carousel>
+
+      <g-v justify-content="center" class="section-main-product-nav">
+        <g-h justify-content="center" v-for="(item, i) in mainProductNavList" :key="i" class="section-main-product-nav-left">
+          <g-h justify-content="space-between">
+            <span>{{ item.name }}</span>
+            <span>&gt;</span>
+          </g-h>
+        </g-h>
+      </g-v>
     </div>
   </g-h>
-</main>
+</g-v>
 </template>
 
 <script>
 export default {
   data() {
     return {
-      message: "Hello vue!",
+      mainProductList: [
+        { src: "/image/mi/main-product/xmad_1.jpg" },
+        { src: "/image/mi/main-product/xmad_2.jpg" },
+        { src: "/image/mi/main-product/xmad_3.jpg" },
+        { src: "/image/mi/main-product/xmad_4.jpg" },
+        { src: "/image/mi/main-product/xmad_5.jpg" },
+      ],
+      mainProductNavList: [
+        {
+          name: "手机　电话卡",
+          list: [
+            { src: "", name: "笔记本" },
+            { src: "", name: "笔记本" },
+            { src: "", name: "笔记本" },
+          ],
+        },
+        {
+          name: "笔记本",
+          list: [
+            { src: "", name: "笔记本" },
+            { src: "", name: "笔记本" },
+            { src: "", name: "笔记本" },
+          ],
+        },
+      ],
     }
   },
 }
 </script>
 
-<style scoped>
-main {
-  width: 100%;
-}
+<style lang="stylus" scoped>
+primary = #ff6700
 
-#logo {
-  font-size: 2rem;
-  color: red;
-}
+.section-main-product
+  position: relative
+  >.el-carousel
+    width: 76rem
+    background: cyan
 
-.nav {
-  margin-left: -30rem;
-}
-
-.nav>.el-button {
-  font-size: 1.3rem;
-  border-style: none;
-}
-
-.nav>.el-button:hover {
-  background-color: transparent;
-  color: red;
-}
-
-#login {
-  font-size: 1.5rem;
-}
-
-#login a:hover {
-  color: red;
-}
+.section-main-product-nav
+  position: absolute
+  top: 0
+  bottom: 0
+  left: 0
+  z-index: 2
+  width: 19%
+  background: rgba(0,0,0,0.6)
+  font-size: 14px
+  &-left
+    padding: 0.7em 0
+    &:hover
+      background: primary
+      color: #fff
+    >.g-h
+      width: 75%
+      color: #fff
 </style>
