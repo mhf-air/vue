@@ -150,7 +150,7 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-primary = #ff6700
+/* primary = #ff6700
 
 .site-footer
   width: 77rem
@@ -225,5 +225,5 @@ primary = #ff6700
 .site-footer-slogan
   font-size: 20px
   color: #aaa
-  padding: 1.5em 0
+  padding: 1.5em 0 */
 </style>
