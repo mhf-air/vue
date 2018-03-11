@@ -174,7 +174,7 @@ export default {
             { name: "小米路由器 HD/Pro", price: "499元", image: "/image/mi/router/xmlyq3.png", tag: "大容量" },
             { name: "小米路由器 3G", price: "249元", image: "/image/mi/router/3G.png", tag: "双千兆" },
             { name: "小米路由器 3", price: "119元", image: "/image/mi/router/320X220.jpg", tag: "双频" },
-            { name: "小米路由器 3C", price: "89元", image: "/image/mi/router/3C.jpg", tag: "包邮" },
+            { name: "小米路由器 3C", price: "89元", image: "/image/mi/router/3C.png", tag: "包邮" },
             { name: "小米WiFi放大器 Pro ", price: "79元", image: "/image/mi/router/fangdaqi320.jpg", tag: "" },
           ],
         },
