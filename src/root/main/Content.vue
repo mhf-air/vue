@@ -16,6 +16,12 @@
             <span>{{ item.name }}</span>
             <span>&gt;</span>
           </g-h>
+          <g-h wrap class="section-main-product-nav-popover">
+            <div v-for="(popItem, j) in item.list" :key="j" class="section-main-product-nav-popover-popitem">
+              <img :src="popItem.src" />
+              <span>{{ popItem.name }}</span>
+            </div>
+          </g-h>
         </g-h>
       </g-v>
     </div>
@@ -38,6 +44,7 @@ export default {
         {
           name: "手机　电话卡",
           list: [
+            { src: "", name: "笔记本" },
             { src: "", name: "笔记本" },
             { src: "", name: "笔记本" },
             { src: "", name: "笔记本" },
@@ -72,10 +79,12 @@ primary = #ff6700
   bottom: 0
   left: 0
   z-index: 2
-  width: 19%
-  background: rgba(0,0,0,0.6)
+  right: 50rem
+  /* background: rgba(0,0,0,0.6) */
+  background: cyan
   font-size: 14px
   &-left
+    width: 10rem
     padding: 0.7em 0
     &:hover
       background: primary
@@ -83,4 +92,17 @@ primary = #ff6700
     >.g-h
       width: 75%
       color: #fff
+  &-popover
+    position: absolute
+    background: red
+    top: 0
+    right: -70rem
+    bottom: 0
+    left: 100%
+    z-index: 2
+    &-popitem
+      padding: 1em
+      color: #000
+      >span:hover
+        color: primary
 </style>
