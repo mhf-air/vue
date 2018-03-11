@@ -17,14 +17,12 @@ export function use(Vue, componentList) {
 }
 
 // component list
-import Card from "./card.vue"
 import V from "./v.vue"
 import H from "./h.vue"
 import SiteHeader from "./SiteHeader.vue"
 import SiteFooter from "./SiteFooter.vue"
 
 export {
-  Card,
   V,
   H,
   SiteHeader,
@@ -32,7 +30,6 @@ export {
 }
 
 const components = [
-  Card,
   V,
   H,
   SiteHeader,
