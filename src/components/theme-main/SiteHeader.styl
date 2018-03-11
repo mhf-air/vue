@@ -1,0 +1,192 @@
+primary = #ff6700
+
+.site-header
+  position: relative
+
+.site-header-top
+  background-color: #363636
+  color: #b0b0b0
+  font-size: 12px
+
+.site-header-content
+  width: 77rem
+
+.site-header-top-left
+  padding: 0.7rem 0
+
+.site-header-top-left
+  >*
+    padding-right: 0.6rem
+  >.router-link-active
+    margin-right: 1em
+    color: #b0b0b0
+    border-right: 1px solid #424242
+    &:hover
+      color: white
+    &:last-child
+      border-right-style: none
+
+.site-header-top-right>*
+  display: flex
+  align-items: center
+  padding: 0 1rem
+  color: #b0b0b0
+  &:hover
+    color: white
+
+.site-header-top-right-user
+  position: relative
+  padding: 0 1.7rem
+  &:hover
+    background-color: white
+    color: orange
+    &>.popover
+      height: 8.5rem
+
+  &>.popover
+    height: 0
+    overflow: hidden
+    position: absolute
+    top: 2.4rem
+    left: 0
+    right: 0
+    transition: height 0.1s
+    text-align: center
+    background: #fff
+    z-index: 999
+    box-shadow: 0 5px 10px #ccc
+    &>.g-v>*
+      padding: 0.3rem 0
+      &:hover
+        background: #f5f5f5
+        color: primary
+
+.site-header-top-right-cart
+  position: relative
+  background: #424242
+  &:hover
+    color: primary
+    background: #fff
+    &>.popover
+      height: 6.4rem
+  &>.popover
+    height: 0
+    overflow: hidden
+    position: absolute
+    top: 2.4rem
+    left: -12rem
+    right: 0
+    background: #fff
+    color: #333
+    box-shadow: 0 3px 5px #ccc
+    z-index: 999
+    transition: height 0.1s
+
+.site-header-bottom
+  font-size: 16px
+  padding: 1.7rem 0
+
+.site-header-bottom-left-category
+  display: flex
+  align-items: center
+  padding: 0 1rem
+  color: #333
+  height: 4.5rem
+  &:hover
+    color: primary
+
+.site-header-bottom-left>.g-h:hover
+  &>.site-header-bottom-left-popover-outer
+    height: 14.95rem
+
+.site-header-bottom-logo
+  background-color: primary
+
+.site-header-bottom-right:hover
+  .site-header-bottom-right-input
+  .site-header-bottom-right-search
+    &:not(.searchInputSelected)
+      border-color: #999
+
+.site-header-bottom-right
+  position: relative
+
+.site-header-bottom-right-input
+  border-color: #e0e0e0
+  border-width: 1px
+  border-style: solid none solid solid
+  padding: 0.8rem 0.5rem
+  width: 13rem
+
+.site-header-bottom-right-inner
+  font-size: 12px
+  position: absolute
+  top: 1rem
+  right: 3.3rem
+  >*
+    margin-right: 0.2rem
+    padding: 0 0.3rem
+    background: #eee
+    &:hover
+      background: primary
+      color: #fff
+
+.site-header-bottom-right-search
+  display: flex
+  align-items: center
+  border: 1px solid #e0e0e0
+  padding: 0 1rem
+  &:hover
+    background-color: primary
+    color: #fff
+
+.search-suggestion-list
+  display: none
+  position: absolute
+  top: 2.9rem
+  left: 0
+  right: 3.05rem
+  border: 1px solid primary
+  border-top-style: none
+  background-color: #fff
+  >.g-h
+    padding: 0.2rem 1rem
+    font-size: 12px
+    &:hover
+      background: #eee
+
+.search-suggestion-item-num
+  color: #aaa
+
+.searchInputSelected
+  border-color: primary
+  display: flex
+
+.site-header-bottom-left-popover-outer
+  height: 0
+  overflow: hidden
+  top: 8.5rem
+  right: 0
+  left: 0
+  position: absolute
+  box-shadow: 0 1px 4px #ccc
+  background-color: #fff
+  >.g-h
+    width: 75rem
+
+.site-header-bottom-left-popover
+  margin: 0 1rem 2rem
+  font-size: 12px
+  >.product-tag
+    border: 1px solid primary
+    margin-bottom: 1em
+    padding: 0.3em 2em
+    color: primary
+  >.product-image
+    margin: 0 0 1rem
+  >.product-name
+    margin: 0.5em 0
+    &:hover
+      color: #6f6660
+  >.product-price
+    color: primary

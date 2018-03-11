@@ -69,7 +69,9 @@
           <router-link to="">红米5 Plus</router-link>
           <router-link to="">小米Note 3</router-link>
         </div>
-        <span class="site-header-bottom-right-search el-icon-search" :class="{searchInputSelected}" @click="selectSearchInput" />
+        <g-h class="site-header-bottom-right-search" :class="{searchInputSelected}" @click="selectSearchInput">
+          <span class="el-icon-search" />
+        </g-h>
         <g-v class="search-suggestion-list" :class="{searchInputSelected}">
           <g-h v-for="item in searchSuggestionList" justify-content="space-between">
             <span>{{ item.name }}</span>
@@ -228,7 +230,7 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-primary = #ff6700
+/* primary = #ff6700
 
 .site-header
   position: relative
@@ -418,5 +420,5 @@ primary = #ff6700
     &:hover
       color: #6f6660
   >.product-price
-    color: primary
+    color: primary */
 </style>
