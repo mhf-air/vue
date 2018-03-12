@@ -53,16 +53,25 @@ export default {
             { src: "", to: "", name: "小米Max 2" },
             { src: "", to: "", name: "红米5 Plus" },
             { src: "", to: "", name: "红米5" },
+            { src: "", to: "", name: "红米5A" },
+            { src: "", to: "", name: "红米Note 5A" },
+            { src: "", to: "", name: "红米Note 4X" },
+            { src: "", to: "", name: "红米4A" },
+            { src: "", to: "", name: "移动4G+专区" },
+            { src: "", to: "", name: "对比手机" },
+            { src: "", to: "", name: "米粉卡 日租卡" },
+            { src: "", to: "", name: "小米移动 电话卡" },
+            { src: "", to: "", name: "手机上门维修" },
           ],
         },
-        /* {
+        {
           name: "笔记本",
           list: [
             { src: "", to: "", name: "笔记本" },
             { src: "", to: "", name: "笔记本" },
             { src: "", to: "", name: "笔记本" },
           ],
-        }, */
+        },
       ],
     }
   },
@@ -92,13 +101,16 @@ primary = #ff6700
     &:hover
       background: primary
       color: #fff
+      >.section-main-product-nav-popover
+        display: flex
     >.g-h
       width: 75%
       color: #fff
   &-popover
+    display: none
     position: absolute
     top: 0
-    right: -30rem
+    right: -50rem
     bottom: 0
     left: 100%
     z-index: 2
