@@ -50,12 +50,20 @@
             <g-v justify-content="center" align-items="center" v-for="(item, i) in homeAppliancesList[selectedHomeAppliancesTag].slice(0, 4)" :key="i" class="section-home-appliances-right-card section-home-appliances-right-card-big">
               <img :src="item.image" />
               <div>{{ item.name }}</div>
+              <g-v class="popover">
+                <div>很喜欢，外形就是我喜欢的风格, 做工很精细</div>
+                <div>来自于 后来的情感　的评价</div>
+              </g-v>
             </g-v>
           </g-h>
           <g-h justify-content="space-between">
             <g-v justify-content="center" align-items="center" v-for="(item, i) in homeAppliancesList[selectedHomeAppliancesTag].slice(4, 7)" :key="i" class="section-home-appliances-right-card section-home-appliances-right-card-big">
               <img :src="item.image" />
               <div>{{ item.name }}</div>
+              <g-v class="popover">
+                <div>很喜欢，外形就是我喜欢的风格, 做工很精细</div>
+                <div>来自于 后来的情感　的评价</div>
+              </g-v>
             </g-v>
             <g-v class="section-home-appliances-right-bottom">
               <g-h justify-content="center" align-items="center">
@@ -297,15 +305,28 @@ primary = #ff6700
     flex: 1
     margin-top: 1rem
     &-card
+      position: relative
       background: #fff
       width: 14.7rem
       &:hover
         margin: -4px 0
         box-shadow: 0 5px 10px #ccc
+        >.popover
+          display: flex
       &-big
         height: 18rem
       >img
         width: 14rem
+      >.popover
+        display: none
+        position: absolute
+        right: 0
+        bottom: 0
+        left: 0
+        padding: 1em 2em
+        background: primary
+        font-size: 12px
+        color: #fff
 
 
 .section-home-appliances-right-bottom
