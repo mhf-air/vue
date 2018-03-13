@@ -47,21 +47,23 @@
         </g-v>
         <g-v justify-content="space-between" class="section-home-appliances-right">
           <g-h justify-content="space-between">
-            <g-v align-items="center" v-for="(item, i) in homeAppliancesList[selectedHomeAppliancesTag].slice(0, 4)" :key="i" class="section-home-appliances-right-card section-home-appliances-right-card-big">
+            <g-v justify-content="center" align-items="center" v-for="(item, i) in homeAppliancesList[selectedHomeAppliancesTag].slice(0, 4)" :key="i" class="section-home-appliances-right-card section-home-appliances-right-card-big">
+              <img :src="item.image" />
               <div>{{ item.name }}</div>
             </g-v>
           </g-h>
           <g-h justify-content="space-between">
-            <g-v align-items="center" v-for="(item, i) in homeAppliancesList[selectedHomeAppliancesTag].slice(4, 7)" :key="i" class="section-home-appliances-right-card section-home-appliances-right-card-big">
+            <g-v justify-content="center" align-items="center" v-for="(item, i) in homeAppliancesList[selectedHomeAppliancesTag].slice(4, 7)" :key="i" class="section-home-appliances-right-card section-home-appliances-right-card-big">
+              <img :src="item.image" />
               <div>{{ item.name }}</div>
             </g-v>
             <g-v class="section-home-appliances-right-bottom">
-              <div>
-                a
-              </div>
-              <div>
-                b
-              </div>
+              <g-h justify-content="center" align-items="center">
+                小白摄像机
+              </g-h>
+              <g-h justify-content="center" align-items="center">
+                浏览更多
+              </g-h>
             </g-v>
           </g-h>
         </g-v>
@@ -192,24 +194,24 @@ export default {
           { name: "小米6", price: "2299元起", image: "/image/mi/xiaomi/xm6-320.png", tag: "" },
         ],
         [
-          { name: "小米MIX 2", price: "3299元起", image: "/image/mi/xiaomi/mix2320-220.png", tag: "热卖" },
-          { name: "小米Note 3", price: "1999元起", image: "/image/mi/xiaomi/note2320x220.png", tag: "热卖" },
           { name: "小米6", price: "2299元起", image: "/image/mi/xiaomi/xm6-320.png", tag: "" },
           { name: "小米MAX 2", price: "1399元起", image: "/image/mi/xiaomi/max2_toubu.png", tag: "" },
           { name: "小米5X", price: "1299元起", image: "/image/mi/xiaomi/5x-2.jpg", tag: "" },
           { name: "红米5", price: "799元起", image: "/image/mi/hongmi/5-320-220.png", tag: "新品" },
           { name: "红米5 Plus", price: "999元起", image: "/image/mi/hongmi/5P-320-220.png", tag: "新品" },
           { name: "红米5A", price: "599元起", image: "/image/mi/hongmi/5-320-220.png", tag: "热卖" },
+          { name: "小米MIX 2", price: "3299元起", image: "/image/mi/xiaomi/mix2320-220.png", tag: "热卖" },
+          { name: "小米Note 3", price: "1999元起", image: "/image/mi/xiaomi/note2320x220.png", tag: "热卖" },
         ],
         [
           { name: "小米MAX 2", price: "1399元起", image: "/image/mi/xiaomi/max2_toubu.png", tag: "" },
           { name: "小米5X", price: "1299元起", image: "/image/mi/xiaomi/5x-2.jpg", tag: "" },
+          { name: "小米Note 3", price: "1999元起", image: "/image/mi/xiaomi/note2320x220.png", tag: "热卖" },
+          { name: "小米6", price: "2299元起", image: "/image/mi/xiaomi/xm6-320.png", tag: "" },
           { name: "红米5", price: "799元起", image: "/image/mi/hongmi/5-320-220.png", tag: "新品" },
           { name: "红米5 Plus", price: "999元起", image: "/image/mi/hongmi/5P-320-220.png", tag: "新品" },
           { name: "红米5A", price: "599元起", image: "/image/mi/hongmi/5-320-220.png", tag: "热卖" },
           { name: "小米MIX 2", price: "3299元起", image: "/image/mi/xiaomi/mix2320-220.png", tag: "热卖" },
-          { name: "小米Note 3", price: "1999元起", image: "/image/mi/xiaomi/note2320x220.png", tag: "热卖" },
-          { name: "小米6", price: "2299元起", image: "/image/mi/xiaomi/xm6-320.png", tag: "" },
         ],
       ],
     }
@@ -302,6 +304,8 @@ primary = #ff6700
         box-shadow: 0 5px 10px #ccc
       &-big
         height: 18rem
+      >img
+        width: 14rem
 
 
 .section-home-appliances-right-bottom
