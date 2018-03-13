@@ -34,10 +34,10 @@
       <g-h justify-content="space-between" align-items="center" class="section-home-appliances-top">
         <div>家电</div>
         <g-h class="section-home-appliances-title">
-          <span :class="{'selected-home-appliances-title': selectedHomeAppliancesTag === 0}">热门</span>
-          <span :class="{'selected-home-appliances-title': selectedHomeAppliancesTag === 1}">电视影音</span>
-          <span :class="{'selected-home-appliances-title': selectedHomeAppliancesTag === 2}">电脑</span>
-          <span :class="{'selected-home-appliances-title': selectedHomeAppliancesTag === 3}">家居</span>
+          <span :class="{'selected-home-appliances-title': selectedHomeAppliancesTag === 0}" @mouseenter="switctSelectedHomeAppliancesTag(0)">热门</span>
+          <span :class="{'selected-home-appliances-title': selectedHomeAppliancesTag === 1}" @mouseenter="switctSelectedHomeAppliancesTag(1)">电视影音</span>
+          <span :class="{'selected-home-appliances-title': selectedHomeAppliancesTag === 2}" @mouseenter="switctSelectedHomeAppliancesTag(2)">电脑</span>
+          <span :class="{'selected-home-appliances-title': selectedHomeAppliancesTag === 3}" @mouseenter="switctSelectedHomeAppliancesTag(3)">家居</span>
         </g-h>
       </g-h>
       <g-h>
@@ -47,12 +47,12 @@
         </g-v>
         <g-v justify-content="space-between" class="section-home-appliances-right">
           <g-h justify-content="space-between">
-            <g-v align-items="center" v-for="(item, i) in homeAppliancesList[0].slice(0, 4)" :key="i" class="section-home-appliances-right-card section-home-appliances-right-card-big">
+            <g-v align-items="center" v-for="(item, i) in homeAppliancesList[selectedHomeAppliancesTag].slice(0, 4)" :key="i" class="section-home-appliances-right-card section-home-appliances-right-card-big">
               <div>{{ item.name }}</div>
             </g-v>
           </g-h>
           <g-h justify-content="space-between">
-            <g-v align-items="center" v-for="(item, i) in homeAppliancesList[0].slice(4, 7)" :key="i" class="section-home-appliances-right-card section-home-appliances-right-card-big">
+            <g-v align-items="center" v-for="(item, i) in homeAppliancesList[selectedHomeAppliancesTag].slice(4, 7)" :key="i" class="section-home-appliances-right-card section-home-appliances-right-card-big">
               <div>{{ item.name }}</div>
             </g-v>
             <g-v class="section-home-appliances-right-bottom">
@@ -181,8 +181,43 @@ export default {
           { name: "红米5 Plus", price: "999元起", image: "/image/mi/hongmi/5P-320-220.png", tag: "新品" },
           { name: "红米5A", price: "599元起", image: "/image/mi/hongmi/5-320-220.png", tag: "热卖" },
         ],
+        [
+          { name: "小米MAX 2", price: "1399元起", image: "/image/mi/xiaomi/max2_toubu.png", tag: "" },
+          { name: "小米5X", price: "1299元起", image: "/image/mi/xiaomi/5x-2.jpg", tag: "" },
+          { name: "红米5", price: "799元起", image: "/image/mi/hongmi/5-320-220.png", tag: "新品" },
+          { name: "红米5 Plus", price: "999元起", image: "/image/mi/hongmi/5P-320-220.png", tag: "新品" },
+          { name: "红米5A", price: "599元起", image: "/image/mi/hongmi/5-320-220.png", tag: "热卖" },
+          { name: "小米MIX 2", price: "3299元起", image: "/image/mi/xiaomi/mix2320-220.png", tag: "热卖" },
+          { name: "小米Note 3", price: "1999元起", image: "/image/mi/xiaomi/note2320x220.png", tag: "热卖" },
+          { name: "小米6", price: "2299元起", image: "/image/mi/xiaomi/xm6-320.png", tag: "" },
+        ],
+        [
+          { name: "小米MIX 2", price: "3299元起", image: "/image/mi/xiaomi/mix2320-220.png", tag: "热卖" },
+          { name: "小米Note 3", price: "1999元起", image: "/image/mi/xiaomi/note2320x220.png", tag: "热卖" },
+          { name: "小米6", price: "2299元起", image: "/image/mi/xiaomi/xm6-320.png", tag: "" },
+          { name: "小米MAX 2", price: "1399元起", image: "/image/mi/xiaomi/max2_toubu.png", tag: "" },
+          { name: "小米5X", price: "1299元起", image: "/image/mi/xiaomi/5x-2.jpg", tag: "" },
+          { name: "红米5", price: "799元起", image: "/image/mi/hongmi/5-320-220.png", tag: "新品" },
+          { name: "红米5 Plus", price: "999元起", image: "/image/mi/hongmi/5P-320-220.png", tag: "新品" },
+          { name: "红米5A", price: "599元起", image: "/image/mi/hongmi/5-320-220.png", tag: "热卖" },
+        ],
+        [
+          { name: "小米MAX 2", price: "1399元起", image: "/image/mi/xiaomi/max2_toubu.png", tag: "" },
+          { name: "小米5X", price: "1299元起", image: "/image/mi/xiaomi/5x-2.jpg", tag: "" },
+          { name: "红米5", price: "799元起", image: "/image/mi/hongmi/5-320-220.png", tag: "新品" },
+          { name: "红米5 Plus", price: "999元起", image: "/image/mi/hongmi/5P-320-220.png", tag: "新品" },
+          { name: "红米5A", price: "599元起", image: "/image/mi/hongmi/5-320-220.png", tag: "热卖" },
+          { name: "小米MIX 2", price: "3299元起", image: "/image/mi/xiaomi/mix2320-220.png", tag: "热卖" },
+          { name: "小米Note 3", price: "1999元起", image: "/image/mi/xiaomi/note2320x220.png", tag: "热卖" },
+          { name: "小米6", price: "2299元起", image: "/image/mi/xiaomi/xm6-320.png", tag: "" },
+        ],
       ],
     }
+  },
+  methods: {
+    switctSelectedHomeAppliancesTag(i) {
+      this.selectedHomeAppliancesTag = i
+    },
   },
 }
 </script>
@@ -237,6 +272,7 @@ primary = #ff6700
 .section-home-appliances
   background: #f5f5f5
   margin-top: 2rem
+  padding-bottom: 2rem
   width: 100%
   &-content
     width: 76rem
@@ -259,11 +295,11 @@ primary = #ff6700
     flex: 1
     margin-top: 1rem
     &-card
-      background: cyan
+      background: #fff
       width: 14.7rem
       &:hover
         margin: -4px 0
-        box-shadow: 0 7px 30px #999
+        box-shadow: 0 5px 10px #ccc
       &-big
         height: 18rem
 
@@ -271,19 +307,20 @@ primary = #ff6700
 .section-home-appliances-right-bottom
   width: 14.7rem
   height: 18rem
+  background: #f5f5f5
   >*
     flex: 1
-    background: cyan
+    background: #fff
   >:first-child
     margin-bottom: 0.3em
     &:hover
       margin: -5px 0 3px
-      box-shadow: 0 7px 30px #999
+      box-shadow: 0 5px 10px #ccc
   >:last-child
     margin-top: 0.3em
     &:hover
       margin: 5px 0 0px
-      box-shadow: 0 7px 30px #999
+      box-shadow: 0 5px 10px #ccc
 
 .selected-home-appliances-title
   color: primary
