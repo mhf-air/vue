@@ -1,35 +1,74 @@
 <template>
-<g-v>
-  <g-h justify-content="center">
-    <div class="section-main-product">
-      <el-carousel height="28rem">
-        <el-carousel-item v-for="(item, i) in mainProductList" :key="i">
-          <router-link to="">
-            <img :src="item.src" :alt="item.alt" />
-          </router-link>
-        </el-carousel-item>
-      </el-carousel>
+<g-v align-items="center">
+  <div class="section-main-product">
+    <el-carousel height="28rem">
+      <el-carousel-item v-for="(item, i) in mainProductList" :key="i">
+        <router-link to="">
+          <img :src="item.src" :alt="item.alt" />
+        </router-link>
+      </el-carousel-item>
+    </el-carousel>
 
-      <g-v justify-content="center" class="section-main-product-nav">
-        <g-h justify-content="center" v-for="(item, i) in mainProductNavList" :key="i" class="section-main-product-nav-left">
-          <g-h justify-content="space-between">
-            <span>{{ item.name }}</span>
-            <span>&gt;</span>
-          </g-h>
-          <div class="section-main-product-nav-popover">
-            <g-h wrap>
-              <div v-for="(popItem, j) in item.list" :key="j" class="section-main-product-nav-popover-popitem">
-                <router-link to="popItem.link">
-                  <img :src="popItem.src" />
-                  <span>{{ popItem.name }}</span>
-                </router-link>
-              </div>
-            </g-h>
-          </div>
+    <g-v justify-content="center" class="section-main-product-nav">
+      <g-h justify-content="center" v-for="(item, i) in mainProductNavList" :key="i" class="section-main-product-nav-left">
+        <g-h justify-content="space-between">
+          <span>{{ item.name }}</span>
+          <span>&gt;</span>
         </g-h>
-      </g-v>
-    </div>
+        <div class="section-main-product-nav-popover">
+          <g-h wrap>
+            <div v-for="(popItem, j) in item.list" :key="j" class="section-main-product-nav-popover-popitem">
+              <router-link to="popItem.link">
+                <img :src="popItem.src" />
+                <span>{{ popItem.name }}</span>
+              </router-link>
+            </div>
+          </g-h>
+        </div>
+      </g-h>
+    </g-v>
+  </div>
+
+  <g-h justify-content="center" class="section-home-appliances">
+    <g-v class="section-home-appliances-content">
+      <g-h justify-content="space-between" align-items="center" class="section-home-appliances-top">
+        <div>家电</div>
+        <g-h class="section-home-appliances-title">
+          <span :class="{'selected-home-appliances-title': selectedHomeAppliancesTag === 0}">热门</span>
+          <span :class="{'selected-home-appliances-title': selectedHomeAppliancesTag === 1}">电视影音</span>
+          <span :class="{'selected-home-appliances-title': selectedHomeAppliancesTag === 2}">电脑</span>
+          <span :class="{'selected-home-appliances-title': selectedHomeAppliancesTag === 3}">家居</span>
+        </g-h>
+      </g-h>
+      <g-h>
+        <g-v class="section-home-appliances-left">
+          <img src="/image/mi/home-appliances/robot.jpg" />
+          <img src="/image/mi/home-appliances/dianfanbao.jpg" />
+        </g-v>
+        <g-v justify-content="space-between" class="section-home-appliances-right">
+          <g-h justify-content="space-between">
+            <g-v align-items="center" v-for="(item, i) in homeAppliancesList[0].slice(0, 4)" :key="i" class="section-home-appliances-right-card section-home-appliances-right-card-big">
+              <div>{{ item.name }}</div>
+            </g-v>
+          </g-h>
+          <g-h justify-content="space-between">
+            <g-v align-items="center" v-for="(item, i) in homeAppliancesList[0].slice(4, 7)" :key="i" class="section-home-appliances-right-card section-home-appliances-right-card-big">
+              <div>{{ item.name }}</div>
+            </g-v>
+            <g-v class="section-home-appliances-right-bottom">
+              <div>
+                a
+              </div>
+              <div>
+                b
+              </div>
+            </g-v>
+          </g-h>
+        </g-v>
+      </g-h>
+    </g-v>
   </g-h>
+
 </g-v>
 </template>
 
@@ -130,6 +169,19 @@ export default {
           list: mainProductNavList_more,
         },
       ],
+      selectedHomeAppliancesTag: 0,
+      homeAppliancesList: [
+        [
+          { name: "小米MIX 2", price: "3299元起", image: "/image/mi/xiaomi/mix2320-220.png", tag: "热卖" },
+          { name: "小米Note 3", price: "1999元起", image: "/image/mi/xiaomi/note2320x220.png", tag: "热卖" },
+          { name: "小米6", price: "2299元起", image: "/image/mi/xiaomi/xm6-320.png", tag: "" },
+          { name: "小米MAX 2", price: "1399元起", image: "/image/mi/xiaomi/max2_toubu.png", tag: "" },
+          { name: "小米5X", price: "1299元起", image: "/image/mi/xiaomi/5x-2.jpg", tag: "" },
+          { name: "红米5", price: "799元起", image: "/image/mi/hongmi/5-320-220.png", tag: "新品" },
+          { name: "红米5 Plus", price: "999元起", image: "/image/mi/hongmi/5P-320-220.png", tag: "新品" },
+          { name: "红米5A", price: "599元起", image: "/image/mi/hongmi/5-320-220.png", tag: "热卖" },
+        ],
+      ],
     }
   },
 }
@@ -181,4 +233,60 @@ primary = #ff6700
       writing-mode: horizontal-tb
       span:hover
         color: primary
+
+.section-home-appliances
+  background: #f5f5f5
+  margin-top: 2rem
+  width: 100%
+  &-content
+    width: 76rem
+  &-top>div
+    font-size: 22px
+    font-weight: 200
+    padding: 1em 0 0
+    color: #333
+  &-title>*
+    font-size: 16px
+    margin-left: 1.6rem
+  &-left
+    >img
+      width: 14rem
+      margin: 1rem 1rem 0 0
+      &:hover
+        margin: 14px 0 2px
+        box-shadow: 0 7px 30px #999
+  &-right
+    flex: 1
+    margin-top: 1rem
+    &-card
+      background: cyan
+      width: 14.7rem
+      &:hover
+        margin: -4px 0
+        box-shadow: 0 7px 30px #999
+      &-big
+        height: 18rem
+
+
+.section-home-appliances-right-bottom
+  width: 14.7rem
+  height: 18rem
+  >*
+    flex: 1
+    background: cyan
+  >:first-child
+    margin-bottom: 0.3em
+    &:hover
+      margin: -5px 0 3px
+      box-shadow: 0 7px 30px #999
+  >:last-child
+    margin-top: 0.3em
+    &:hover
+      margin: 5px 0 0px
+      box-shadow: 0 7px 30px #999
+
+.selected-home-appliances-title
+  color: primary
+  border-bottom: 1px solid primary
+
 </style>
