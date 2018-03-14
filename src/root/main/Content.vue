@@ -1,6 +1,7 @@
 <template>
 <g-v align-items="center">
-  <div class="section-main-product">
+  <!-- main product -->
+  <div class="main-product">
     <el-carousel height="28rem">
       <el-carousel-item v-for="(item, i) in mainProductList" :key="i">
         <router-link to="">
@@ -9,15 +10,15 @@
       </el-carousel-item>
     </el-carousel>
 
-    <g-v justify-content="center" class="section-main-product-nav">
-      <g-h justify-content="center" v-for="(item, i) in mainProductNavList" :key="i" class="section-main-product-nav-left">
+    <g-v justify-content="center" class="main-product-nav">
+      <g-h justify-content="center" v-for="(item, i) in mainProductNavList" :key="i" class="main-product-nav-left">
         <g-h justify-content="space-between">
           <span>{{ item.name }}</span>
           <span>&gt;</span>
         </g-h>
-        <div class="section-main-product-nav-popover">
+        <div class="main-product-nav-popover">
           <g-h wrap>
-            <div v-for="(popItem, j) in item.list" :key="j" class="section-main-product-nav-popover-popitem">
+            <div v-for="(popItem, j) in item.list" :key="j" class="main-product-nav-popover-popitem">
               <router-link to="popItem.link">
                 <img :src="popItem.src" />
                 <span>{{ popItem.name }}</span>
@@ -29,25 +30,26 @@
     </g-v>
   </div>
 
-  <g-h justify-content="center" class="section-home-appliances">
-    <g-v class="section-home-appliances-content">
-      <g-h justify-content="space-between" align-items="center" class="section-home-appliances-top">
+  <!-- home appliances -->
+  <g-h justify-content="center" class="home-appliances">
+    <g-v class="home-appliances-content">
+      <g-h justify-content="space-between" align-items="center" class="home-appliances-top">
         <div>家电</div>
-        <g-h class="section-home-appliances-title">
-          <span :class="{'selected-home-appliances-title': selectedHomeAppliancesTag === 0}" @mouseenter="switctSelectedHomeAppliancesTag(0)">热门</span>
-          <span :class="{'selected-home-appliances-title': selectedHomeAppliancesTag === 1}" @mouseenter="switctSelectedHomeAppliancesTag(1)">电视影音</span>
-          <span :class="{'selected-home-appliances-title': selectedHomeAppliancesTag === 2}" @mouseenter="switctSelectedHomeAppliancesTag(2)">电脑</span>
-          <span :class="{'selected-home-appliances-title': selectedHomeAppliancesTag === 3}" @mouseenter="switctSelectedHomeAppliancesTag(3)">家居</span>
+        <g-h class="home-appliances-title">
+          <span :class="{'selected-home-appliances': selectedHomeAppliances === 0}" @mouseenter="switctSelectedHomeAppliances(0)">热门</span>
+          <span :class="{'selected-home-appliances': selectedHomeAppliances === 1}" @mouseenter="switctSelectedHomeAppliances(1)">电视影音</span>
+          <span :class="{'selected-home-appliances': selectedHomeAppliances === 2}" @mouseenter="switctSelectedHomeAppliances(2)">电脑</span>
+          <span :class="{'selected-home-appliances': selectedHomeAppliances === 3}" @mouseenter="switctSelectedHomeAppliances(3)">家居</span>
         </g-h>
       </g-h>
       <g-h>
-        <g-v class="section-home-appliances-left">
+        <g-v class="home-appliances-left">
           <img src="/image/mi/home-appliances/robot.jpg" />
           <img src="/image/mi/home-appliances/dianfanbao.jpg" />
         </g-v>
-        <g-v justify-content="space-between" class="section-home-appliances-right">
+        <g-v justify-content="space-between" class="home-appliances-right">
           <g-h justify-content="space-between">
-            <g-v justify-content="center" align-items="center" v-for="(item, i) in homeAppliancesList[selectedHomeAppliancesTag].slice(0, 4)" :key="i" class="section-home-appliances-right-card section-home-appliances-right-card-big">
+            <g-v justify-content="center" align-items="center" v-for="(item, i) in homeAppliancesList[selectedHomeAppliances].slice(0, 4)" :key="i" class="home-appliances-right-card home-appliances-right-card-big">
               <img :src="item.image" />
               <div>{{ item.name }}</div>
               <g-v class="popover">
@@ -57,7 +59,7 @@
             </g-v>
           </g-h>
           <g-h justify-content="space-between">
-            <g-v justify-content="center" align-items="center" v-for="(item, i) in homeAppliancesList[selectedHomeAppliancesTag].slice(4, 7)" :key="i" class="section-home-appliances-right-card section-home-appliances-right-card-big">
+            <g-v justify-content="center" align-items="center" v-for="(item, i) in homeAppliancesList[selectedHomeAppliances].slice(4, 7)" :key="i" class="home-appliances-right-card home-appliances-right-card-big">
               <img :src="item.image" />
               <div>{{ item.name }}</div>
               <g-v class="popover">
@@ -65,7 +67,7 @@
                 <div>来自于 后来的情感　的评价</div>
               </g-v>
             </g-v>
-            <g-v class="section-home-appliances-right-bottom">
+            <g-v class="home-appliances-right-bottom">
               <g-h justify-content="center" align-items="center">
                 小白摄像机
               </g-h>
@@ -179,7 +181,7 @@ export default {
           list: mainProductNavList_more,
         },
       ],
-      selectedHomeAppliancesTag: 0,
+      selectedHomeAppliances: 0,
       homeAppliancesList: [
         [
           { name: "小米MIX 2", price: "3299元起", image: "/image/mi/xiaomi/mix2320-220.png", tag: "热卖" },
@@ -225,8 +227,8 @@ export default {
     }
   },
   methods: {
-    switctSelectedHomeAppliancesTag(i) {
-      this.selectedHomeAppliancesTag = i
+    switctSelectedHomeAppliances(i) {
+      this.selectedHomeAppliances = i
     },
   },
 }
@@ -235,13 +237,13 @@ export default {
 <style lang="stylus" scoped>
 primary = #ff6700
 
-.section-main-product
+.main-product
   position: relative
   >.el-carousel
     width: 76rem
     background: cyan
 
-.section-main-product-nav
+.main-product-nav
   position: absolute
   top: 0
   bottom: 0
@@ -255,7 +257,7 @@ primary = #ff6700
     &:hover
       background: primary
       color: #fff
-      >.section-main-product-nav-popover
+      >.main-product-nav-popover
         display: flex
     >.g-h
       width: 75%
@@ -279,7 +281,7 @@ primary = #ff6700
       span:hover
         color: primary
 
-.section-home-appliances
+.home-appliances
   background: #f5f5f5
   margin-top: 2rem
   padding-bottom: 2rem
@@ -329,7 +331,7 @@ primary = #ff6700
         color: #fff
 
 
-.section-home-appliances-right-bottom
+.home-appliances-right-bottom
   width: 14.7rem
   height: 18rem
   background: #f5f5f5
@@ -347,7 +349,7 @@ primary = #ff6700
       margin: 5px 0 0px
       box-shadow: 0 5px 10px #ccc
 
-.selected-home-appliances-title
+.selected-home-appliances
   color: primary
   border-bottom: 1px solid primary
 

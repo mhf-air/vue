@@ -3,9 +3,6 @@
   <p class="red">{{ message }}</p>
   <p>{{ reversedMessage }}</p>
   <button v-on:click="reverseMessage">Reverse Message</button>
-  <p>
-    <router-link to="/login">Login</router-link>
-  </p>
 
   <label>enter todo</label>
   <input @keyup.enter="addTodo" />
@@ -14,11 +11,6 @@
       {{ todo.value }}
     </li>
   </ol>
-
-  <el-badge :value="12">
-    <el-button>评论</el-button>
-  </el-badge>
-
 </div>
 </template>
 
