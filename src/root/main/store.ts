@@ -7,7 +7,7 @@ const state = {
 const getters = {}
 
 const mutations = {
-  addTodo(state, s) {
+  addTodo(state: any, s: any) {
     state.todoList.push({ value: s.todo })
   },
 }

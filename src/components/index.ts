@@ -1,7 +1,7 @@
 // global components
 
-function install(Vue) {
-  components.map((component) => {
+function install(Vue: any) {
+  components.map((component: any) => {
     Vue.component(component.name, component)
   })
 }
@@ -10,8 +10,8 @@ export default {
   install,
 }
 
-export function use(Vue, componentList) {
-  componentList.map((c) => {
+export function use(Vue: any, componentList: any) {
+  componentList.map((c: any) => {
     Vue.component(c.name, c)
   })
 }

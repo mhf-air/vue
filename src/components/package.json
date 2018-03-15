@@ -1,5 +1,4 @@
 {
-  "main":"./aa-index.js",
   "browserify": {
     "transform": [
       "babelify",

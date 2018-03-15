@@ -12,7 +12,7 @@
     "vuex": "^3.0.1"
   },
   "scripts": {
-    "dev-watch": "watchify -vd --iw 'web/**' -e src/app.js -o '> web/js/app.js'",
+    "dev-watch": "node watch.js",
     "dev-serve": "live-server web --entry-file=index.html",
     "dev": "npm-run-all -p dev-watch dev-serve",
     "p-fonts": "mkdir -p web/css && rm -rf web/css/fonts && cp -r static/css/fonts web/css",
@@ -48,6 +48,8 @@
     "npm-run-all": "^4.1.2",
     "pug": "^2.0.0",
     "stylus": "^0.54.5",
+    "tsify": "^3.0.4",
+    "typescript": "^2.7.2",
     "uglify-js": "^3.3.10",
     "vueify": "^9.4.1",
     "watchify": "^3.10.0"
