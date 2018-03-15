@@ -1,87 +1,85 @@
-<template>
-<g-v align-items="center">
-  <!-- main product -->
-  <div class="main-product">
-    <el-carousel height="28rem">
-      <el-carousel-item v-for="(item, i) in mainProductList" :key="i">
-        <router-link to="">
-          <img :src="item.src" :alt="item.alt" />
-        </router-link>
-      </el-carousel-item>
-    </el-carousel>
+<template lang="pug">
+g-v(align-items="center")
+  //- main product
+  div(class="main-product")
+    el-carousel(height="28rem")
+      el-carousel-item(v-for="(item, i) in mainProductList" :key="i")
+        router-link(to="")
+          img(:src="item.src" :alt="item.alt")
+    g-v(justify-content="center" class="main-product-nav")
+      g-h(
+          justify-content="center"
+          class="main-product-nav-left"
+          v-for="(item, i) in mainProductNavList"
+          ikey="i"
+          )
+        g-h(justify-content="space-between")
+          span {{ item.name }}
+          span &gt;
+        div(class="main-product-nav-popover")
+          g-h(wrap)
+            div(v-for="(popItem, j) in item.list" :key="j" class="main-product-nav-popover-popitem")
+              router-link(to="popItem.link")
+                img(:src="popItem.link")
+                span {{ popItem.name }}
 
-    <g-v justify-content="center" class="main-product-nav">
-      <g-h justify-content="center" v-for="(item, i) in mainProductNavList" :key="i" class="main-product-nav-left">
-        <g-h justify-content="space-between">
-          <span>{{ item.name }}</span>
-          <span>&gt;</span>
-        </g-h>
-        <div class="main-product-nav-popover">
-          <g-h wrap>
-            <div v-for="(popItem, j) in item.list" :key="j" class="main-product-nav-popover-popitem">
-              <router-link to="popItem.link">
-                <img :src="popItem.src" />
-                <span>{{ popItem.name }}</span>
-              </router-link>
-            </div>
-          </g-h>
-        </div>
-      </g-h>
-    </g-v>
-  </div>
+  //- home appliances
+  g-h(justify-content="center" class="home-appliances")
+    g-v(class="home-appliances-content")
+      g-h(justify-content="space-between" align-items="center" class="home-appliances-top")
+        div 家电
+        g-h(class="home-appliances-title")
+          span(
+              :class="{'selected-home-appliances': selectedHomeAppliances === 0}"
+              @mouseenter="switctSelectedHomeAppliances(0)"
+              ) 热门
+          span(
+              :class="{'selected-home-appliances': selectedHomeAppliances === 1}"
+              @mouseenter="switctSelectedHomeAppliances(1)"
+              ) 电视影音
+          span(
+              :class="{'selected-home-appliances': selectedHomeAppliances === 2}"
+              @mouseenter="switctSelectedHomeAppliances(2)"
+              ) 电脑
+          span(
+              :class="{'selected-home-appliances': selectedHomeAppliances === 3}"
+              @mouseenter="switctSelectedHomeAppliances(3)"
+              ) 家居
+      g-h
+        g-v(class="home-appliances-left")
+          img(src="/image/mi/home-appliances/robot.jpg")
+          img(src="/image/mi/home-appliances/dianfanbao.jpg")
+        g-v(justify-content="space-between" class="home-appliances-right")
+          g-h(justify-content="space-between")
+            g-v(
+                justify-content="center"
+                align-items="center"
+                v-for="(item, i) in homeAppliancesList[selectedHomeAppliances].slice(0, 4)"
+                :key="i"
+                class="home-appliances-right-card home-appliances-right-card-big"
+                )
+              img(:src="item.image")
+              div {{ item.name }}
+              g-v(class="popover")
+                div 很喜欢，外形就是我喜欢的风格, 做工很精细
+                div 来自于 后来的情感　的评价
+          g-h(justify-content="space-between")
+            g-v(
+                justify-content="center"
+                align-items="center"
+                v-for="(item, i) in homeAppliancesList[selectedHomeAppliances].slice(4, 7)"
+                :key="i"
+                class="home-appliances-right-card home-appliances-right-card-big"
+                )
+              img(:src="item.image")
+              div {{ item.name }}
+              g-v(class="popover")
+                div 很喜欢，外形就是我喜欢的风格, 做工很精细
+                div 来自于 后来的情感　的评价
+            g-v(class="home-appliances-right-bottom")
+              g-h(justify-content="center" align-items="center") 小白摄像机
+              g-h(justify-content="center" align-items="center") 浏览更多
 
-  <!-- home appliances -->
-  <g-h justify-content="center" class="home-appliances">
-    <g-v class="home-appliances-content">
-      <g-h justify-content="space-between" align-items="center" class="home-appliances-top">
-        <div>家电</div>
-        <g-h class="home-appliances-title">
-          <span :class="{'selected-home-appliances': selectedHomeAppliances === 0}" @mouseenter="switctSelectedHomeAppliances(0)">热门</span>
-          <span :class="{'selected-home-appliances': selectedHomeAppliances === 1}" @mouseenter="switctSelectedHomeAppliances(1)">电视影音</span>
-          <span :class="{'selected-home-appliances': selectedHomeAppliances === 2}" @mouseenter="switctSelectedHomeAppliances(2)">电脑</span>
-          <span :class="{'selected-home-appliances': selectedHomeAppliances === 3}" @mouseenter="switctSelectedHomeAppliances(3)">家居</span>
-        </g-h>
-      </g-h>
-      <g-h>
-        <g-v class="home-appliances-left">
-          <img src="/image/mi/home-appliances/robot.jpg" />
-          <img src="/image/mi/home-appliances/dianfanbao.jpg" />
-        </g-v>
-        <g-v justify-content="space-between" class="home-appliances-right">
-          <g-h justify-content="space-between">
-            <g-v justify-content="center" align-items="center" v-for="(item, i) in homeAppliancesList[selectedHomeAppliances].slice(0, 4)" :key="i" class="home-appliances-right-card home-appliances-right-card-big">
-              <img :src="item.image" />
-              <div>{{ item.name }}</div>
-              <g-v class="popover">
-                <div>很喜欢，外形就是我喜欢的风格, 做工很精细</div>
-                <div>来自于 后来的情感　的评价</div>
-              </g-v>
-            </g-v>
-          </g-h>
-          <g-h justify-content="space-between">
-            <g-v justify-content="center" align-items="center" v-for="(item, i) in homeAppliancesList[selectedHomeAppliances].slice(4, 7)" :key="i" class="home-appliances-right-card home-appliances-right-card-big">
-              <img :src="item.image" />
-              <div>{{ item.name }}</div>
-              <g-v class="popover">
-                <div>很喜欢，外形就是我喜欢的风格, 做工很精细</div>
-                <div>来自于 后来的情感　的评价</div>
-              </g-v>
-            </g-v>
-            <g-v class="home-appliances-right-bottom">
-              <g-h justify-content="center" align-items="center">
-                小白摄像机
-              </g-h>
-              <g-h justify-content="center" align-items="center">
-                浏览更多
-              </g-h>
-            </g-v>
-          </g-h>
-        </g-v>
-      </g-h>
-    </g-v>
-  </g-h>
-
-</g-v>
 </template>
 
 <script>

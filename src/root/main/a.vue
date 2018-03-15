@@ -1,6 +1,7 @@
 <template>
 <div>
   <SiteHeader/>
+  <!-- <Test/> -->
   <Content/>
   <SiteFooter/>
 </div>
@@ -8,10 +9,12 @@
 
 <script>
 import Content from "./Content.vue"
+import Test from "./Test.vue"
 
 export default {
   components: {
     Content,
+    Test,
   },
 }
 </script>
