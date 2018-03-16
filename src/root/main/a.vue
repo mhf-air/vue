@@ -7,16 +7,17 @@
 </div>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from "vue"
 import Content from "./Content.vue"
 import Test from "./Test.vue"
 
-export default {
+export default Vue.extend({
   components: {
     Content,
     Test,
   },
-}
+})
 </script>
 
 <style scoped>

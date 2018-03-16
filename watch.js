@@ -5,16 +5,26 @@
 
 const fs = require("fs")
 const browserify = require("browserify")
-const vueify = require("vueify")
-const tsify = require("tsify")
-const babelify = require("babelify")
+const typescript = require("typescript")
 
 browserify("src/app.ts")
-  .plugin(tsify, { target: "es5" })
-  .transform(babelify, {
+  .plugin("tsify")
+  /* .transform("babelify", {
     presets: ["env"],
     plugins: ["transform-object-rest-spread"],
+    extensions: [".ts"],
+  }) */
+  .transform("vueify", {
+    customCompilers: {
+      ts: function(content, cb, compiler, filePath) {
+        let result = typescript.transpileModule(content, {
+          compilerOptions: {
+            module: typescript.ModuleKind.CommonJS
+          }
+        })
+        cb(null, result.outputText)
+      }
+    }
   })
-  .transform(vueify)
   .bundle()
   .pipe(fs.createWriteStream("web/js/app.js"))

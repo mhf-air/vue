@@ -82,7 +82,7 @@ g-v(align-items="center")
 
 </template>
 
-<script>
+<script lang="ts">
 let mainProductNavList_less = [
   { src: "", to: "", name: "小米Note 3" },
   { src: "", to: "", name: "小米Mix 2" },
@@ -127,7 +127,7 @@ let mainProductNavList_more = [
   { src: "", to: "", name: "手机上门维修" },
 ]
 
-export default {
+export default Vue.extend({
   data() {
     return {
       mainProductList: [
@@ -229,7 +229,7 @@ export default {
       this.selectedHomeAppliances = i
     },
   },
-}
+})
 </script>
 
 <style lang="stylus" scoped>

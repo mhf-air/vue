@@ -138,15 +138,16 @@
 </footer>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import Vue from "vue"
+export default Vue.extend({
   name: "SiteFooter",
   data() {
     return {
       age: 20,
     }
   },
-}
+})
 </script>
 
 <style lang="stylus" scoped>

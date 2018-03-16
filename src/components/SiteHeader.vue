@@ -84,8 +84,9 @@
 </header>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import Vue from "vue"
+export default Vue.extend({
   name: "SiteHeader",
   data() {
     return {
@@ -226,7 +227,7 @@ export default {
   destroyed() {
     document.removeEventListener("click", this.documentClick)
   },
-}
+})
 </script>
 
 <style lang="stylus" scoped>

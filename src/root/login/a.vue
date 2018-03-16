@@ -16,10 +16,10 @@
 </div>
 </template>
 
-<script>
+<script lang="ts">
 import api from "app/api"
 
-export default {
+export default Vue.extend({
   data() {
     return {
       toRemember: false,
@@ -50,7 +50,7 @@ export default {
       this.$router.push("/login/register")
     },
   }
-}
+})
 </script>
 
 <style scoped>

@@ -14,11 +14,11 @@
 </div>
 </template>
 
-<script>
+<script lang="ts">
 import { mapState } from "vuex"
 import api from "app/api"
 
-export default {
+export default Vue.extend({
   data() {
     return {
       message: "Hello vue!",
@@ -52,7 +52,7 @@ export default {
       }
     },
   },
-}
+})
 </script>
 
 <style scoped>

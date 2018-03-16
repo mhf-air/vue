@@ -4,8 +4,9 @@
 </section>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import Vue from "vue"
+export default Vue.extend({
   name: "g-v",
   props: {
     wrap: {
@@ -48,5 +49,5 @@ export default {
       return a
     },
   }
-}
+})
 </script>
