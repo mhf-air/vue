@@ -13,8 +13,8 @@
   },
   "scripts": {
     "dev": "webpack-dev-server --mode development --open",
-    "dev-serve": "live-server web --entry-file=index.html",
     "dev-watch": "webpack --mode development",
+    "dev-serve": "live-server web --entry-file=index.html",
     "p-fonts": "mkdir -p web/css && rm -rf web/css/fonts && cp -r static/css/fonts web/css",
     "gen-theme-css": "cat src/components/theme-main/common/*.styl src/components/theme-main/*.styl | stylus > /tmp/theme-main.css",
     "p-min-css": "cat static/css/normalize.css static/css/main.css /tmp/theme-main.css | csso -o web/css/main.css",

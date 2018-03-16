@@ -5,7 +5,7 @@ module.exports = {
     app: "./src/app.js",
   },
   output: {
-    path: path.resolve(__dirname, "dist"),
+    path: path.resolve(__dirname, "web/js"),
     filename: "[name].js",
   },
   module: {
@@ -21,6 +21,11 @@ module.exports = {
         loader: "vue-loader",
       }
     ],
+  },
+  devServer: {
+    contentBase: path.join(__dirname, "web"),
+    // historyApiFallback: true,
+    // index: "index.html",
   },
   node: {
     // prevent webpack from injecting useless setImmediate polyfill because Vue

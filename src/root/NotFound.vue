@@ -1,13 +1,16 @@
-<template>
-  <div>
-    <p>Page Not Found</p>
-  </div>
+<template lang="pug">
+div
+  p Page Not Found
 </template>
 
 <script>
 export default {
+  data() {
+    return {}
+  }
 }
 </script>
 
 <style scoped>
+
 </style>
