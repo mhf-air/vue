@@ -13,8 +13,6 @@
   },
   "scripts": {
     "dev": "webpack-dev-server --mode development --open",
-    "dev-watch": "webpack --mode development",
-    "dev-serve": "live-server web --entry-file=index.html",
     "p-fonts": "mkdir -p web/css && rm -rf web/css/fonts && cp -r static/css/fonts web/css",
     "gen-theme-css": "cat src/components/theme-main/common/*.styl src/components/theme-main/*.styl | stylus > /tmp/theme-main.css",
     "p-min-css": "cat static/css/normalize.css static/css/main.css /tmp/theme-main.css | csso -o web/css/main.css",
@@ -23,7 +21,7 @@
     "p-image": "rm -rf web/image && cp -r static/image web",
     "p-other": "cp static/other/* web",
     "p-static": "npm-run-all p-html p-css p-image p-other",
-    "p-js": "NODE_ENV=production browserify -g envify -e src/app.js | uglifyjs -c -m > web/js/app.js",
+    "p-js": "webpack --mode production",
     "p": "npm-run-all -s p-js p-static",
     "gp-move": "tar -czf /tmp/web.tar.gz web && tar -xzf /tmp/web.tar.gz -C /home/mhf/js/src/mhf-air.github.io --strip-components 1",
     "gp-git-push": "cd /home/mhf/js/src/mhf-air.github.io && cp index.html 404.html && git add . && git diff-index --quiet HEAD || git commit -m \"s:\" && git push",

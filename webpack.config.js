@@ -24,8 +24,8 @@ module.exports = {
   },
   devServer: {
     contentBase: path.join(__dirname, "web"),
-    // historyApiFallback: true,
-    // index: "index.html",
+    historyApiFallback: true,
+    publicPath: "/js/",
   },
   node: {
     // prevent webpack from injecting useless setImmediate polyfill because Vue
