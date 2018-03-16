@@ -12,9 +12,9 @@
     "vuex": "^3.0.1"
   },
   "scripts": {
-    "dev-watch": "watchify -vd --iw 'web/**' -e src/app.js -o '> web/js/app.js'",
+    "dev": "webpack-dev-server --mode development --open",
     "dev-serve": "live-server web --entry-file=index.html",
-    "dev": "npm-run-all -p dev-watch dev-serve",
+    "dev-watch": "webpack --mode development",
     "p-fonts": "mkdir -p web/css && rm -rf web/css/fonts && cp -r static/css/fonts web/css",
     "gen-theme-css": "cat src/components/theme-main/common/*.styl src/components/theme-main/*.styl | stylus > /tmp/theme-main.css",
     "p-min-css": "cat static/css/normalize.css static/css/main.css /tmp/theme-main.css | csso -o web/css/main.css",
@@ -29,27 +29,29 @@
     "gp-git-push": "cd /home/mhf/js/src/mhf-air.github.io && cp index.html 404.html && git add . && git diff-index --quiet HEAD || git commit -m \"s:\" && git push",
     "gp": "npm-run-all -s p gp-move gp-git-push"
   },
-  "browserify": {
-    "transform": [
-      "babelify",
-      "vueify"
-    ]
-  },
   "devDependencies": {
     "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.4",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.6.1",
-    "babelify": "^8.0.0",
-    "browserify": "^16.0.0",
+    "css-loader": "^0.28.10",
     "csso-cli": "^1.1.0",
-    "envify": "^4.1.0",
     "html-minifier": "^3.5.9",
     "live-server": "^1.2.0",
     "npm-run-all": "^4.1.2",
     "pug": "^2.0.0",
     "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.2",
     "uglify-js": "^3.3.10",
-    "vueify": "^9.4.1",
-    "watchify": "^3.10.0"
-  }
+    "vue-loader": "^14.2.1",
+    "vue-template-compiler": "^2.5.16",
+    "webpack": "^4.1.1",
+    "webpack-cli": "^2.0.12",
+    "webpack-dev-server": "^3.1.1"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ]
 }

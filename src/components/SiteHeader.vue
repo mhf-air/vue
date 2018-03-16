@@ -45,11 +45,11 @@
         <router-link to="" class="site-header-bottom-logo">
           <img src="/image/mi-logo.png" alt="logo" title="小米官网" />
         </router-link>
-        <g-h v-for="category in categoryList">
+        <g-h v-for="(category, i) in categoryList" :key="i">
           <router-link to="" class="site-header-bottom-left-category">{{ category.name }}</router-link>
           <g-h justify-content="center" class="site-header-bottom-left-popover-outer" v-if="category.list.length > 0">
             <g-h>
-              <g-v v-for="item in category.list" class="site-header-bottom-left-popover" align-items="center">
+              <g-v v-for="(item, j) in category.list" :key="j" class="site-header-bottom-left-popover" align-items="center">
                 <div class="product-tag" :class="{invisible: item.tag === ''}">{{ item.tag ? item.tag : "a" }}</div>
                 <router-link to="" class="product-image">
                   <img v-if="item.image !== ''" :src="item.image" width="160px" />
@@ -73,7 +73,7 @@
           <span class="el-icon-search" />
         </g-h>
         <g-v class="search-suggestion-list" :class="{searchInputSelected}">
-          <g-h v-for="item in searchSuggestionList" justify-content="space-between">
+          <g-h v-for="(item, i) in searchSuggestionList" :key="i" justify-content="space-between">
             <span>{{ item.name }}</span>
             <span class="search-suggestion-item-num">{{ "约有" + item.num + "件" }}</span>
           </g-h>

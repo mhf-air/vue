@@ -11,7 +11,7 @@ g-v(align-items="center")
           justify-content="center"
           class="main-product-nav-left"
           v-for="(item, i) in mainProductNavList"
-          ikey="i"
+          :key="i"
           )
         g-h(justify-content="space-between")
           span {{ item.name }}
