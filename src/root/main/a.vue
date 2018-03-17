@@ -1,10 +1,9 @@
-<template>
-<div>
-  <SiteHeader/>
-  <!-- <Test/> -->
-  <Content/>
-  <SiteFooter/>
-</div>
+<template lang="pug">
+div
+  SiteHeader
+  Test
+  Content
+  SiteFooter
 </template>
 
 <script>
@@ -19,6 +18,6 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="stylus" scoped>
 
 </style>
