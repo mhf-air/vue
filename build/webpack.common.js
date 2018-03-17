@@ -1,11 +1,13 @@
 const path = require("path")
+const webpack = require("webpack")
 
+console.log(__dirname)
 module.exports = {
   entry: {
     app: "./src/app.js",
   },
   output: {
-    path: path.resolve(__dirname, "web/js"),
+    path: path.resolve(__dirname, "../web/js"),
     filename: "[name].js",
   },
   module: {
@@ -22,11 +24,7 @@ module.exports = {
       }
     ],
   },
-  devServer: {
-    contentBase: path.join(__dirname, "web"),
-    historyApiFallback: true,
-    publicPath: "/js/",
-  },
+
   node: {
     // prevent webpack from injecting useless setImmediate polyfill because Vue
     // source contains it (although only uses it if it's native).

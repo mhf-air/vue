@@ -27,7 +27,7 @@ g-v(align-items="center")
   g-h(justify-content="center" class="home-appliances")
     g-v(class="home-appliances-content")
       g-h(justify-content="space-between" align-items="center" class="home-appliances-top")
-        div 家电a
+        div 家电
         g-h(class="home-appliances-title")
           span(
               :class="{'selected-home-appliances': selectedHomeAppliances === 0}"

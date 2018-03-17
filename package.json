@@ -12,7 +12,9 @@
     "vuex": "^3.0.1"
   },
   "scripts": {
-    "dev": "webpack-dev-server --mode development --open",
+    "dev": "webpack-dev-server --mode development --config build/webpack.dev.js --open",
+    "dev-js": "webpack --mode development --config build/webpack.dev.js",
+    "dev-serve": "live-server web --entry-file=index.html",
     "p-fonts": "mkdir -p web/css && rm -rf web/css/fonts && cp -r static/css/fonts web/css",
     "gen-theme-css": "cat src/components/theme-main/common/*.styl src/components/theme-main/*.styl | stylus > /tmp/theme-main.css",
     "p-min-css": "cat static/css/normalize.css static/css/main.css /tmp/theme-main.css | csso -o web/css/main.css",
@@ -21,7 +23,7 @@
     "p-image": "rm -rf web/image && cp -r static/image web",
     "p-other": "cp static/other/* web",
     "p-static": "npm-run-all p-html p-css p-image p-other",
-    "p-js": "webpack --mode production",
+    "p-js": "webpack --mode production --config build/webpack.production.js",
     "p": "npm-run-all -s p-js p-static",
     "gp-move": "tar -czf /tmp/web.tar.gz web && tar -xzf /tmp/web.tar.gz -C /home/mhf/js/src/mhf-air.github.io --strip-components 1",
     "gp-git-push": "cd /home/mhf/js/src/mhf-air.github.io && cp index.html 404.html && git add . && git diff-index --quiet HEAD || git commit -m \"s:\" && git push",
@@ -40,12 +42,15 @@
     "pug": "^2.0.0",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",
+    "ts-loader": "^4.0.1",
+    "typescript": "^2.7.2",
     "uglify-js": "^3.3.10",
     "vue-loader": "^14.2.1",
     "vue-template-compiler": "^2.5.16",
     "webpack": "^4.1.1",
     "webpack-cli": "^2.0.12",
-    "webpack-dev-server": "^3.1.1"
+    "webpack-dev-server": "^3.1.1",
+    "webpack-merge": "^4.1.2"
   },
   "browserslist": [
     "> 1%",
