@@ -239,7 +239,6 @@ primary = #ff6700
   position: relative
   >.el-carousel
     width: 76rem
-    background: cyan
 
 .main-product-nav
   position: absolute
