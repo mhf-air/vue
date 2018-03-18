@@ -1,87 +1,74 @@
-<template>
-<header class="site-header">
-  <g-h justify-content="center" class="site-header-top">
-    <g-h justify-content="space-between" class="site-header-content">
-      <g-h justify-content="space-between" align-items="center" class="site-header-top-left">
-        <router-link to="">小米商城</router-link>
-        <router-link to="">MIUI</router-link>
-        <router-link to="">IoT</router-link>
-        <router-link to="">云服务</router-link>
-        <router-link to="">水滴</router-link>
-        <router-link to="">金融</router-link>
-        <router-link to="">有品</router-link>
-        <router-link to="">Select Region</router-link>
-      </g-h>
-      <g-h justify-content="flex-end" class="site-header-top-right">
-        <div class="site-header-top-right-user">
-          <span>
-            {{ username }}
-            <i class="el-icon-arrow-down el-icon-right"></i>
-          </span>
-          <div class="popover">
-            <g-v>
-              <router-link to="">个人中心</router-link>
-              <router-link to="">评价晒单</router-link>
-              <router-link to="">我的喜欢</router-link>
-              <router-link to="">小米账户</router-link>
-              <router-link to="">退出登录</router-link>
-            </g-v>
-          </div>
-        </div>
-        <router-link to="">消息通知</router-link>
-        <router-link to="">我的订单</router-link>
-        <div class="site-header-top-right-cart">
-          <span>购物车({{ cartGoodCount }})</span>
-          <g-v justify-content="center" align-items="center" class="popover">
-            <span v-if="cartGoodCount === 0">购物车中还没有商品，赶紧选购吧！</span>
-          </g-v>
-        </div>
-      </g-h>
-    </g-h>
-  </g-h>
-  <g-h justify-content="center" class="site-header-bottom">
-    <g-h justify-content="space-between" align-items="center" class="site-header-content">
-      <g-h justify-content="space-between" align-items="center" class="site-header-bottom-left">
-        <router-link to="" class="site-header-bottom-logo">
-          <img src="/image/mi-logo.png" alt="logo" title="小米官网" />
-        </router-link>
-        <g-h v-for="category in categoryList">
-          <router-link to="" class="site-header-bottom-left-category">{{ category.name }}</router-link>
-          <g-h justify-content="center" class="site-header-bottom-left-popover-outer" v-if="category.list.length > 0">
-            <g-h>
-              <g-v v-for="item in category.list" class="site-header-bottom-left-popover" align-items="center">
-                <div class="product-tag" :class="{invisible: item.tag === ''}">{{ item.tag ? item.tag : "a" }}</div>
-                <router-link to="" class="product-image">
-                  <img v-if="item.image !== ''" :src="item.image" width="160px" />
-                </router-link>
-                <router-link to="" class="product-name">
-                  <div :class="{invisible: item.name === ''}">{{ item.name ? item.name : "a"}}</div>
-                </router-link>
-                <div class="product-price" :class="{invisible: item.price === ''}">{{ item.price ? item.price : "a"}}</div>
-              </g-v>
-            </g-h>
-          </g-h>
-        </g-h>
-      </g-h>
-      <g-h class="site-header-bottom-right">
-        <input type="text" class="site-header-bottom-right-input" :class="{searchInputSelected}" @click="selectSearchInput" ref="searchInputSelected" />
-        <div class="site-header-bottom-right-inner" v-show="!searchInputSelected">
-          <router-link to="">红米5 Plus</router-link>
-          <router-link to="">小米Note 3</router-link>
-        </div>
-        <g-h class="site-header-bottom-right-search" :class="{searchInputSelected}" @click="selectSearchInput">
-          <span class="el-icon-search" />
-        </g-h>
-        <g-v class="search-suggestion-list" :class="{searchInputSelected}">
-          <g-h v-for="item in searchSuggestionList" justify-content="space-between">
-            <span>{{ item.name }}</span>
-            <span class="search-suggestion-item-num">{{ "约有" + item.num + "件" }}</span>
-          </g-h>
-        </g-v>
-      </g-h>
-    </g-h>
-  </g-h>
-</header>
+<template lang="pug">
+header(class="site-header")
+  g-h(j-c="center" class="top")
+    g-h(j-c="space-between" class="content")
+      g-h(j-c="space-between" a-i="center" class="top-left")
+        router-link(to="") 小米商城
+        router-link(to="") MIUI
+        router-link(to="") IoT
+        router-link(to="") 云服务
+        router-link(to="") 水滴
+        router-link(to="") 金融
+        router-link(to="") 有品
+        router-link(to="") Select Region
+      
+      g-h(j-c="flex-end" class="top-right")
+        div(class="top-right-user")
+          span {{ username }}
+            i(class="el-icon-arrow-down el-icon-right")
+          div(class="popover")
+            g-v
+              router-link(to="") 个人中心
+              router-link(to="") 评价晒单
+              router-link(to="") 我的喜欢
+              router-link(to="") 小米账户
+              router-link(to="") 退出登录
+        router-link(to="") 消息通知
+        router-link(to="") 我的订单
+        div(class="top-right-cart")
+          span 购物车({{ cartGoodCount }})
+          g-v(j-c="center" a-i="center" class="popover")
+            span(v-if="cartGoodCount === 0") 购物车中还没有商品，赶紧选购吧！
+  
+  g-h(j-c="center" class="bottom")
+    g-h(j-c="space-between" a-i="center" class="content")
+      g-h(j-c="space-between" a-i="center" class="bottom-left")
+        router-link(to="" class="bottom-logo")
+          img(src="/image/mi-logo.png" alt="logo" title="小米官网")
+        
+        g-h(v-for="category in categoryList")
+          router-link(to="" class="bottom-left-category") {{ category.name }}
+          g-h(j-c="center" class="bottom-left-popover-outer" v-if="category.list.length > 0")
+            g-h
+              g-v(v-for="item in category.list" class="bottom-left-popover" a-i="center")
+                div(class="product-tag" :class="{invisible: item.tag === ''}") {{ item.tag ? item.tag : "a" }}
+                router-link(to="" class="product-image")
+                  img(v-if="item.image !== ''" :src="item.image" width="160px")
+                
+                router-link(to="" class="product-name")
+                  div(:class="{invisible: item.name === ''}") {{ item.name ? item.name : "a"}}
+                
+                div(class="product-price" :class="{invisible: item.price === ''}") {{ item.price ? item.price : "a"}}
+      
+      g-h(class="bottom-right")
+        input(
+              type="text"
+              class="bottom-right-input"
+              :class="{searchInputSelected}"
+              @click="selectSearchInput"
+              ref="searchInputSelected"
+             )
+        div(class="bottom-right-inner" v-show="!searchInputSelected")
+          router-link(to="") 红米5 Plus
+          router-link(to="") 小米Note 3
+        g-h(class="bottom-right-search" :class="{searchInputSelected}" @click="selectSearchInput")
+          span(class="el-icon-search")
+        
+        g-v(class="search-suggestion-list" :class="{searchInputSelected}")
+          g-h(v-for="item in searchSuggestionList" j-c="space-between")
+            span {{ item.name }}
+            span(class="search-suggestion-item-num") {{ `约有${item.num}件` }}
+  
 </template>
 
 <script>
@@ -235,18 +222,18 @@ primary = #ff6700
 .site-header
   position: relative
 
-.site-header-top
+.top
   background-color: #363636
   color: #b0b0b0
   font-size: 12px
 
-.site-header-content
+.content
   width: 77rem
 
-.site-header-top-left
+.top-left
   padding: 0.7rem 0
 
-.site-header-top-left
+.top-left
   >*
     padding-right: 0.6rem
   >.router-link-active
@@ -258,7 +245,7 @@ primary = #ff6700
     &:last-child
       border-right-style: none
 
-.site-header-top-right>*
+.top-right>*
   display: flex
   align-items: center
   padding: 0 1rem
@@ -266,7 +253,7 @@ primary = #ff6700
   &:hover
     color: white
 
-.site-header-top-right-user
+.top-right-user
   position: relative
   padding: 0 1.7rem
   z-index: 999
@@ -294,7 +281,7 @@ primary = #ff6700
         background: #f5f5f5
         color: primary
 
-.site-header-top-right-cart
+.top-right-cart
   position: relative
   background: #424242
   z-index: 999
@@ -316,11 +303,11 @@ primary = #ff6700
     z-index: 999
     transition: height 0.1s
 
-.site-header-bottom
+.bottom
   font-size: 16px
   padding: 1.7rem 0
 
-.site-header-bottom-left-category
+.bottom-left-category
   display: flex
   align-items: center
   padding: 0 1rem
@@ -329,30 +316,30 @@ primary = #ff6700
   &:hover
     color: primary
 
-.site-header-bottom-left>.g-h:hover
-  &>.site-header-bottom-left-popover-outer
+.bottom-left>.g-h:hover
+  &>.bottom-left-popover-outer
     height: 14.95rem
 
-.site-header-bottom-logo
+.bottom-logo
   background-color: primary
 
-.site-header-bottom-right:hover
-  .site-header-bottom-right-input
-  .site-header-bottom-right-search
+.bottom-right:hover
+  .bottom-right-input
+  .bottom-right-search
     &:not(.searchInputSelected)
       border-color: #999
 
-.site-header-bottom-right
+.bottom-right
   position: relative
 
-.site-header-bottom-right-input
+.bottom-right-input
   border-color: #e0e0e0
   border-width: 1px
   border-style: solid none solid solid
   padding: 0.8rem 0.5rem
   width: 13rem
 
-.site-header-bottom-right-inner
+.bottom-right-inner
   font-size: 12px
   position: absolute
   top: 1rem
@@ -365,7 +352,7 @@ primary = #ff6700
       background: primary
       color: #fff
 
-.site-header-bottom-right-search
+.bottom-right-search
   display: flex
   align-items: center
   border: 1px solid #e0e0e0
@@ -397,7 +384,7 @@ primary = #ff6700
   border-color: primary
   display: flex
 
-.site-header-bottom-left-popover-outer
+.bottom-left-popover-outer
   height: 0
   overflow: hidden
   top: 8.5rem
@@ -410,7 +397,7 @@ primary = #ff6700
   >.g-h
     width: 75rem
 
-.site-header-bottom-left-popover
+.bottom-left-popover
   margin: 0 1rem 2rem
   font-size: 12px
   >.product-tag

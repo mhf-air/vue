@@ -1,7 +1,7 @@
 <template lang="pug">
 footer
   g-h(j-c="center")
-    g-v(j-c="center" class="app")
+    g-v(j-c="center" class="site-footer")
       g-h(j-c="space-around" class="service")
         g-h(j-c="center")
           router-link(to="") 预约维修服务
@@ -136,7 +136,7 @@ export default {
 <style lang="stylus" scoped>
 primary = #ff6700
 
-.app
+.site-footer
   width: 77rem
 
 .service
