@@ -150,7 +150,7 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-/* primary = #ff6700
+primary = #ff6700
 
 .site-footer
   width: 77rem
@@ -209,14 +209,14 @@ export default {
 .site-footer-bottom-logo-nav
   font-size: 12px
   color: #aaa
-  &-first>
-    margin-right: 7px
-    .router-link-active:hover
+  &-first
+    >.router-link-active:hover
       color: primary
-    .vbar
+    >.vbar
       width: 1px
+      margin: 0 4px
       background: #ccc
-  &-second>
+  &-second>*
     margin-right: 7px
     color: #aaa
     .router-link-active:hover
@@ -225,5 +225,5 @@ export default {
 .site-footer-slogan
   font-size: 20px
   color: #aaa
-  padding: 1.5em 0 */
+  padding: 1.5em 0
 </style>

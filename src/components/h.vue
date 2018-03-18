@@ -1,7 +1,6 @@
-<template>
-<section class="g-h" :class="styleClass">
-  <slot></slot>
-</section>
+<template lang="pug">
+section(class="g-h" :class="styleClass")
+  slot
 </template>
 
 <script>
@@ -50,3 +49,11 @@ export default {
   }
 }
 </script>
+
+<style lang="stylus" scoped>
+.g-h
+  display: flex
+
+.g-h-reverse
+  flex-direction: row-reverse
+</style>

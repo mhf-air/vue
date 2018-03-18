@@ -230,7 +230,7 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-/* primary = #ff6700
+primary = #ff6700
 
 .site-header
   position: relative
@@ -247,7 +247,7 @@ export default {
   padding: 0.7rem 0
 
 .site-header-top-left
-  >
+  >*
     padding-right: 0.6rem
   >.router-link-active
     margin-right: 1em
@@ -258,7 +258,7 @@ export default {
     &:last-child
       border-right-style: none
 
-.site-header-top-right>
+.site-header-top-right>*
   display: flex
   align-items: center
   padding: 0 1rem
@@ -269,6 +269,7 @@ export default {
 .site-header-top-right-user
   position: relative
   padding: 0 1.7rem
+  z-index: 999
   &:hover
     background-color: white
     color: orange
@@ -287,7 +288,7 @@ export default {
     background: #fff
     z-index: 999
     box-shadow: 0 5px 10px #ccc
-    &>.g-v>
+    &>.g-v>*
       padding: 0.3rem 0
       &:hover
         background: #f5f5f5
@@ -296,6 +297,7 @@ export default {
 .site-header-top-right-cart
   position: relative
   background: #424242
+  z-index: 999
   &:hover
     color: primary
     background: #fff
@@ -335,7 +337,7 @@ export default {
   background-color: primary
 
 .site-header-bottom-right:hover
-  .site-header-bottom-right-input,
+  .site-header-bottom-right-input
   .site-header-bottom-right-search
     &:not(.searchInputSelected)
       border-color: #999
@@ -355,7 +357,7 @@ export default {
   position: absolute
   top: 1rem
   right: 3.3rem
-  >
+  >*
     margin-right: 0.2rem
     padding: 0 0.3rem
     background: #eee
@@ -364,7 +366,7 @@ export default {
       color: #fff
 
 .site-header-bottom-right-search
-  display:flex
+  display: flex
   align-items: center
   border: 1px solid #e0e0e0
   padding: 0 1rem
@@ -380,6 +382,8 @@ export default {
   right: 3.05rem
   border: 1px solid primary
   border-top-style: none
+  background-color: #fff
+  z-index: 999
   >.g-h
     padding: 0.2rem 1rem
     font-size: 12px
@@ -402,6 +406,7 @@ export default {
   position: absolute
   box-shadow: 0 1px 4px #ccc
   background-color: #fff
+  z-index: 999
   >.g-h
     width: 75rem
 
@@ -420,5 +425,5 @@ export default {
     &:hover
       color: #6f6660
   >.product-price
-    color: primary */
+    color: primary
 </style>

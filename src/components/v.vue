@@ -1,7 +1,6 @@
-<template>
-<section class="g-v" :class="styleClass">
-  <slot></slot>
-</section>
+<template lang="pug">
+section(class="g-v" :class="styleClass")
+  slot
 </template>
 
 <script>
@@ -35,7 +34,7 @@ export default {
   computed: {
     styleClass() {
       let a = {
-        "g-h-reverse": this.reverse,
+        "g-v-reverse": this.reverse,
         "g-flex-wrap": this.wrap,
         "g-flex-justify-content": this.justifyContent,
       }
@@ -50,3 +49,12 @@ export default {
   }
 }
 </script>
+
+<style lang="stylus" scoped>
+.g-v
+  display: flex
+  flex-direction: column
+
+.g-v-reverse
+  flex-direction: column-reverse
+</style>
