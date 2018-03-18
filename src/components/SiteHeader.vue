@@ -36,19 +36,34 @@ header(class="site-header")
         router-link(to="" class="bottom-logo")
           img(src="/image/mi-logo.png" alt="logo" title="小米官网")
         
-        g-h(v-for="category in categoryList")
+        g-h(
+            v-for="(category, i) in categoryList"
+            :key="i"
+           )
           router-link(to="" class="bottom-left-category") {{ category.name }}
-          g-h(j-c="center" class="bottom-left-popover-outer" v-if="category.list.length > 0")
+          g-h(
+              j-c="center"
+              class="bottom-left-popover-outer"
+              v-if="category.list.length > 0"
+             )
             g-h
-              g-v(v-for="item in category.list" class="bottom-left-popover" a-i="center")
-                div(class="product-tag" :class="{invisible: item.tag === ''}") {{ item.tag ? item.tag : "a" }}
+              g-v(
+                  v-for="(item, j) in category.list"
+                  :key="j"
+                  class="bottom-left-popover"
+                  a-i="center"
+                 )
+                div(class="product-tag" :class="{invisible: item.tag === ''}")
+                  | {{ item.tag ? item.tag : "a" }}
                 router-link(to="" class="product-image")
                   img(v-if="item.image !== ''" :src="item.image" width="160px")
                 
                 router-link(to="" class="product-name")
-                  div(:class="{invisible: item.name === ''}") {{ item.name ? item.name : "a"}}
+                  div(:class="{invisible: item.name === ''}")
+                    | {{ item.name ? item.name : "a"}}
                 
-                div(class="product-price" :class="{invisible: item.price === ''}") {{ item.price ? item.price : "a"}}
+                div(class="product-price" :class="{invisible: item.price === ''}")
+                  | {{ item.price ? item.price : "a"}}
       
       g-h(class="bottom-right")
         input(
@@ -61,7 +76,11 @@ header(class="site-header")
         div(class="bottom-right-inner" v-show="!searchInputSelected")
           router-link(to="") 红米5 Plus
           router-link(to="") 小米Note 3
-        g-h(class="bottom-right-search" :class="{searchInputSelected}" @click="selectSearchInput")
+        g-h(
+            class="bottom-right-search"
+            :class="{searchInputSelected}"
+            @click="selectSearchInput"
+           )
           span(class="el-icon-search")
         
         g-v(class="search-suggestion-list" :class="{searchInputSelected}")
