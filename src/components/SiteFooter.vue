@@ -1,25 +1,25 @@
 <template lang="pug">
 footer
-  g-h(justify-content="center")
-    g-v(justify-content="center" class="site-footer")
-      g-h(justify-content="space-around" class="site-footer-service")
-        g-h(justify-content="center")
+  g-h(j-c="center")
+    g-v(j-c="center" class="site-footer")
+      g-h(j-c="space-around" class="site-footer-service")
+        g-h(j-c="center")
           router-link(to="") 预约维修服务
         div(class="vbar")
-        g-h(justify-content="center")
+        g-h(j-c="center")
           router-link(to="") 7天无理由退货
         div(class="vbar")
-        g-h(justify-content="center")
+        g-h(j-c="center")
           router-link(to="") 15天免费换货
         div(class="vbar")
-        g-h(justify-content="center")
+        g-h(j-c="center")
           router-link(to="") 满150元包邮
         div(class="vbar")
-        g-h(justify-content="center")
+        g-h(j-c="center")
           router-link(to="") 520余家售后网点
 
-      g-h(justify-content="space-around" class="site-footer-bottom-nav")
-        g-h(justify-content="space-between")
+      g-h(j-c="space-around" class="site-footer-bottom-nav")
+        g-h(j-c="space-between")
           g-v(class="site-footer-bottom-nav-main")
             div 帮助中心
             router-link(to="") 账户管理
@@ -57,13 +57,13 @@ footer
             router-link(to="") 防伪查询
         
         div(class="vbar")
-        g-v(align-items="center")
+        g-v(a-i="center")
           div(class="nav-phone") 400-100-5678
           div 周一至周日 8:00-18:00
           div (仅收市话费)
           router-link(to="") 在线客服
 
-      g-h(justify-content="space-between")
+      g-h(j-c="space-between")
         g-h
           router-link(to="" class="site-footer-bottom-logo")
             img(src="/image/mi-logo.png" alt="logo")
@@ -103,7 +103,7 @@ footer
             div 违法和不良信息举报电话：185-0130-1238，本网站所列数据，除特殊说明，所有数据均出自我司实验室测试
           
         
-        g-h(align-items="center")
+        g-h(a-i="center")
           router-link(to="")
             img(src="/image/mi/site/truste.png" width="100px")
           
@@ -119,7 +119,7 @@ footer
           router-link(to="")
             img(src="/image/mi/site/v-logo-4.png")
       
-      g-h(justify-content="center" class="site-footer-slogan") 探索黑科技，小米为发烧而生！
+      g-h(j-c="center" class="site-footer-slogan") 探索黑科技，小米为发烧而生！
 
 </template>
 

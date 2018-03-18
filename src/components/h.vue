@@ -15,6 +15,22 @@ export default {
       type: Boolean,
       default: false,
     },
+    jC: { // justify-content
+      type: String,
+      default: "",
+      validator: v => ["", "center", "flex-start", "flex-end", "space-around", "space-between", "space-evenly"].indexOf(v) > -1
+    },
+    aI: { // align items
+      type: String,
+      default: "",
+      validator: v => ["", "center", "flex-start", "flex-end", "baseline", "stretch"].indexOf(v) > -1
+    },
+    aC: { // align content
+      type: String,
+      default: "",
+      validator: v => ["", "center", "flex-start", "flex-end", "space-around", "space-between", "stretch"].indexOf(v) > -1
+    },
+
     alignItems: {
       type: String,
       default: "",
@@ -36,8 +52,14 @@ export default {
       let a = {
         "g-h-reverse": this.reverse,
         "g-flex-wrap": this.wrap,
-        "g-flex-justify-content": this.justifyContent,
       }
+      if (this.aI !== "") {
+        a["g-flex-align-items-" + this.aI] = true
+      }
+      if (this.jC !== "") {
+        a["g-flex-justify-content-" + this.jC] = true
+      }
+
       if (this.alignItems !== "") {
         a["g-flex-align-items-" + this.alignItems] = true
       }
