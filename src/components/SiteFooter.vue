@@ -1,8 +1,8 @@
 <template lang="pug">
 footer
   g-h(j-c="center")
-    g-v(j-c="center" class="site-footer")
-      g-h(j-c="space-around" class="site-footer-service")
+    g-v(j-c="center" class="app")
+      g-h(j-c="space-around" class="service")
         g-h(j-c="center")
           router-link(to="") 预约维修服务
         div(class="vbar")
@@ -18,39 +18,39 @@ footer
         g-h(j-c="center")
           router-link(to="") 520余家售后网点
 
-      g-h(j-c="space-around" class="site-footer-bottom-nav")
+      g-h(j-c="space-around" class="bottom-nav")
         g-h(j-c="space-between")
-          g-v(class="site-footer-bottom-nav-main")
+          g-v(class="bottom-nav-main")
             div 帮助中心
             router-link(to="") 账户管理
             router-link(to="") 购物指南
             router-link(to="") 订单操作
           
-          g-v(class="site-footer-bottom-nav-main")
+          g-v(class="bottom-nav-main")
             div 服务支持
             router-link(to="") 售后政策
             router-link(to="") 自助服务
             router-link(to="") 相关下载
           
-          g-v(class="site-footer-bottom-nav-main")
+          g-v(class="bottom-nav-main")
             div 线下门店
             router-link(to="") 小米之家
             router-link(to="") 服务网点
             router-link(to="") 零售网点
           
-          g-v(class="site-footer-bottom-nav-main")
+          g-v(class="bottom-nav-main")
             div 关于小米
             router-link(to="") 了解小米
             router-link(to="") 加入小米
             router-link(to="") 联系我们
           
-          g-v(class="site-footer-bottom-nav-main")
+          g-v(class="bottom-nav-main")
             div 关注我们
             router-link(to="") 新浪微博
             router-link(to="") 小米部落
             router-link(to="") 官方微信
           
-          g-v(class="site-footer-bottom-nav-main")
+          g-v(class="bottom-nav-main")
             div 特色服务
             router-link(to="") Ｆ码通道
             router-link(to="") 礼物码
@@ -65,11 +65,11 @@ footer
 
       g-h(j-c="space-between")
         g-h
-          router-link(to="" class="site-footer-bottom-logo")
+          router-link(to="" class="bottom-logo")
             img(src="/image/mi-logo.png" alt="logo")
           
-          g-v(class="site-footer-bottom-logo-nav")
-            g-h(class="site-footer-bottom-logo-nav-first")
+          g-v(class="bottom-logo-nav")
+            g-h(class="bottom-logo-nav-first")
               router-link(to="") 小米商城
               div(class="vbar")
               router-link(to="") MIUI
@@ -92,7 +92,7 @@ footer
               div(class="vbar")
               router-link(to="") Select Region
             
-            g-h(class="site-footer-bottom-logo-nav-second")
+            g-h(class="bottom-logo-nav-second")
               | ©
               router-link(to="") mi.com
               span 京ICP证110507号
@@ -101,7 +101,6 @@ footer
               router-link(to="") 京网文[2014]0059-0009号
             
             div 违法和不良信息举报电话：185-0130-1238，本网站所列数据，除特殊说明，所有数据均出自我司实验室测试
-          
         
         g-h(a-i="center")
           router-link(to="")
@@ -119,7 +118,7 @@ footer
           router-link(to="")
             img(src="/image/mi/site/v-logo-4.png")
       
-      g-h(j-c="center" class="site-footer-slogan") 探索黑科技，小米为发烧而生！
+      g-h(j-c="center" class="slogan") 探索黑科技，小米为发烧而生！
 
 </template>
 
@@ -137,10 +136,10 @@ export default {
 <style lang="stylus" scoped>
 primary = #ff6700
 
-.site-footer
+.app
   width: 77rem
 
-.site-footer-service
+.service
   border-bottom: 1px solid #ccc
   color: #616161
   >.g-h
@@ -152,7 +151,7 @@ primary = #ff6700
     background: #ccc
     margin: 1.7rem 0
 
-.site-footer-bottom-nav
+.bottom-nav
   padding: 2rem 0
   margin-bottom: 2rem
   >.vbar
@@ -174,7 +173,7 @@ primary = #ff6700
         color: white
         background-color: primary
 
-.site-footer-bottom-nav-main
+.bottom-nav-main
   margin: 0 2.77rem
   >div
     font-size: 14px
@@ -187,11 +186,11 @@ primary = #ff6700
     &:hover
       color: primary
 
-.site-footer-bottom-logo
+.bottom-logo
   background-color: primary
   margin-right: 0.6rem
 
-.site-footer-bottom-logo-nav
+.bottom-logo-nav
   font-size: 12px
   color: #aaa
   &-first
@@ -207,7 +206,7 @@ primary = #ff6700
     .router-link-active:hover
       color: primary
 
-.site-footer-slogan
+.slogan
   font-size: 20px
   color: #aaa
   padding: 1.5em 0
