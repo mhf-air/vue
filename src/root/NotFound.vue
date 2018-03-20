@@ -1,7 +1,6 @@
-<template>
-  <div>
-    <p>Page Not Found</p>
-  </div>
+<template lang="pug">
+div
+  p Page Not Found
 </template>
 
 <script>
@@ -9,5 +8,5 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="stylus" scoped>
 </style>
