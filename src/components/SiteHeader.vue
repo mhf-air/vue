@@ -77,6 +77,7 @@ header(class="site-header")
           router-link(to="") 红米5 Plus
           router-link(to="") 小米Note 3
         g-h(
+            a-i="center"
             class="bottom-right-search"
             :class="{searchInputSelected}"
             @click="selectSearchInput"
@@ -392,7 +393,7 @@ primary = #ff6700
   position: absolute
   top: 1rem
   right: 3.3rem
-  >*
+  >.router-link-active
     margin-right: 0.2rem
     padding: 0 0.3rem
     background: #eee
@@ -401,8 +402,6 @@ primary = #ff6700
       color: #fff
 
 .bottom-right-search
-  display: flex
-  align-items: center
   border: 1px solid #e0e0e0
   padding: 0 1rem
   &:hover
@@ -412,7 +411,7 @@ primary = #ff6700
 .search-suggestion-list
   display: none
   position: absolute
-  top: 2.9rem
+  top: 100%
   left: 0
   right: 3.05rem
   border: 1px solid primary
