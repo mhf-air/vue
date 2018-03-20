@@ -325,6 +325,9 @@ primary = #ff6700
   font-size: 16px
   padding: 1rem 0
 
+.bottom-logo
+  background-color: primary
+
 .bottom-left-category
   display: flex
   align-items: center
@@ -336,10 +339,37 @@ primary = #ff6700
 
 .bottom-left>.g-h:hover
   &>.bottom-left-popover-outer
-    height: 14.95rem
+    display: flex
 
-.bottom-logo
-  background-color: primary
+.bottom-left-popover-outer
+  display: none
+  top: 8.5rem
+  right: 0
+  left: 0
+  height: 14.95rem
+  position: absolute
+  box-shadow: 0 1px 4px #ccc
+  background: #fff
+  z-index: 999
+  >.g-h
+    width: 75rem
+
+.bottom-left-popover
+  margin: 0 1rem 2rem
+  font-size: 12px
+  >.product-tag
+    border: 1px solid primary
+    margin-bottom: 1em
+    padding: 0.3em 2em
+    color: primary
+  >.product-image
+    margin: 0 0 1rem
+  >.product-name
+    margin: 0.5em 0
+    &:hover
+      color: #6f6660
+  >.product-price
+    color: primary
 
 .bottom-right:hover
   .bottom-right-input
@@ -401,34 +431,4 @@ primary = #ff6700
 .searchInputSelected
   border-color: primary
   display: flex
-
-.bottom-left-popover-outer
-  height: 0
-  overflow: hidden
-  top: 8.5rem
-  right: 0
-  left: 0
-  position: absolute
-  box-shadow: 0 1px 4px #ccc
-  background-color: #fff
-  z-index: 999
-  >.g-h
-    width: 75rem
-
-.bottom-left-popover
-  margin: 0 1rem 2rem
-  font-size: 12px
-  >.product-tag
-    border: 1px solid primary
-    margin-bottom: 1em
-    padding: 0.3em 2em
-    color: primary
-  >.product-image
-    margin: 0 0 1rem
-  >.product-name
-    margin: 0.5em 0
-    &:hover
-      color: #6f6660
-  >.product-price
-    color: primary
 </style>
