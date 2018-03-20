@@ -294,16 +294,15 @@ primary = #ff6700
     font-weight: 200
     padding: 1em 0 0
     color: #333
-  &-title>*
+  &-title>span
     font-size: 16px
     margin-left: 1.6rem
-  &-left
-    >img
-      width: 14rem
-      margin: 1rem 1rem 0 0
-      &:hover
-        margin: 14px 0 2px
-        box-shadow: 0 7px 30px #999
+  &-left>img
+    width: 14rem
+    margin: 1rem 1rem 0 0
+    &:hover
+      margin: 14px 0 2px
+      box-shadow: 0 7px 30px #999
   &-right
     flex: 1
     margin-top: 1rem
@@ -336,7 +335,7 @@ primary = #ff6700
   width: 14.7rem
   height: 18rem
   background: #f5f5f5
-  >*
+  >.g-h
     flex: 1
     background: #fff
   >:first-child
