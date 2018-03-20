@@ -314,13 +314,12 @@ primary = #ff6700
         margin: -4px 0
         box-shadow: 0 5px 10px #ccc
         >.popover
-          display: flex
+          transform: scale(1, 1)
       &-big
         height: 18rem
       >img
         width: 14rem
       >.popover
-        display: none
         position: absolute
         right: 0
         bottom: 0
@@ -329,6 +328,9 @@ primary = #ff6700
         background: primary
         font-size: 12px
         color: #fff
+        transform: scale(1, 0)
+        transform-origin: center bottom
+        transition: transform 100ms ease-in-out
 
 
 .home-appliances-right-bottom
