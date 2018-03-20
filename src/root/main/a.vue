@@ -1,7 +1,7 @@
 <template lang="pug">
 div
   SiteHeader
-  Test
+  //- Test
   Content
   SiteFooter
 </template>

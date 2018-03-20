@@ -265,7 +265,7 @@ primary = #ff6700
 .top-right>*
   display: flex
   align-items: center
-  padding: 0 1rem
+  padding: 1em 1.5rem
   color: #b0b0b0
   &:hover
     color: white
@@ -305,23 +305,25 @@ primary = #ff6700
     color: primary
     background: #fff
     &>.popover
-      height: 6.4rem
+      transform: scale(1, 1)
+
   &>.popover
-    height: 0
-    overflow: hidden
     position: absolute
-    top: 2.4rem
+    top: 100%
+    bottom: -260%
     left: -12rem
     right: 0
     background: #fff
     color: #333
     box-shadow: 0 3px 5px #ccc
     z-index: 999
-    transition: height 0.1s
+    transform-origin: center top
+    transform: scale(1, 0)
+    transition: transform 100ms ease-in-out
 
 .bottom
   font-size: 16px
-  padding: 1.7rem 0
+  padding: 1rem 0
 
 .bottom-left-category
   display: flex
