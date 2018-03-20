@@ -252,17 +252,15 @@ primary = #ff6700
 .top-left
   padding: 0.7rem 0
 
-.top-left
-  >*
-    padding-right: 0.6rem
-  >.router-link-active
-    margin-right: 1em
-    color: #b0b0b0
-    border-right: 1px solid #424242
-    &:hover
-      color: white
-    &:last-child
-      border-right-style: none
+.top-left>.router-link-active
+  margin-right: 1em
+  padding-right: 0.6rem
+  color: #b0b0b0
+  border-right: 1px solid #424242
+  &:hover
+    color: white
+  &:last-child
+    border-right-style: none
 
 .top-right>*
   display: flex
@@ -275,26 +273,25 @@ primary = #ff6700
 .top-right-user
   position: relative
   padding: 0 1.7rem
-  z-index: 999
   &:hover
     background-color: white
     color: orange
     &>.popover
-      height: 8.5rem
+      transform: scale(1, 1)
 
   &>.popover
-    height: 0
-    overflow: hidden
     position: absolute
-    top: 2.4rem
+    top: 100%
     left: 0
     right: 0
-    transition: height 0.1s
     text-align: center
     background: #fff
+    box-shadow: 0 1px 2px #ccc
     z-index: 999
-    box-shadow: 0 5px 10px #ccc
-    &>.g-v>*
+    transform-origin: center top
+    transform: scale(1, 0)
+    transition: transform 100ms ease-in-out
+    &>.g-v>.router-link-active
       padding: 0.3rem 0
       &:hover
         background: #f5f5f5
