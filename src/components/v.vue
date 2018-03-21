@@ -1,5 +1,5 @@
 <template lang="pug">
-section(class="g-v" :class="styleClass")
+section.g-v(:class="styleClass")
   slot
 </template>
 

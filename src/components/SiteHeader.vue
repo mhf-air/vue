@@ -1,8 +1,8 @@
 <template lang="pug">
-header(class="site-header")
-  g-h(j-c="center" class="top")
-    g-h(j-c="space-between" class="content")
-      g-h(j-c="space-between" a-i="center" class="top-left")
+header.site-header
+  g-h.top(j-c="center")
+    g-h.content(j-c="space-between")
+      g-h.top-left(j-c="space-between" a-i="center")
         router-link(to="") 小米商城
         router-link(to="") MIUI
         router-link(to="") IoT
@@ -12,11 +12,11 @@ header(class="site-header")
         router-link(to="") 有品
         router-link(to="") Select Region
       
-      g-h(j-c="flex-end" class="top-right")
-        div(class="top-right-user")
+      g-h.top-right(j-c="flex-end")
+        div.top-right-user
           span {{ username }}
             i(class="el-icon-arrow-down el-icon-right")
-          div(class="popover")
+          div.popover
             g-v
               router-link(to="") 个人中心
               router-link(to="") 评价晒单
@@ -25,69 +25,66 @@ header(class="site-header")
               router-link(to="") 退出登录
         router-link(to="") 消息通知
         router-link(to="") 我的订单
-        div(class="top-right-cart")
+        div.top-right-cart
           span 购物车({{ cartGoodCount }})
-          g-v(j-c="center" a-i="center" class="popover")
+          g-v.popover(j-c="center" a-i="center")
             span(v-if="cartGoodCount === 0") 购物车中还没有商品，赶紧选购吧！
   
-  g-h(j-c="center" class="bottom")
-    g-h(j-c="space-between" a-i="center" class="content")
-      g-h(j-c="space-between" a-i="center" class="bottom-left")
-        router-link(to="/login" class="bottom-logo")
+  g-h.bottom(j-c="center")
+    g-h.content(j-c="space-between" a-i="center")
+      g-h.bottom-left(j-c="space-between" a-i="center")
+        router-link.bottom-logo(to="/login")
           img(src="/image/mi-logo.png" alt="logo" title="小米官网")
         
         g-h(
-            v-for="(category, i) in categoryList"
-            :key="i"
-           )
-          router-link(to="" class="bottom-left-category") {{ category.name }}
-          g-h(
+            v-for="(category, i) in categoryList" :key="i"
+            )
+          router-link.bottom-left-category(to="") {{ category.name }}
+          g-h.bottom-left-popover-outer(
               j-c="center"
-              class="bottom-left-popover-outer"
               v-if="category.list.length > 0"
-             )
+              )
             g-h
-              g-v(
-                  v-for="(item, j) in category.list"
-                  :key="j"
-                  class="bottom-left-popover"
+              g-v.bottom-left-popover(
+                  v-for="(item, j) in category.list" :key="j"
                   a-i="center"
-                 )
-                div(class="product-tag" :class="{invisible: item.tag === ''}")
+                  )
+                div.product-tag(:class="{invisible: item.tag === ''}")
                   | {{ item.tag ? item.tag : "a" }}
-                router-link(to="" class="product-image")
+                router-link.product-image(to="")
                   img(v-if="item.image !== ''" :src="item.image" width="160px")
                 
-                router-link(to="" class="product-name")
+                router-link.product-name(to="")
                   div(:class="{invisible: item.name === ''}")
                     | {{ item.name ? item.name : "a"}}
                 
-                div(class="product-price" :class="{invisible: item.price === ''}")
+                div.product-price(:class="{invisible: item.price === ''}")
                   | {{ item.price ? item.price : "a"}}
       
-      g-h(class="bottom-right")
-        input(
+      g-h.bottom-right
+        input.bottom-right-input(
               type="text"
-              class="bottom-right-input"
               :class="{searchInputSelected}"
               @click="selectSearchInput"
               ref="searchInputSelected"
-             )
-        div(class="bottom-right-inner" v-show="!searchInputSelected")
+              )
+        div.bottom-right-inner(v-show="!searchInputSelected")
           router-link(to="") 红米5 Plus
           router-link(to="") 小米Note 3
-        g-h(
+        g-h.bottom-right-search(
             a-i="center"
-            class="bottom-right-search"
             :class="{searchInputSelected}"
             @click="selectSearchInput"
-           )
-          span(class="el-icon-search")
+            )
+          span.el-icon-search
         
-        g-v(class="search-suggestion-list" :class="{searchInputSelected}")
-          g-h(v-for="item in searchSuggestionList" j-c="space-between")
+        g-v.search-suggestion-list(:class="{searchInputSelected}")
+          g-h(
+              v-for="(item, i) in searchSuggestionList" :key="i"
+              j-c="space-between"
+              )
             span {{ item.name }}
-            span(class="search-suggestion-item-num") {{ `约有${item.num}件` }}
+            span.search-suggestion-item-num {{ `约有${item.num}件` }}
   
 </template>
 

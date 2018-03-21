@@ -1,8 +1,8 @@
 <template lang="pug">
-div(class="app")
-  div(class="popover-container")
+div.app
+  div.popover-container
     div Toggle
-    div(class="popover")
+    div.popover
       g-v
         div alice
         div bob

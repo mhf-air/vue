@@ -1,8 +1,8 @@
 <template lang="pug">
 footer
   g-h(j-c="center")
-    g-v(j-c="center" class="site-footer")
-      g-h(j-c="space-around" class="service")
+    g-v.site-footer(j-c="center")
+      g-h.service(j-c="space-around")
         g-h(j-c="center")
           router-link(to="") 预约维修服务
         div(class="vbar")
@@ -18,81 +18,81 @@ footer
         g-h(j-c="center")
           router-link(to="") 520余家售后网点
 
-      g-h(j-c="space-around" class="bottom-nav")
+      g-h.bottom-nav(j-c="space-around")
         g-h(j-c="space-between")
-          g-v(class="bottom-nav-main")
+          g-v.bottom-nav-main
             div 帮助中心
             router-link(to="") 账户管理
             router-link(to="") 购物指南
             router-link(to="") 订单操作
           
-          g-v(class="bottom-nav-main")
+          g-v.bottom-nav-main
             div 服务支持
             router-link(to="") 售后政策
             router-link(to="") 自助服务
             router-link(to="") 相关下载
           
-          g-v(class="bottom-nav-main")
+          g-v.bottom-nav-main
             div 线下门店
             router-link(to="") 小米之家
             router-link(to="") 服务网点
             router-link(to="") 零售网点
           
-          g-v(class="bottom-nav-main")
+          g-v.bottom-nav-main
             div 关于小米
             router-link(to="") 了解小米
             router-link(to="") 加入小米
             router-link(to="") 联系我们
           
-          g-v(class="bottom-nav-main")
+          g-v.bottom-nav-main
             div 关注我们
             router-link(to="") 新浪微博
             router-link(to="") 小米部落
             router-link(to="") 官方微信
           
-          g-v(class="bottom-nav-main")
+          g-v.bottom-nav-main
             div 特色服务
             router-link(to="") Ｆ码通道
             router-link(to="") 礼物码
             router-link(to="") 防伪查询
         
-        div(class="vbar")
+        div.vbar
         g-v(a-i="center")
-          div(class="nav-phone") 400-100-5678
+          div.nav-phone 400-100-5678
           div 周一至周日 8:00-18:00
           div (仅收市话费)
           router-link(to="") 在线客服
 
       g-h(j-c="space-between")
         g-h
-          router-link(to="" class="bottom-logo")
+          router-link.bottom-log(to="")
             img(src="/image/mi-logo.png" alt="logo")
           
-          g-v(class="bottom-logo-nav")
-            g-h(class="bottom-logo-nav-first")
+          g-v.bottom-logo-nav
+            g-h.bottom-logo-nav-first
               router-link(to="") 小米商城
-              div(class="vbar")
+              div.vbar
               router-link(to="") MIUI
-              div(class="vbar")
+              div.vbar
               router-link(to="") 米家
-              div(class="vbar")
+              div.vbar
               router-link(to="") 米聊
-              div(class="vbar")
+              div.vbar
               router-link(to="") 多看
-              div(class="vbar")
+              div.vbar
               router-link(to="") 路由器
-              div(class="vbar")
+              div.vbar
               router-link(to="") 米粉卡
-              div(class="vbar")
+              div.vbar
               router-link(to="") 小米天猫店
-              div(class="vbar")
+              div.vbar
               router-link(to="") 隐私政策
-              div(class="vbar")
+              div.vbar
               router-link(to="") 问题反馈
-              div(class="vbar")
+              div.vbar
               router-link(to="") Select Region
             
-            g-h(class="bottom-logo-nav-second")
+            g-h.bottom-logo-nav-second
               | ©
               router-link(to="") mi.com
               span 京ICP证110507号
@@ -118,7 +118,7 @@ footer
           router-link(to="")
             img(src="/image/mi/site/v-logo-4.png")
       
-      g-h(j-c="center" class="slogan") 探索黑科技，小米为发烧而生！
+      g-h.slogan(j-c="center") 探索黑科技，小米为发烧而生！
 
 </template>
 

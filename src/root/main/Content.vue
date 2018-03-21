@@ -1,38 +1,33 @@
 <template lang="pug">
 g-v(a-i="center")
-  //- main product
-  div(class="main-product")
+  div.main-product
     el-carousel(height="28rem")
       el-carousel-item(v-for="(item, i) in mainProductList" :key="i")
         router-link(to="")
           img(:src="item.src" :alt="item.alt")
-    g-v(j-c="center" class="main-product-nav")
-      g-h(
+    g-v.main-product-nav(j-c="center")
+      g-h.main-product-nav-left(
           j-c="center"
-          class="main-product-nav-left"
-          v-for="(item, i) in mainProductNavList"
-          :key="i"
+          v-for="(item, i) in mainProductNavList" :key="i"
           )
         g-h(j-c="space-between")
           span {{ item.name }}
           span &gt;
-        div(class="main-product-nav-popover")
+        div.main-product-nav-popover
           g-h(wrap)
-            div(
-                v-for="(popItem, j) in item.list"
-                :key="j"
-                class="main-product-nav-popover-popitem"
-               )
+            div.main-product-nav-popover-popitem(
+                v-for="(popItem, j) in item.list" :key="j"
+                )
               router-link(to="popItem.link")
                 img(:src="popItem.link")
                 span {{ popItem.name }}
 
   //- home appliances
-  g-h(j-c="center" class="home-appliances")
-    g-v(class="home-appliances-content")
-      g-h(j-c="space-between" a-i="center" class="home-appliances-top")
+  g-h.home-appliances(j-c="center")
+    g-v.home-appliances-content
+      g-h.home-appliances-top(j-c="space-between" a-i="center")
         div 家电
-        g-h(class="home-appliances-title")
+        g-h.home-appliances-title
           span(
               :class="{'selected-home-appliances': selectedHomeAppliances === 0}"
               @mouseenter="switctSelectedHomeAppliances(0)"
@@ -50,10 +45,10 @@ g-v(a-i="center")
               @mouseenter="switctSelectedHomeAppliances(3)"
               ) 家居
       g-h
-        g-v(class="home-appliances-left")
+        g-v.home-appliances-left
           img(src="/image/mi/home-appliances/robot.jpg")
           img(src="/image/mi/home-appliances/dianfanbao.jpg")
-        g-v(j-c="space-between" class="home-appliances-right")
+        g-v.home-appliances-right(j-c="space-between")
           g-h(j-c="space-between")
             g-v(
                 j-c="center"
@@ -64,7 +59,7 @@ g-v(a-i="center")
                )
               img(:src="item.image")
               div {{ item.name }}
-              g-v(class="popover")
+              g-v.popover
                 div 很喜欢，外形就是我喜欢的风格, 做工很精细
                 div 来自于 后来的情感　的评价
           g-h(j-c="space-between")
@@ -77,10 +72,10 @@ g-v(a-i="center")
                 )
               img(:src="item.image")
               div {{ item.name }}
-              g-v(class="popover")
+              g-v.popover
                 div 很喜欢，外形就是我喜欢的风格, 做工很精细
                 div 来自于 后来的情感　的评价
-            g-v(class="home-appliances-right-bottom")
+            g-v.home-appliances-right-bottom
               g-h(j-c="center" a-i="center") 小白摄像机
               g-h(j-c="center" a-i="center") 浏览更多
 

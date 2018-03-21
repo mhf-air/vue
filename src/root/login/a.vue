@@ -1,23 +1,24 @@
 <template lang="pug">
-g-h(j-c="center" class="login")
+g-h.login(j-c="center")
   g-v
-    g-v(class="login-body")
-      router-link(to="/login/register" class="register") 注册
-      div(class="title") 用户登录
+    g-v.login-body
+      router-link.register(to="/login/register") 注册
+      div.title 用户登录
       el-input(
-                placeholder="用户名" clearable v-model="username"
-                :class="{required: required.username}"
-                @input="passRequiredCheck('username', $event)"
-              )
+          placeholder="用户名" clearable v-model="username"
+          :class="{required: required.username}"
+          @input="passRequiredCheck('username', $event)"
+          )
       el-input(
-                placeholder="密码" clearable type="password" v-model="password"
-                :class="{required: required.password}"
-                @input="passRequiredCheck('password', $event)"
-              )
-      el-checkbox(class="remember" label="记住我" v-model="toRemember")
+          placeholder="密码" clearable type="password" v-model="password"
+          :class="{required: required.password}"
+          @input="passRequiredCheck('password', $event)"
+          )
+      el-checkbox.remember(label="记住我" v-model="toRemember")
       g-h(j-c="center")
-        el-button(type="primary" round :loading="loading"
-                  @click="login" class="login-button") 登录
+        el-button.login-button(
+            type="primary" round :loading="loading" @click="login"
+            ) 登录
 
 </template>
 
