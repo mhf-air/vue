@@ -1,19 +1,24 @@
-<template>
-<!-- 登录页 -->
-<div id="app">
-  <div id="login-section">
-    <div id="login-body">
-      <el-button type="text" @click="changeToRegister" id="register">注册</el-button>
-      <div id="title">用户登录</div>
-      <el-input placeholder="用户名" clearable v-model="username" />
-      <el-input placeholder="密码" clearable type="password" v-model="password" />
-      <el-checkbox v-model="toRemember" label="记住我" id="remember" />
-    </div>
-    <el-row type="flex" justify="center">
-      <el-button type="primary" round :loading="loading" @click="login" id="login-button">登录</el-button>
-    </el-row>
-  </div>
-</div>
+<template lang="pug">
+g-h(j-c="center" class="login")
+  g-v
+    g-v(class="login-body")
+      router-link(to="/login/register" class="register") 注册
+      div(class="title") 用户登录
+      el-input(
+                placeholder="用户名" clearable v-model="username"
+                :class="{required: required.username}"
+                @input="passRequiredCheck('username', $event)"
+              )
+      el-input(
+                placeholder="密码" clearable type="password" v-model="password"
+                :class="{required: required.password}"
+                @input="passRequiredCheck('password', $event)"
+              )
+      el-checkbox(class="remember" label="记住我" v-model="toRemember")
+      g-h(j-c="center")
+        el-button(type="primary" round :loading="loading"
+                  @click="login" class="login-button") 登录
+
 </template>
 
 <script>
@@ -22,6 +27,10 @@ import api from "app/api"
 export default {
   data() {
     return {
+      required: {
+        username: false,
+        password: false,
+      },
       toRemember: false,
       username: "",
       password: "",
@@ -29,7 +38,24 @@ export default {
     }
   },
   methods: {
+    passRequiredCheck(key, text) {
+      if (this[key] === "") {
+        this.required[key] = true
+        return false
+      } else {
+        this.required[key] = false
+        return true
+      }
+    },
     login() {
+      // check input
+      let checkList = ["username", "password"]
+      for (let k of checkList) {
+        if (!this.passRequiredCheck(k)) {
+          return
+        }
+      }
+
       this.loading = true
       api.Login({
           username: this.username,
@@ -46,61 +72,37 @@ export default {
           this.loading = false
         })
     },
-    changeToRegister() {
-      this.$router.push("/login/register")
-    },
   }
 }
 </script>
 
-<style scoped>
-@media (min-width:600px) {
-  #login-section {
-    width: 20%;
-  }
-}
+<style lang="stylus" scoped>
+.login-body
+  margin: 0 2rem
+  width: 100%
+  >.el-input
+    border-radius: 0 
 
-#app {
-  display: flex;
-  align-items: center;
-  flex-flow: column wrap;
-}
+.title
+  text-align: center
+  margin-top: 1rem
 
-#login-section {
-  display: flex;
-  align-items: center;
-  flex-flow: column wrap;
-  /* background-color: green; */
-}
+.required
+  border: 2px solid #f00
 
-#login-body {
-  display: flex;
-  flex-flow: column wrap;
-  margin: 0 2rem;
-  width: 100%;
-  /* background-color: cyan; */
-}
+.register
+  align-self: flex-end
+  margin-top: 1rem
+  color: #ff6700
 
-#title {
-  text-align: center;
-  margin-top: 1rem;
-}
+.login-body>.el-input
+  margin-top: 0.7rem
+  background: cyan
 
-#register {
-  align-self: flex-end;
-  margin-top: 1rem;
-}
+.remember
+  margin-top: 0.5rem
 
-#login-body>.el-input {
-  background-color: cyan;
-  margin-top: 0.7rem;
-}
-
-#remember {
-  margin-top: 0.5rem;
-}
-
-#login-button {
-  margin-top: 1rem;
-}
+.login-button
+  margin-top: 1rem
+  width: 7rem
 </style>

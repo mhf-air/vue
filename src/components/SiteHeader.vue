@@ -33,7 +33,7 @@ header(class="site-header")
   g-h(j-c="center" class="bottom")
     g-h(j-c="space-between" a-i="center" class="content")
       g-h(j-c="space-between" a-i="center" class="bottom-left")
-        router-link(to="" class="bottom-logo")
+        router-link(to="/login" class="bottom-logo")
           img(src="/image/mi-logo.png" alt="logo" title="小米官网")
         
         g-h(
