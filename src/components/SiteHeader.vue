@@ -49,16 +49,16 @@ header.site-header
                   v-for="(item, j) in category.list" :key="j"
                   a-i="center"
                   )
-                div.product-tag(:class="{invisible: item.tag === ''}")
+                div.product-tag(:class="{'g-invisible': item.tag === ''}")
                   | {{ item.tag ? item.tag : "a" }}
                 router-link.product-image(to="")
                   img(v-if="item.image !== ''" :src="item.image" width="160px")
                 
                 router-link.product-name(to="")
-                  div(:class="{invisible: item.name === ''}")
+                  div(:class="{'g-invisible': item.name === ''}")
                     | {{ item.name ? item.name : "a"}}
                 
-                div.product-price(:class="{invisible: item.price === ''}")
+                div.product-price(:class="{'g-invisible': item.price === ''}")
                   | {{ item.price ? item.price : "a"}}
       
       g-h.bottom-right

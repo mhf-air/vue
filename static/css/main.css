@@ -93,7 +93,7 @@ textarea {
    Browser Upgrade Prompt
    ========================================================================== */
 
-.browserupgrade {
+.g-browserupgrade {
   margin: 0.2em 0;
   background: #ccc;
   color: #000;
@@ -170,7 +170,7 @@ a:hover {
  * Hide visually and from screen readers
  */
 
-.hidden {
+.g-hidden {
   display: none !important;
 }
 
@@ -183,7 +183,7 @@ a:hover {
  *    https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe
  */
 
-.visuallyhidden {
+.g-visuallyhidden {
   border: 0;
   clip: rect(0 0 0 0);
   -webkit-clip-path: inset(50%);
@@ -199,13 +199,13 @@ a:hover {
 }
 
 /*
- * Extends the .visuallyhidden class to allow the element
+ * Extends the .g-visuallyhidden class to allow the element
  * to be focusable when navigated to via the keyboard:
  * https://www.drupal.org/node/897638
  */
 
-.visuallyhidden.focusable:active,
-.visuallyhidden.focusable:focus {
+.g-visuallyhidden.focusable:active,
+.g-visuallyhidden.focusable:focus {
   clip: auto;
   -webkit-clip-path: none;
   clip-path: none;
@@ -221,7 +221,7 @@ a:hover {
  * Hide visually and from screen readers, but maintain layout
  */
 
-.invisible {
+.g-invisible {
   visibility: hidden;
 }
 
