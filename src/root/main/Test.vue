@@ -1,12 +1,13 @@
 <template lang="pug">
 div.app
-  div.popover-container
-    div Toggle
-    div.popover
-      g-v
-        div alice
-        div bob
-        div cat
+  div.main(class="g-clearfix")
+    div.left
+      span 小米商城
+      span MIUI
+      span IoT
+    div.right
+      span MIUI
+      span IoT
 </template>
 
 <script>
@@ -23,20 +24,21 @@ export default {
 
 <style lang="stylus" scoped>
 .app
-  background: red
+  background: green
 
-.popover-container
-  position: relative
-  &:hover .popover
-    transform: scale(1, 1)
-
-.popover
-  position: absolute
-  top: 100%
-  left: 0
+.main
   background: cyan
-  transform-origin: center top
-  transform: scale(1, 0)
-  transition: transform 100ms ease-in
+  width: 77rem
+  margin: 0 auto
+
+.left
+  float: left
+  >span
+    margin-right: 1rem
+
+.right
+  float: right
+  >span
+    margin-left: 1rem
 
 </style>
