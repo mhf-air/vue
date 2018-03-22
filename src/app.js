@@ -33,10 +33,9 @@ use(Vue, [
 ]) */
 
 // root
-import App from "./root/a.vue"
 new Vue({
   router,
   store,
   el: "#app",
-  render: (h) => h(App),
+  render: (h) => h("router-view"),
 })
