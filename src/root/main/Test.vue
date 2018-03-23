@@ -25,6 +25,58 @@ div.app
       div.float-right
         span MIUI
         span IoT
+
+  //- hsl色环
+  ul.hsl-color
+    li
+      span 0
+      span 红
+      span red
+    li
+      span 30
+      span 橙
+      span orange
+    li
+      span 60
+      span 黄
+      span yellow
+    li
+      span 90
+      span 黄绿
+      span yellow-green
+    li
+      span 120
+      span 绿
+      span green
+    li
+      span 150
+      span 绿青
+      span green-cyan
+    li
+      span 180
+      span 青
+      span cyan
+    li
+      span 210
+      span 青蓝
+      span cyan-blue
+    li
+      span 240
+      span 蓝
+      span blue
+    li
+      span 270
+      span 紫
+      span purple
+    li
+      span 300
+      span 洋红
+      span magenta
+    li
+      span 330
+      span 洋红红
+      span magenta-red
+
 </template>
 
 <script>
@@ -40,22 +92,6 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-.cutout-corner
-  >.test
-    background: cyan
-    width: 100px
-    height: 100px
-
-    // 8个缺角
-    clip-path: polygon(
-      20px 0, calc(100% - 20px) 0, 100% 20px, 100% calc(100% - 20px),
-      calc(100% - 20px) 100%, 20px 100%, 0 calc(100% - 20px), 0 20px
-    )
-
-    // 箭头
-    // clip-path: polygon(
-      // 0 0, 80% 0, 100% 50%, 80% 100%, 0 100%
-    // )
 
 .radius
   >.test
@@ -100,5 +136,64 @@ export default {
     float: right
     >span
       margin-left: 1rem
+
+.hsl-color
+  margin-left: 500px
+  border: 1px solid
+  width: 300px
+  &>li
+    display: flex
+    justify-content: space-between
+    align-items: center
+    >span:nth-child(1)
+      width: 30%
+    >span:nth-child(2)
+      width: 30%
+      text-align: center
+    >span:nth-child(3)
+      width: 40%
+      text-align: right
+
+  &>:nth-child(1)
+    background: hsl(0, 100%, 50%)
+  &>:nth-child(2)
+    background: hsl(30, 100%, 50%)
+  &>:nth-child(3)
+    background: hsl(60, 100%, 50%)
+  &>:nth-child(4)
+    background: hsl(90, 100%, 50%)
+  &>:nth-child(5)
+    background: hsl(120, 100%, 50%)
+  &>:nth-child(6)
+    background: hsl(150, 100%, 50%)
+  &>:nth-child(7)
+    background: hsl(180, 100%, 50%)
+  &>:nth-child(8)
+    background: hsl(210, 100%, 50%)
+  &>:nth-child(9)
+    background: hsl(240, 100%, 50%)
+  &>:nth-child(10)
+    background: hsl(270, 100%, 50%)
+  &>:nth-child(11)
+    background: hsl(300, 100%, 50%)
+  &>:nth-child(12)
+    background: hsl(330, 100%, 50%)
+
+.cutout-corner
+  >.test
+    background: cyan
+    width: 100px
+    height: 100px
+
+    // 8个缺角
+    clip-path: polygon(
+      20px 0, calc(100% - 20px) 0, 100% 20px, 100% calc(100% - 20px),
+      calc(100% - 20px) 100%, 20px 100%, 0 calc(100% - 20px), 0 20px
+    )
+
+    // 箭头
+    // clip-path: polygon(
+      // 0 0, 80% 0, 100% 50%, 80% 100%, 0 100%
+    // )
 
 </style>
