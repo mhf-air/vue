@@ -27,7 +27,7 @@ div.app
         span IoT
 
   //- hsl色环
-  ul.hsl-color
+  ul.hsl-color.g-hidden
     li
       span 0
       span 红
