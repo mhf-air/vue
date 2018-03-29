@@ -1,90 +1,85 @@
 <template lang="pug">
-header.site-header
-  g-h.top(j-c="center")
-    g-h.content(j-c="space-between")
-      g-h.top-left(j-c="space-between" a-i="center")
-        router-link(to="") 小米商城
-        router-link(to="") MIUI
-        router-link(to="") IoT
-        router-link(to="") 云服务
-        router-link(to="") 水滴
-        router-link(to="") 金融
-        router-link(to="") 有品
-        router-link(to="") Select Region
-      
-      g-h.top-right(j-c="flex-end")
-        div.top-right-user
-          span {{ username }}
-            i(class="el-icon-arrow-down el-icon-right")
-          div.popover
-            g-v
-              router-link(to="") 个人中心
-              router-link(to="") 评价晒单
-              router-link(to="") 我的喜欢
-              router-link(to="") 小米账户
-              router-link(to="") 退出登录
-        router-link(to="") 消息通知
-        router-link(to="") 我的订单
-        div.top-right-cart
-          span 购物车({{ cartGoodCount }})
-          g-v.popover(j-c="center" a-i="center")
-            span(v-if="cartGoodCount === 0") 购物车中还没有商品，赶紧选购吧！
+header.g-relative
+  g-h.top.g-page-center(j-c="space-between")
+    g-h.top-left(j-c="space-between" a-i="center")
+      router-link(to="") 小米商城
+      router-link(to="") MIUI
+      router-link(to="") IoT
+      router-link(to="") 云服务
+      router-link(to="") 水滴
+      router-link(to="") 金融
+      router-link(to="") 有品
+      router-link(to="") Select Region
+    
+    g-h.top-right(j-c="flex-end")
+      div.top-right-user.g-relative
+        span {{ username }}
+          i.el-icon-arrow-down.el-icon-right
+        g-v.popover.g-absolute
+          router-link(to="") 个人中心
+          router-link(to="") 评价晒单
+          router-link(to="") 我的喜欢
+          router-link(to="") 小米账户
+          router-link(to="") 退出登录
+      router-link(to="") 消息通知
+      router-link(to="") 我的订单
+      div.top-right-cart.g-relative
+        span 购物车({{ cartGoodCount }})
+        g-v.popover.g-absolute(j-c="center" a-i="center")
+          span(v-if="cartGoodCount === 0") 购物车中还没有商品，赶紧选购吧！
   
-  g-h.bottom(j-c="center")
-    g-h.content(j-c="space-between" a-i="center")
-      g-h.bottom-left(j-c="space-between" a-i="center")
-        router-link.bottom-logo(to="/login")
-          img(src="/image/mi-logo.png" alt="logo" title="小米官网")
-        
-        g-h(
-            v-for="(category, i) in categoryList" :key="i"
-            )
-          router-link.bottom-left-category(to="") {{ category.name }}
-          g-h.bottom-left-popover-outer(
-              j-c="center"
-              v-if="category.list.length > 0"
-              )
-            g-h
-              g-v.bottom-left-popover(
-                  v-for="(item, j) in category.list" :key="j"
-                  a-i="center"
-                  )
-                div.product-tag(:class="{'g-invisible': item.tag === ''}")
-                  | {{ item.tag ? item.tag : "a" }}
-                router-link.product-image(to="")
-                  img(v-if="item.image !== ''" :src="item.image" width="160px")
-                
-                router-link.product-name(to="")
-                  div(:class="{'g-invisible': item.name === ''}")
-                    | {{ item.name ? item.name : "a"}}
-                
-                div.product-price(:class="{'g-invisible': item.price === ''}")
-                  | {{ item.price ? item.price : "a"}}
+  g-h.bottom.g-page-center(j-c="space-between" a-i="center")
+    g-h.bottom-left(j-c="space-between" a-i="center")
+      router-link.bottom-logo(to="/login")
+        img(src="/image/mi-logo.png" alt="logo" title="小米官网")
       
-      g-h.bottom-right
-        input.bottom-right-input(
-              type="text"
-              :class="{searchInputSelected}"
-              @click="selectSearchInput"
-              ref="searchInputSelected"
+      g-h(
+          v-for="(category, i) in categoryList" :key="i"
+          )
+        router-link.bottom-left-category(to="") {{ category.name }}
+        g-h.bottom-left-popover.g-absolute.g-page-center(
+            v-if="category.list.length > 0"
+            )
+          g-v.bottom-left-popover-item(
+              v-for="(item, j) in category.list" :key="j"
+              a-i="center"
               )
-        div.bottom-right-inner(v-show="!searchInputSelected")
-          router-link(to="") 红米5 Plus
-          router-link(to="") 小米Note 3
-        g-h.bottom-right-search(
-            a-i="center"
+            div.product-tag(:class="{'g-invisible': item.tag === ''}")
+              | {{ item.tag ? item.tag : "a" }}
+            router-link.product-image(to="")
+              img(v-if="item.image !== ''" :src="item.image" width="160px")
+            
+            router-link.product-name(to="")
+              div(:class="{'g-invisible': item.name === ''}")
+                | {{ item.name ? item.name : "a"}}
+            
+            div.product-price(:class="{'g-invisible': item.price === ''}")
+              | {{ item.price ? item.price : "a"}}
+    
+    g-h.bottom-right.g-relative
+      input.bottom-right-input(
+            type="text"
             :class="{searchInputSelected}"
             @click="selectSearchInput"
+            ref="searchInputSelected"
             )
-          span.el-icon-search
-        
-        g-v.search-suggestion-list(:class="{searchInputSelected}")
-          g-h(
-              v-for="(item, i) in searchSuggestionList" :key="i"
-              j-c="space-between"
-              )
-            span {{ item.name }}
-            span.search-suggestion-item-num {{ `约有${item.num}件` }}
+      div.bottom-right-inner.g-absolute(v-show="!searchInputSelected")
+        router-link(to="") 红米5 Plus
+        router-link(to="") 小米Note 3
+      g-h.bottom-right-search(
+          a-i="center"
+          :class="{searchInputSelected}"
+          @click="selectSearchInput"
+          )
+        span.el-icon-search
+      
+      g-v.search-suggestion-list.g-absolute(:class="{searchInputSelected}")
+        g-h(
+            v-for="(item, i) in searchSuggestionList" :key="i"
+            j-c="space-between"
+            )
+          span {{ item.name }}
+          span.search-suggestion-item-num {{ `约有${item.num}件` }}
   
 </template>
 
@@ -236,19 +231,10 @@ export default {
 <style lang="stylus" scoped>
 primary = #ff6700
 
-.site-header
-  position: relative
-
 .top
   background-color: #363636
   color: #b0b0b0
   font-size: 12px
-
-.content
-  width: 77rem
-
-.top-left
-  padding: 0.7rem 0
 
 .top-left>.router-link-active
   margin-right: 1em
@@ -269,7 +255,6 @@ primary = #ff6700
     color: white
 
 .top-right-user
-  position: relative
   padding: 0 1.7rem
   &:hover
     background-color: white
@@ -278,7 +263,6 @@ primary = #ff6700
       transform: scale(1, 1)
 
   &>.popover
-    position: absolute
     top: 100%
     left: 0
     right: 0
@@ -289,14 +273,13 @@ primary = #ff6700
     transform-origin: center top
     transform: scale(1, 0)
     transition: transform 100ms ease-in-out
-    &>.g-v>.router-link-active
+    &>.router-link-active
       padding: 0.3rem 0
       &:hover
         background: #f5f5f5
         color: primary
 
 .top-right-cart
-  position: relative
   background: #424242
   z-index: 999
   &:hover
@@ -306,7 +289,6 @@ primary = #ff6700
       transform: scale(1, 1)
 
   &>.popover
-    position: absolute
     top: 100%
     bottom: -260%
     left: -12rem
@@ -321,7 +303,8 @@ primary = #ff6700
 
 .bottom
   font-size: 16px
-  padding: 1rem 0
+  padding-top: 1rem
+  padding-bottom: 1rem
 
 .bottom-logo
   background-color: primary
@@ -336,23 +319,22 @@ primary = #ff6700
     color: primary
 
 .bottom-left>.g-h:hover
-  &>.bottom-left-popover-outer
+  &>.bottom-left-popover
     display: flex
 
-.bottom-left-popover-outer
+.bottom-left-popover
   display: none
   top: 8.5rem
   right: 0
   left: 0
   height: 14.95rem
-  position: absolute
   box-shadow: 0 1px 4px #ccc
   background: #fff
   z-index: 999
   >.g-h
     width: 75rem
 
-.bottom-left-popover
+.bottom-left-popover-item
   margin: 0 1rem 2rem
   font-size: 12px
   >.product-tag
@@ -375,9 +357,6 @@ primary = #ff6700
     &:not(.searchInputSelected)
       border-color: #999
 
-.bottom-right
-  position: relative
-
 .bottom-right-input
   border-color: #e0e0e0
   border-width: 1px
@@ -387,7 +366,6 @@ primary = #ff6700
 
 .bottom-right-inner
   font-size: 12px
-  position: absolute
   top: 1rem
   right: 3.3rem
   >.router-link-active
@@ -407,7 +385,6 @@ primary = #ff6700
 
 .search-suggestion-list
   display: none
-  position: absolute
   top: 100%
   left: 0
   right: 3.05rem
