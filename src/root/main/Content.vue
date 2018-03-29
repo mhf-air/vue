@@ -1,11 +1,11 @@
 <template lang="pug">
 g-v(a-i="center")
-  div.main-product
+  div.main-product.g-relative
     el-carousel(height="28rem")
       el-carousel-item(v-for="(item, i) in mainProductList" :key="i")
         router-link(to="")
           img(:src="item.src" :alt="item.alt")
-    g-v.main-product-nav(j-c="center")
+    g-v.main-product-nav.g-absolute(j-c="center")
       g-h.main-product-nav-left(
           j-c="center"
           v-for="(item, i) in mainProductNavList" :key="i"
@@ -13,7 +13,7 @@ g-v(a-i="center")
         g-h(j-c="space-between")
           span {{ item.name }}
           span &gt;
-        div.main-product-nav-popover
+        div.main-product-nav-popover.g-absolute
           g-h(wrap)
             div.main-product-nav-popover-popitem(
                 v-for="(popItem, j) in item.list" :key="j"
@@ -23,61 +23,60 @@ g-v(a-i="center")
                 span {{ popItem.name }}
 
   //- home appliances
-  g-h.home-appliances(j-c="center")
-    g-v.home-appliances-content
-      g-h.home-appliances-top(j-c="space-between" a-i="center")
-        div 家电
-        g-h.home-appliances-title
-          span(
-              :class="{'selected-home-appliances': selectedHomeAppliances === 0}"
-              @mouseenter="switctSelectedHomeAppliances(0)"
-              ) 热门
-          span(
-              :class="{'selected-home-appliances': selectedHomeAppliances === 1}"
-              @mouseenter="switctSelectedHomeAppliances(1)"
-              ) 电视影音
-          span(
-              :class="{'selected-home-appliances': selectedHomeAppliances === 2}"
-              @mouseenter="switctSelectedHomeAppliances(2)"
-              ) 电脑
-          span(
-              :class="{'selected-home-appliances': selectedHomeAppliances === 3}"
-              @mouseenter="switctSelectedHomeAppliances(3)"
-              ) 家居
-      g-h
-        g-v.home-appliances-left
-          img(src="/image/mi/home-appliances/robot.jpg")
-          img(src="/image/mi/home-appliances/dianfanbao.jpg")
-        g-v.home-appliances-right(j-c="space-between")
-          g-h(j-c="space-between")
-            g-v(
-                j-c="center"
-                a-i="center"
-                v-for="(item, i) in homeAppliancesList[selectedHomeAppliances].slice(0, 4)"
-                :key="i"
-                class="home-appliances-right-card home-appliances-right-card-big"
-               )
-              img(:src="item.image")
-              div {{ item.name }}
-              g-v.popover
-                div 很喜欢，外形就是我喜欢的风格, 做工很精细
-                div 来自于 后来的情感　的评价
-          g-h(j-c="space-between")
-            g-v(
-                j-c="center"
-                a-i="center"
-                v-for="(item, i) in homeAppliancesList[selectedHomeAppliances].slice(4, 7)"
-                :key="i"
-                class="home-appliances-right-card home-appliances-right-card-big"
-                )
-              img(:src="item.image")
-              div {{ item.name }}
-              g-v.popover
-                div 很喜欢，外形就是我喜欢的风格, 做工很精细
-                div 来自于 后来的情感　的评价
-            g-v.home-appliances-right-bottom
-              g-h(j-c="center" a-i="center") 小白摄像机
-              g-h(j-c="center" a-i="center") 浏览更多
+  div.home-appliances.g-page-center
+    g-h.home-appliances-top(j-c="space-between" a-i="center")
+      div 家电
+      g-h.home-appliances-title
+        span(
+            :class="{'selected-home-appliances': selectedHomeAppliances === 0}"
+            @mouseenter="switctSelectedHomeAppliances(0)"
+            ) 热门
+        span(
+            :class="{'selected-home-appliances': selectedHomeAppliances === 1}"
+            @mouseenter="switctSelectedHomeAppliances(1)"
+            ) 电视影音
+        span(
+            :class="{'selected-home-appliances': selectedHomeAppliances === 2}"
+            @mouseenter="switctSelectedHomeAppliances(2)"
+            ) 电脑
+        span(
+            :class="{'selected-home-appliances': selectedHomeAppliances === 3}"
+            @mouseenter="switctSelectedHomeAppliances(3)"
+            ) 家居
+    g-h
+      g-v.home-appliances-left
+        img(src="/image/mi/home-appliances/robot.jpg")
+        img(src="/image/mi/home-appliances/dianfanbao.jpg")
+      g-v.home-appliances-right(j-c="space-between")
+        g-h(j-c="space-between")
+          g-v.g-relative(
+              j-c="center"
+              a-i="center"
+              v-for="(item, i) in homeAppliancesList[selectedHomeAppliances].slice(0, 4)"
+              :key="i"
+              class="home-appliances-right-card home-appliances-right-card-big"
+             )
+            img(:src="item.image")
+            div {{ item.name }}
+            g-v.popover.g-absolute
+              div 很喜欢，外形就是我喜欢的风格, 做工很精细
+              div 来自于 后来的情感　的评价
+        g-h(j-c="space-between")
+          g-v(
+              j-c="center"
+              a-i="center"
+              v-for="(item, i) in homeAppliancesList[selectedHomeAppliances].slice(4, 7)"
+              :key="i"
+              class="home-appliances-right-card home-appliances-right-card-big"
+              )
+            img(:src="item.image")
+            div {{ item.name }}
+            g-v.popover.g-absolute
+              div 很喜欢，外形就是我喜欢的风格, 做工很精细
+              div 来自于 后来的情感　的评价
+          g-v.home-appliances-right-bottom
+            g-h(j-c="center" a-i="center") 小白摄像机
+            g-h(j-c="center" a-i="center") 浏览更多
 
 </template>
 
@@ -234,13 +233,10 @@ export default {
 <style lang="stylus" scoped>
 primary = #ff6700
 
-.main-product
-  position: relative
-  >.el-carousel
-    width: 76rem
+.main-product>.el-carousel
+  width: 76rem
 
 .main-product-nav
-  position: absolute
   top: 0
   bottom: 0
   left: 0
@@ -260,7 +256,6 @@ primary = #ff6700
       color: #fff
   &-popover
     display: none
-    position: absolute
     top: 0
     right: -62rem
     bottom: 0
@@ -281,9 +276,6 @@ primary = #ff6700
   background: #f5f5f5
   margin-top: 2rem
   padding-bottom: 2rem
-  width: 100%
-  &-content
-    width: 76rem
   &-top>div
     font-size: 22px
     font-weight: 200
@@ -315,7 +307,6 @@ primary = #ff6700
       >img
         width: 14rem
       >.popover
-        position: absolute
         right: 0
         bottom: 0
         left: 0
