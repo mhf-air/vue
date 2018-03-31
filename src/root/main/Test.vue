@@ -1,6 +1,15 @@
 <template lang="pug">
 div.app
 
+  svg.path.g-hidden(width="300" height="300")
+    path(d="M 10 10 h 100 v 100 c 20 1, 10 30, -50 50 z" stroke="black" fill="transparent")
+  
+  svg.svg-triangle.g-hidden
+    polygon(points="0 0, 100 0, 0 100" fill="cyan")
+
+  //- 箭头
+  div.pop-arrow.g-hidden
+
   //- 缺角效果
   g-h.cutout-corner.g-hidden(j-c="center")
     g-h.test(j-c="center" a-i="center") nice
@@ -92,6 +101,26 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+
+.svg-triangle
+  margin: 10px
+
+.pop-arrow
+  margin: 10px
+  position: relative
+  width: 100px
+  height: 100px
+  background: cyan
+  box-shadow: 0 1px 5px
+  &::before
+    content: ""
+    position: absolute
+    bottom: 100%
+    left: 40%
+    right: 40%
+    border-bottom: 10px solid cyan
+    border-left: 10px solid transparent
+    border-right: 10px solid transparent
 
 .radius
   >.test
