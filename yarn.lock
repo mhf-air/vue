@@ -2,7 +2,7 @@
 # yarn lockfile v1
 
 
-"@mhf-vue/components@file:../mhf-vue/components/":
+"@mhf-vue/components@file:../mhf-vue/components":
   version "1.0.0"
 
 "@types/babel-types@*", "@types/babel-types@^7.0.0":
