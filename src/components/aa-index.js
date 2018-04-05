@@ -17,21 +17,15 @@ export function use(Vue, componentList) {
 }
 
 // component list
-import V from "./v.vue"
-import H from "./h.vue"
 import SiteHeader from "./SiteHeader.vue"
 import SiteFooter from "./SiteFooter.vue"
 
 export {
-  V,
-  H,
   SiteHeader,
   SiteFooter,
 }
 
 const components = [
-  V,
-  H,
   SiteHeader,
   SiteFooter,
 ]
