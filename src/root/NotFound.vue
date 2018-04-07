@@ -1,10 +1,15 @@
 <template lang="pug">
 div
-  p Page Not Found
+  p {{ routePath }} Page Not Found
 </template>
 
 <script>
 export default {
+  data(){
+    return {
+      routePath: this.$route.path,
+    }
+  },
 }
 </script>
 

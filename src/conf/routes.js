@@ -19,5 +19,9 @@ export default [
   { path: "/profile", component: Profile },
   { path: "/profile/info", component: ProfileInfo },
 
+  // cordova
+  { path: "/index.html", component: Main },
+  { path: "/android_asset/www/index.html", component: Main },
+
   { path: "*", component: NotFound },
 ]
