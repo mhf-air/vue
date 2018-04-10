@@ -45,8 +45,8 @@ g-v(a-i="center")
             ) 家居
     g-h
       g-v.home-appliances-left
-        img(src="/image/mi/home-appliances/robot.jpg")
-        img(src="/image/mi/home-appliances/dianfanbao.jpg")
+        img(src="image/mi/home-appliances/robot.jpg")
+        img(src="image/mi/home-appliances/dianfanbao.jpg")
       g-v.home-appliances-right(j-c="space-between")
         g-h(j-c="space-between")
           g-v.g-relative(
@@ -129,11 +129,11 @@ export default {
   data() {
     return {
       mainProductList: [
-        { src: "/image/mi/main-product/xmad_1.jpg" },
-        { src: "/image/mi/main-product/xmad_2.jpg" },
-        { src: "/image/mi/main-product/xmad_3.jpg" },
-        { src: "/image/mi/main-product/xmad_4.jpg" },
-        { src: "/image/mi/main-product/xmad_5.jpg" },
+        { src: "image/mi/main-product/xmad_1.jpg" },
+        { src: "image/mi/main-product/xmad_2.jpg" },
+        { src: "image/mi/main-product/xmad_3.jpg" },
+        { src: "image/mi/main-product/xmad_4.jpg" },
+        { src: "image/mi/main-product/xmad_5.jpg" },
       ],
       mainProductNavList: [
         {
@@ -180,44 +180,44 @@ export default {
       selectedHomeAppliances: 0,
       homeAppliancesList: [
         [
-          { name: "小米MIX 2", price: "3299元起", image: "/image/mi/xiaomi/mix2320-220.png", tag: "热卖" },
-          { name: "小米Note 3", price: "1999元起", image: "/image/mi/xiaomi/note2320x220.png", tag: "热卖" },
-          { name: "小米6", price: "2299元起", image: "/image/mi/xiaomi/xm6-320.png", tag: "" },
-          { name: "小米MAX 2", price: "1399元起", image: "/image/mi/xiaomi/max2_toubu.png", tag: "" },
-          { name: "小米5X", price: "1299元起", image: "/image/mi/xiaomi/5x-2.jpg", tag: "" },
-          { name: "红米5", price: "799元起", image: "/image/mi/hongmi/5-320-220.png", tag: "新品" },
-          { name: "红米5 Plus", price: "999元起", image: "/image/mi/hongmi/5P-320-220.png", tag: "新品" },
-          { name: "红米5A", price: "599元起", image: "/image/mi/hongmi/5-320-220.png", tag: "热卖" },
+          { name: "小米MIX 2", price: "3299元起", image: "image/mi/xiaomi/mix2320-220.png", tag: "热卖" },
+          { name: "小米Note 3", price: "1999元起", image: "image/mi/xiaomi/note2320x220.png", tag: "热卖" },
+          { name: "小米6", price: "2299元起", image: "image/mi/xiaomi/xm6-320.png", tag: "" },
+          { name: "小米MAX 2", price: "1399元起", image: "image/mi/xiaomi/max2_toubu.png", tag: "" },
+          { name: "小米5X", price: "1299元起", image: "image/mi/xiaomi/5x-2.jpg", tag: "" },
+          { name: "红米5", price: "799元起", image: "image/mi/hongmi/5-320-220.png", tag: "新品" },
+          { name: "红米5 Plus", price: "999元起", image: "image/mi/hongmi/5P-320-220.png", tag: "新品" },
+          { name: "红米5A", price: "599元起", image: "image/mi/hongmi/5-320-220.png", tag: "热卖" },
         ],
         [
-          { name: "小米MAX 2", price: "1399元起", image: "/image/mi/xiaomi/max2_toubu.png", tag: "" },
-          { name: "小米5X", price: "1299元起", image: "/image/mi/xiaomi/5x-2.jpg", tag: "" },
-          { name: "红米5", price: "799元起", image: "/image/mi/hongmi/5-320-220.png", tag: "新品" },
-          { name: "红米5 Plus", price: "999元起", image: "/image/mi/hongmi/5P-320-220.png", tag: "新品" },
-          { name: "红米5A", price: "599元起", image: "/image/mi/hongmi/5-320-220.png", tag: "热卖" },
-          { name: "小米MIX 2", price: "3299元起", image: "/image/mi/xiaomi/mix2320-220.png", tag: "热卖" },
-          { name: "小米Note 3", price: "1999元起", image: "/image/mi/xiaomi/note2320x220.png", tag: "热卖" },
-          { name: "小米6", price: "2299元起", image: "/image/mi/xiaomi/xm6-320.png", tag: "" },
+          { name: "小米MAX 2", price: "1399元起", image: "image/mi/xiaomi/max2_toubu.png", tag: "" },
+          { name: "小米5X", price: "1299元起", image: "image/mi/xiaomi/5x-2.jpg", tag: "" },
+          { name: "红米5", price: "799元起", image: "image/mi/hongmi/5-320-220.png", tag: "新品" },
+          { name: "红米5 Plus", price: "999元起", image: "image/mi/hongmi/5P-320-220.png", tag: "新品" },
+          { name: "红米5A", price: "599元起", image: "image/mi/hongmi/5-320-220.png", tag: "热卖" },
+          { name: "小米MIX 2", price: "3299元起", image: "image/mi/xiaomi/mix2320-220.png", tag: "热卖" },
+          { name: "小米Note 3", price: "1999元起", image: "image/mi/xiaomi/note2320x220.png", tag: "热卖" },
+          { name: "小米6", price: "2299元起", image: "image/mi/xiaomi/xm6-320.png", tag: "" },
         ],
         [
-          { name: "小米6", price: "2299元起", image: "/image/mi/xiaomi/xm6-320.png", tag: "" },
-          { name: "小米MAX 2", price: "1399元起", image: "/image/mi/xiaomi/max2_toubu.png", tag: "" },
-          { name: "小米5X", price: "1299元起", image: "/image/mi/xiaomi/5x-2.jpg", tag: "" },
-          { name: "红米5", price: "799元起", image: "/image/mi/hongmi/5-320-220.png", tag: "新品" },
-          { name: "红米5 Plus", price: "999元起", image: "/image/mi/hongmi/5P-320-220.png", tag: "新品" },
-          { name: "红米5A", price: "599元起", image: "/image/mi/hongmi/5-320-220.png", tag: "热卖" },
-          { name: "小米MIX 2", price: "3299元起", image: "/image/mi/xiaomi/mix2320-220.png", tag: "热卖" },
-          { name: "小米Note 3", price: "1999元起", image: "/image/mi/xiaomi/note2320x220.png", tag: "热卖" },
+          { name: "小米6", price: "2299元起", image: "image/mi/xiaomi/xm6-320.png", tag: "" },
+          { name: "小米MAX 2", price: "1399元起", image: "image/mi/xiaomi/max2_toubu.png", tag: "" },
+          { name: "小米5X", price: "1299元起", image: "image/mi/xiaomi/5x-2.jpg", tag: "" },
+          { name: "红米5", price: "799元起", image: "image/mi/hongmi/5-320-220.png", tag: "新品" },
+          { name: "红米5 Plus", price: "999元起", image: "image/mi/hongmi/5P-320-220.png", tag: "新品" },
+          { name: "红米5A", price: "599元起", image: "image/mi/hongmi/5-320-220.png", tag: "热卖" },
+          { name: "小米MIX 2", price: "3299元起", image: "image/mi/xiaomi/mix2320-220.png", tag: "热卖" },
+          { name: "小米Note 3", price: "1999元起", image: "image/mi/xiaomi/note2320x220.png", tag: "热卖" },
         ],
         [
-          { name: "小米MAX 2", price: "1399元起", image: "/image/mi/xiaomi/max2_toubu.png", tag: "" },
-          { name: "小米5X", price: "1299元起", image: "/image/mi/xiaomi/5x-2.jpg", tag: "" },
-          { name: "小米Note 3", price: "1999元起", image: "/image/mi/xiaomi/note2320x220.png", tag: "热卖" },
-          { name: "小米6", price: "2299元起", image: "/image/mi/xiaomi/xm6-320.png", tag: "" },
-          { name: "红米5", price: "799元起", image: "/image/mi/hongmi/5-320-220.png", tag: "新品" },
-          { name: "红米5 Plus", price: "999元起", image: "/image/mi/hongmi/5P-320-220.png", tag: "新品" },
-          { name: "红米5A", price: "599元起", image: "/image/mi/hongmi/5-320-220.png", tag: "热卖" },
-          { name: "小米MIX 2", price: "3299元起", image: "/image/mi/xiaomi/mix2320-220.png", tag: "热卖" },
+          { name: "小米MAX 2", price: "1399元起", image: "image/mi/xiaomi/max2_toubu.png", tag: "" },
+          { name: "小米5X", price: "1299元起", image: "image/mi/xiaomi/5x-2.jpg", tag: "" },
+          { name: "小米Note 3", price: "1999元起", image: "image/mi/xiaomi/note2320x220.png", tag: "热卖" },
+          { name: "小米6", price: "2299元起", image: "image/mi/xiaomi/xm6-320.png", tag: "" },
+          { name: "红米5", price: "799元起", image: "image/mi/hongmi/5-320-220.png", tag: "新品" },
+          { name: "红米5 Plus", price: "999元起", image: "image/mi/hongmi/5P-320-220.png", tag: "新品" },
+          { name: "红米5A", price: "599元起", image: "image/mi/hongmi/5-320-220.png", tag: "热卖" },
+          { name: "小米MIX 2", price: "3299元起", image: "image/mi/xiaomi/mix2320-220.png", tag: "热卖" },
         ],
       ],
     }

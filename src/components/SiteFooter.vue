@@ -65,7 +65,7 @@ footer.g-page-center
   g-h(j-c="space-between")
     g-h
       router-link.bottom-logo(to="")
-        img(src="/image/mi-logo.png" alt="logo")
+        img(src="image/mi-logo.png" alt="logo")
       
       g-v.bottom-logo-nav
         g-h.bottom-logo-nav-first
@@ -103,19 +103,19 @@ footer.g-page-center
     
     g-h(a-i="center")
       router-link(to="")
-        img(src="/image/mi/site/truste.png" width="100px")
+        img(src="image/mi/site/truste.png" width="100px")
       
       router-link(to="")
-        img(src="/image/mi/site/v-logo-1.png")
+        img(src="image/mi/site/v-logo-1.png")
       
       router-link(to="")
-        img(src="/image/mi/site/v-logo-2.png")
+        img(src="image/mi/site/v-logo-2.png")
       
       router-link(to="")
-        img(src="/image/mi/site/v-logo-3.png")
+        img(src="image/mi/site/v-logo-3.png")
       
       router-link(to="")
-        img(src="/image/mi/site/v-logo-4.png")
+        img(src="image/mi/site/v-logo-4.png")
   
   g-h.slogan(j-c="center") 探索黑科技，小米为发烧而生！
 

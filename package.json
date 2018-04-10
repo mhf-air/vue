@@ -13,6 +13,7 @@
     "vuex": "^3.0.1"
   },
   "scripts": {
+    "cor": "browserify -e src/app.js -o web/js/app.js && cp web/js/app.js ~/js/src/cordova/www/js",
     "dev-watch": "watchify -vd --iw 'web/**' -e src/app.js -o '> web/js/app.js'",
     "dev-serve": "live-server web --entry-file=index.html",
     "dev": "npm-run-all -p dev-watch dev-serve",
