@@ -6,6 +6,7 @@
   "license": "MIT",
   "dependencies": {
     "@mhf-vue/components": "file:../mhf-vue/components",
+    "@mhf-vue/icons": "file:../mhf-vue/icons",
     "axios": "^0.17.1",
     "element-ui": "^2.3.3",
     "vue": "^2.5.13",
@@ -27,7 +28,8 @@
     "p-static": "npm-run-all p-html p-css p-image p-other",
     "p-js": "NODE_ENV=production browserify -g envify -e src/app.js | uglifyjs -c -m > web/js/app.js",
     "p": "npm-run-all -s p-js p-static",
-    "update-g": "yarn remove @mhf-vue/components && yarn add file:../mhf-vue/components",
+    "update-components": "yarn remove @mhf-vue/components && yarn add file:../mhf-vue/components",
+    "update-icons": "yarn remove @mhf-vue/icons && yarn add file:../mhf-vue/icons",
     "gp-move": "tar -czf /tmp/web.tar.gz web && tar -xzf /tmp/web.tar.gz -C /home/mhf/js/src/mhf-air.github.io --strip-components 1",
     "gp-git-push": "cd /home/mhf/js/src/mhf-air.github.io && cp index.html 404.html && git add . && git diff-index --quiet HEAD || git commit -m \"s:\" && git push",
     "gp": "npm-run-all -s p gp-move gp-git-push"

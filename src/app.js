@@ -27,6 +27,10 @@ Vue.use(ElementUI)
 import CommonComponents from "@mhf-vue/components"
 Vue.use(CommonComponents)
 
+// common icons
+import CommonIcons from "@mhf-vue/icons"
+Vue.use(CommonIcons)
+
 // app specific components
 import Components from "./components"
 Vue.use(Components)

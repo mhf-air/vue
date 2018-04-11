@@ -1,6 +1,18 @@
 <template lang="pug">
 div.app
-
+  icon-menu.hello(width="50" height="50")
+  svg.g-hidden(
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 100 100"
+      width="100"
+      height="100"
+      )
+    g(stroke="gray" fill="transparent")
+      line(x1="20" y1="30" x2="80" y2="30" stroke-width="5")
+      line(x1="20" y1="50" x2="80" y2="50" stroke-width="5")
+      line(x1="20" y1="70" x2="80" y2="70" stroke-width="5")
+      //- circle(cx="50" cy="50" r="20")
+  
   svg.path.g-hidden(width="300" height="300")
     path(d="M 10 10 h 100 v 100 c 20 1, 10 30, -50 50 z" stroke="black" fill="transparent")
   
@@ -101,6 +113,16 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+.hello
+  // border: 1px solid
+  margin: 1rem 10rem
+  color: orange
+  &:hover
+    color: green
+    background: cyan
+svg
+  // border: 1px solid
+  margin: 1rem 10rem
 
 .svg-triangle
   margin: 10px
