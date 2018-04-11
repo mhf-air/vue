@@ -13,8 +13,9 @@ header.g-relative
     
     g-h.top-right(j-c="flex-end")
       div.top-right-user.g-relative
-        span {{ username }}
-          i.el-icon-arrow-down.el-icon-right
+        g-h
+          div.top-right-user-name {{ username }}
+          icon-square-bracket(width="13" height="13" direction="bottom" strokeWidth="9")
         g-v.popover.g-absolute
           router-link(to="") 个人中心
           router-link(to="") 评价晒单
@@ -71,7 +72,7 @@ header.g-relative
           :class="{searchInputSelected}"
           @click="selectSearchInput"
           )
-        span.el-icon-search
+        icon-search(width="18")
       
       g-v.search-suggestion-list.g-absolute(:class="{searchInputSelected}")
         g-h(
@@ -261,6 +262,9 @@ primary = #ff6700
     color: orange
     &>.popover
       transform: scale(1, 1)
+
+  &-name
+    margin-right: 6px
 
   &>.popover
     top: 100%

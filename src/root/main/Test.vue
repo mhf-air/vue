@@ -1,6 +1,6 @@
 <template lang="pug">
 div.app
-  icon-menu.hello(width="50" height="50")
+  icon-square-bracket.hello(width="50" height="50" direction="bottom")
   svg.g-hidden(
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 100 100"
@@ -8,8 +8,22 @@ div.app
       height="50"
       )
     g(stroke="gray" stroke-width="5" fill="transparent")
-      circle(cx="35" cy="35" r="30")
-      line(x1="57" y1="57" x2="90" y2="90")
+      polyline(
+          v-if="direction === 'left'"
+          points="70 10, 30 50, 70 90"
+          )
+      polyline(
+          v-else-if="direction === 'right'"
+          points="30 10, 70 50, 30 90"
+          )
+      polyline(
+          v-else-if="direction === 'top'"
+          points="10 70, 50 30, 90 70"
+          )
+      polyline(
+          v-else-if="direction === 'bottom'"
+          points="10 30, 50 70, 90 30"
+          )
   
   svg.path.g-hidden(width="300" height="300")
     path(d="M 10 10 h 100 v 100 c 20 1, 10 30, -50 50 z" stroke="black" fill="transparent")
@@ -103,6 +117,7 @@ export default {
   data() {
     return {
       show: false,
+      direction: "bottom",
     }
   },
   methods: {
