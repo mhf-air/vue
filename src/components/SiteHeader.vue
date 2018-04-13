@@ -230,7 +230,7 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-primary = #ff6700
+@import "../root/common.styl"
 
 .top
   background-color: #363636
@@ -408,4 +408,10 @@ primary = #ff6700
 .searchInputSelected
   border-color: primary
   display: flex
+
++xs()
+  .top
+  .bottom
+    display: none
+
 </style>

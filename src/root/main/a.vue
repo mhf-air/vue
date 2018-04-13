@@ -3,7 +3,7 @@ div
   SiteHeader
 
   Test.test
-  div.component
+  div.component.g-hidden
     //- CustomComponent(v-model="on" @toggle="click")
     g-switch(v-model="on" @toggle="click")
   Icon.icon
