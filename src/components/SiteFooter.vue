@@ -62,7 +62,7 @@ footer.g-page-center
       div (仅收市话费)
       router-link(to="") 在线客服
 
-  g-h(j-c="space-between")
+  g-h.bottom-other(j-c="space-between")
     g-h
       router-link.bottom-logo(to="")
         img(src="image/mi-logo.png" alt="logo")
@@ -133,7 +133,7 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-primary = #ff6700
+@import "../root/common.styl"
 
 .service
   border-bottom: 1px solid #ccc
@@ -208,4 +208,19 @@ primary = #ff6700
   font-size: 20px
   color: #aaa
   padding: 1.5em 0
+
++sm()
+  .bottom-nav>.g-h
+  .bottom-nav>.vbar
+  .bottom-other
+    display: none
+
+  .service
+    flex-direction: column
+    align-items: flex-start
+    >.g-h
+      padding: 1rem
+    >.vbar
+      display: none
+
 </style>
