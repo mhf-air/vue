@@ -1,5 +1,20 @@
 <template lang="pug">
 header.g-relative
+  g-h.sm.g-relative(j-c="space-between" a-i="center")
+    div 小米商城
+    icon-menu(@click.native="showSiteHeaderPopover = !showSiteHeaderPopover")
+    g-v.header-popover.g-absolute.showSiteHeaderPopover(
+        :class="{'header-popover-open': showSiteHeaderPopover}"
+        )
+      router-link(to="") 小米商城
+      router-link(to="") MIUI
+      router-link(to="") IoT
+      router-link(to="") 云服务
+      router-link(to="") 水滴
+      router-link(to="") 金融
+      router-link(to="") 有品
+      router-link(to="") Select Region
+
   g-h.top.g-page-center(j-c="space-between")
     g-h.top-left(j-c="space-between" a-i="center")
       router-link(to="") 小米商城
@@ -89,6 +104,7 @@ export default {
   name: "SiteHeader",
   data() {
     return {
+      showSiteHeaderPopover: false,
       username: "Tom",
       searchInputSelected: false,
       cartGoodCount: 0,
@@ -409,9 +425,30 @@ export default {
   border-color: primary
   display: flex
 
-+xs()
+.sm
+  display: none
+
++sm()
   .top
   .bottom
     display: none
+
+  .sm
+    display: flex
+    padding: 1rem
+
+  .header-popover
+    z-index: 999
+    top: 100%
+    width: 100%
+    left: 0
+    padding: 1rem
+    background: #fff
+    transform-origin: center top
+    transform: scale(1, 0)
+    transition: transform 100ms ease-in-out
+
+  .header-popover-open
+    transform: scale(1, 1)
 
 </style>
