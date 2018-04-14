@@ -223,4 +223,7 @@ export default {
     >.vbar
       display: none
 
+  .slogan
+    padding: 0
+
 </style>

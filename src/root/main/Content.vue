@@ -231,7 +231,7 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-primary = #ff6700
+@import "../common.styl"
 
 .main-product>.el-carousel
   width: 76rem
@@ -340,5 +340,12 @@ primary = #ff6700
 .selected-home-appliances
   color: primary
   border-bottom: 1px solid primary
+
++sm()
+  .main-product
+    display: none
+
+  .home-appliances
+    display: flex
 
 </style>
