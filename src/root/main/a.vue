@@ -3,9 +3,11 @@ div
   SiteHeader
 
   Test.test
-  div.component.g-hidden
-    //- CustomComponent(v-model="on" @toggle="click")
-    g-switch(v-model="on" @toggle="click")
+  div.component
+    C
+      CItem.item a, hello
+      CItem.item b,nice
+    //- g-switch(v-model="on" @toggle="click")
   Icon.icon
 
   Content
@@ -15,14 +17,16 @@ div
 <script>
 import Content from "./Content.vue"
 import Test from "./Test.vue"
-import CustomComponent from "./Component.vue"
+import C from "./Component.vue"
+import CItem from "./ComponentItem.vue"
 import Icon from "./Icon.vue"
 
 export default {
   components: {
     Content,
     Test,
-    CustomComponent,
+    C,
+    CItem,
     Icon,
   },
   data(){
@@ -32,7 +36,7 @@ export default {
   },
   methods: {
     click(){
-      console.log(this.on)
+      console.log(this.$el)
     },
   },
 }
@@ -53,5 +57,10 @@ export default {
   width: 300px
   height: 100px
   border: 1px solid
+
+// .item
+  // width: 5rem
+  // height: 5rem
+  // background: cyan
 
 </style>

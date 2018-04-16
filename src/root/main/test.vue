@@ -19,6 +19,33 @@ import { mapState } from "vuex"
 import api from "app/api"
 
 export default {
+  render(h){
+    let indicatorList = []
+    for (let i = 0; i < 3; i++) {
+      indicatorList.push(h("div", {
+        class: {
+          "indicator": true,
+        }
+      }))
+    }
+    return h("div",{
+        class: {
+          "g-relative": true,
+        },
+      },
+      [
+        this.$slots.default,
+        h("g-h", {
+            class: {
+              "indicator-group": true,
+              "g-relative": true,
+            },
+          }, 
+          indicatorList
+        ),
+      ]
+    )
+  },
   data() {
     return {
       message: "Hello vue!",

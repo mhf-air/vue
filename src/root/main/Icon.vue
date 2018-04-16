@@ -41,6 +41,8 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+@import "../common.styl"
+
 .hello
   // border: 1px solid
   margin: 1rem 10rem

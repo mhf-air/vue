@@ -30,7 +30,7 @@ header.g-relative
       div.top-right-user.g-relative
         g-h
           div.top-right-user-name {{ username }}
-          icon-square-bracket(width="13" height="13" direction="bottom" strokeWidth="9")
+          icon-angle-bracket(width="13" height="13" direction="bottom" strokeWidth="9")
         g-v.popover.g-absolute
           router-link(to="") 个人中心
           router-link(to="") 评价晒单
