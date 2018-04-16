@@ -28,6 +28,4 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-.root
-  background: yellow
 </style>
