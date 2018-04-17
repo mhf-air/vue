@@ -3,14 +3,15 @@ div
   SiteHeader
 
   Test.test
-  div.component
-    C
+  div.component.g-hidden
+    //- C.abc.g-hidden
       CItem(v-for="(item, i) in mainProductList" :key="i")
         img(:src="item.src" :alt="item.alt")
-      //- CItem.a a, hello
-      //- CItem.b b, nice
-      //- CItem.c c, cat
-    //- g-switch(v-model="on" @toggle="click")
+      //- CItem(v-for="(item, i) in mainProductList" :key="i")
+        | {{ item.alt }}
+    g-carousel.abc
+      g-carousel-item(v-for="(item, i) in mainProductList" :key="i")
+        img(:src="item.src" :alt="item.alt")
   Icon.icon
 
   Content
@@ -36,11 +37,11 @@ export default {
     return {
       // on: false,
       mainProductList: [
-        { src: "image/mi/main-product/xmad_1.jpg" },
-        { src: "image/mi/main-product/xmad_2.jpg" },
-        { src: "image/mi/main-product/xmad_3.jpg" },
-        { src: "image/mi/main-product/xmad_4.jpg" },
-        { src: "image/mi/main-product/xmad_5.jpg" },
+        { src: "image/mi/main-product/xmad_1.jpg", alt:"a"},
+        { src: "image/mi/main-product/xmad_2.jpg", alt:"b"},
+        { src: "image/mi/main-product/xmad_3.jpg", alt:"c"},
+        { src: "image/mi/main-product/xmad_4.jpg", alt:"d"},
+        { src: "image/mi/main-product/xmad_5.jpg", alt:"e"},
       ],
     }
   },
@@ -59,8 +60,13 @@ export default {
   // padding: 1rem 1rem
   // width: 300px
   // height: 100px
-  width: 76rem
+  // width: 76rem
   border: 1px solid
+
+.abc
+  margin: 1rem auto
+  width: 76rem
+  height: 29rem
 
 .icon
   margin: 1rem auto

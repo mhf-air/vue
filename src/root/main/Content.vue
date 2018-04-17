@@ -1,8 +1,8 @@
 <template lang="pug">
 g-v(a-i="center")
   div.main-product.g-relative
-    el-carousel(height="28rem")
-      el-carousel-item(v-for="(item, i) in mainProductList" :key="i")
+    g-carousel.carousel
+      g-carousel-item(v-for="(item, i) in mainProductList" :key="i")
         router-link(to="")
           img(:src="item.src" :alt="item.alt")
     g-v.main-product-nav.g-absolute(j-c="center")
@@ -233,8 +233,9 @@ export default {
 <style lang="stylus" scoped>
 @import "../common.styl"
 
-.main-product>.el-carousel
+.main-product>.carousel
   width: 76rem
+  height: 29rem
 
 .main-product-nav
   top: 0

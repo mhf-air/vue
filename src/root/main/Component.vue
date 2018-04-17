@@ -102,8 +102,6 @@ export default {
 @import "../common.styl"
 
 .root
-  // width: 20rem
-  height: 30rem
   overflow: hidden
   &:hover .angle
     visibility: visible
@@ -123,7 +121,7 @@ export default {
     right: 5px
 
 .indicator-group
-  bottom: 3px
+  bottom: 20px
   left: 0
   right: 0
   z-index: 3
