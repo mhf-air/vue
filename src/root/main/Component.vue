@@ -30,7 +30,11 @@ export default {
     triggerMethod: {
       type: String,
       default: "hover", // hover, click
-    }
+    },
+    isAutoSwitch: {
+      type: Boolean,
+      default: true,
+    },
   },
   data() {
     return {
@@ -72,6 +76,9 @@ export default {
   },
   created() {
     this.curIndicatorIndex = 1
+    if (this.isAutoSwitch){
+      window.setInterval(this.next, 3200)
+    }
   },
 }
 </script>
