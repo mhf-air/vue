@@ -5,9 +5,11 @@ div
   Test.test
   div.component
     C
-      CItem.a a, hello
-      CItem.b b, nice
-      CItem.c c, cat
+      CItem(v-for="(item, i) in mainProductList" :key="i")
+        img(:src="item.src" :alt="item.alt")
+      //- CItem.a a, hello
+      //- CItem.b b, nice
+      //- CItem.c c, cat
     //- g-switch(v-model="on" @toggle="click")
   Icon.icon
 
@@ -33,6 +35,13 @@ export default {
   data(){
     return {
       // on: false,
+      mainProductList: [
+        { src: "image/mi/main-product/xmad_1.jpg" },
+        { src: "image/mi/main-product/xmad_2.jpg" },
+        { src: "image/mi/main-product/xmad_3.jpg" },
+        { src: "image/mi/main-product/xmad_4.jpg" },
+        { src: "image/mi/main-product/xmad_5.jpg" },
+      ],
     }
   },
   methods: {
@@ -47,9 +56,10 @@ export default {
 
 .component
   margin: 1rem auto
-  padding: 1rem 1rem
-  width: 300px
-  height: 100px
+  // padding: 1rem 1rem
+  // width: 300px
+  // height: 100px
+  width: 76rem
   border: 1px solid
 
 .icon

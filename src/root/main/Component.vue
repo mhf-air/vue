@@ -1,5 +1,8 @@
 <template lang="pug">
-div.root.g-relative
+div.root.g-relative(
+      @mouseenter="clearTimer"
+      @mouseleave="addTimer"
+      )
   slot
   icon-angle-bracket.angle.angle-left.g-absolute(
       direction="left" width="20"
@@ -39,6 +42,7 @@ export default {
   data() {
     return {
       curIndicatorIndex: 0,
+      autoSwitchTimer: null,
     }
   },
   computed: {
@@ -73,11 +77,22 @@ export default {
         this.curIndicatorIndex++
       }
     },
+    addTimer() {
+      if (this.isAutoSwitch && this.autoSwitchTimer === null){
+        this.autoSwitchTimer = window.setInterval(this.next, 3200)
+      }
+    },
+    clearTimer() {
+      if (this.autoSwitchTimer !== null) {
+        window.clearInterval(this.autoSwitchTimer)
+        this.autoSwitchTimer = null
+      }
+    },
   },
   created() {
     this.curIndicatorIndex = 1
     if (this.isAutoSwitch){
-      window.setInterval(this.next, 3200)
+      this.autoSwitchTimer = window.setInterval(this.next, 3200)
     }
   },
 }
@@ -87,8 +102,8 @@ export default {
 @import "../common.styl"
 
 .root
-  width: 17rem
-  height: 5rem
+  // width: 20rem
+  height: 30rem
   overflow: hidden
   &:hover .angle
     visibility: visible
