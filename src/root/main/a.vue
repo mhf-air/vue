@@ -6,7 +6,8 @@ div
   div.component
     C
       CItem.a a, hello
-      CItem.b b,nice
+      CItem.b b, nice
+      CItem.c c, cat
     //- g-switch(v-model="on" @toggle="click")
   Icon.icon
 
@@ -63,6 +64,9 @@ export default {
 
 .b
   background: cyan
+
+.c
+  background: red
 
 // .item
   // width: 5rem

@@ -45,11 +45,9 @@ export default {
   watch: {
     curIndicatorIndex() {
       this.$slots.default.map((item, i) => {
-        if (this.curIndicatorIndex === i + 1) {
-          item.elm.style.zIndex = 2
-        } else {
-          item.elm.style.zIndex = 1
-        }
+        item.elm.style.left = `${(i + 1 - this.curIndicatorIndex) * 100}%`
+        item.elm.style.right = `${(i + 1 - this.curIndicatorIndex) * 100}%`
+        item.elm.style.transition = "all 200ms"
       })
     },
   },
@@ -84,6 +82,7 @@ export default {
 .root
   width: 17rem
   height: 5rem
+  overflow: hidden
   &:hover .angle
     visibility: visible
 
