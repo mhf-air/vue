@@ -14,7 +14,12 @@ div.root.g-relative
         v-for="n in pageCount"
         :key="n"
         :class="{'is-current-item': curIndicatorIndex === n}"
-        v-on="{click: n => selectIndicator(null,n)}"
+        v-on=`triggerMethod === "click" ? {
+              click: $event => selectIndicator($event, n),
+            } : {
+              mouseenter: $event => selectIndicator($event, n),
+            }
+            `
         )
 </template>
 
@@ -50,7 +55,6 @@ export default {
   },
   methods: {
     selectIndicator(e, n) {
-      console.log(e, n)
       this.curIndicatorIndex = n
     },
     prev() {
@@ -80,19 +84,22 @@ export default {
 .root
   width: 17rem
   height: 5rem
+  &:hover .angle
+    visibility: visible
 
 .angle
   top: 50%
   transform: translateY(-50%) 
   color: silver
   z-index: 3
+  visibility: hidden
   &:hover
     color: black
 
   &-left
-    left: 0
+    left: 5px
   &-right
-    right: 0
+    right: 5px
 
 .indicator-group
   bottom: 3px
