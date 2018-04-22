@@ -1,28 +1,31 @@
 <template lang="pug">
-div.root.g-absolute
+div
   slot
 </template>
 
 <script>
 export default {
-  name: "g-carousel-item",
+  name: "g-radio-group",
   props: {
-    theme: {
+    name: {
       type: String,
-      default: "light", // light, dark
-    }
+      required: true,
+    },
   },
   data() {
     return {
+      value: "",
     }
   },
-  computed: {
-    pageCount() {
+  methods: {
+    changeValue(e, data) {
+      console.log("change value")
+      this.$emit("change-value", data)
     },
   },
-  methods: {
-    click(){
-    },
+  model: {
+    prop: "value",
+    event: "change-value",
   },
 }
 </script>

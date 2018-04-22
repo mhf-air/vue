@@ -1,138 +1,109 @@
 <template lang="pug">
-div.root.g-relative(
-      @mouseenter="clearTimer"
-      @mouseleave="addTimer"
+label.label
+  | {{ isFrontLabel ? label : "" }}
+  input.input(
+      type="radio"
+      v-bind="$attrs"
+      :name="name"
+      :style="inputStyle"
+      @change="click"
       )
-  slot
-  icon-angle-bracket.angle.angle-left.g-absolute(
-      direction="left" width="20"
-      @click.native="prev"
-      )
-  icon-angle-bracket.angle.angle-right.g-absolute(
-      direction="right" width="20"
-      @click.native="next"
-      )
-  g-h.indicator-group.g-absolute(j-c="center")
-    div.indicator(
-        v-for="n in pageCount"
-        :key="n"
-        :class="{'is-current-item': curIndicatorIndex === n}"
-        v-on=`triggerMethod === "click" ? {
-              click: $event => selectIndicator($event, n),
-            } : {
-              mouseenter: $event => selectIndicator($event, n),
-            }
-            `
-        )
+  | {{ isFrontLabel ? "" : label }}
 </template>
 
 <script>
+// usage: use font-size to change size
+
 export default {
-  name: "g-carousel",
+  name: "g-radio",
   props: {
-    triggerMethod: {
+    label: {
       type: String,
-      default: "hover", // hover, click
+      default: "",
     },
-    isAutoSwitch: {
+    value: {
+      type: String,
+      default: "",
+    },
+    isFrontLabel: {
       type: Boolean,
-      default: true,
+      default: false,
+    },
+    isDisabled: {
+      type: Boolean,
+      default: false,
+    },
+    theme: {
+      type: String,
+      default: "light", // light, dark
     },
   },
   data() {
     return {
-      curIndicatorIndex: 0,
-      autoSwitchTimer: null,
+      name: "",
     }
   },
-  computed: {
-    pageCount() {
-      return this.$slots.default.length
-    },
-  },
-  watch: {
-    curIndicatorIndex() {
-      this.$slots.default.map((item, i) => {
-        item.elm.style.left = `${(i + 1 - this.curIndicatorIndex) * 100}%`
-        item.elm.style.right = `${(i + 1 - this.curIndicatorIndex) * 100}%`
-        item.elm.style.transition = "all 200ms"
-      })
-    },
-  },
   methods: {
-    selectIndicator(e, n) {
-      this.curIndicatorIndex = n
+    click() {
+      console.log("hello",this.label)
+      this.$emit('check-item', this.label)
     },
-    prev() {
-      if (this.curIndicatorIndex == 1) {
-        this.curIndicatorIndex = this.pageCount
+  },
+  computed: {
+    inputStyle() {
+      let result = {
+      }
+
+      if (this.isFrontLabel) {
+        result.marginLeft = "0.3em"
       } else {
-        this.curIndicatorIndex--
+        result.marginRight = "0.3em"
       }
-    },
-    next() {
-      if (this.curIndicatorIndex == this.pageCount) {
-        this.curIndicatorIndex = 1
-      } else {
-        this.curIndicatorIndex++
-      }
-    },
-    addTimer() {
-      if (this.isAutoSwitch && this.autoSwitchTimer === null){
-        this.autoSwitchTimer = window.setInterval(this.next, 3200)
-      }
-    },
-    clearTimer() {
-      if (this.autoSwitchTimer !== null) {
-        window.clearInterval(this.autoSwitchTimer)
-        this.autoSwitchTimer = null
-      }
+
+      return result
     },
   },
   created() {
-    this.curIndicatorIndex = 1
-    if (this.isAutoSwitch){
-      this.autoSwitchTimer = window.setInterval(this.next, 3200)
-    }
+    this.name = this.$parent.name
+    console.log(this.$parent)
   },
 }
 </script>
 
 <style lang="stylus" scoped>
-@import "../common.styl"
+.input
+  -webkit-appearance: none
+  -moz-appearance: none
+  appearance: none
+  vertical-align: middle
+  position: relative
 
-.root
-  overflow: hidden
-  &:hover .angle
-    visibility: visible
+  border-radius: 50%
+  width: 1em
+  height: 1em
+  border: 0.1em solid #616161
+  transition: 200ms all linear
+  outline: none
 
-.angle
+.input:checked
+  border-color: #009688
+
+.input::after
+  content: ""
+  position: absolute
+  border-radius: 50%
+  width: 50%
+  height: 50%
+  background: #009688
   top: 50%
   transform: translateY(-50%) 
-  color: silver
-  z-index: 3
-  visibility: hidden
-  &:hover
-    color: black
-
-  &-left
-    left: 5px
-  &-right
-    right: 5px
-
-.indicator-group
-  bottom: 20px
   left: 0
   right: 0
-  z-index: 3
+  margin-left: auto
+  margin-right: auto
+  visibility: hidden
 
-.indicator
-  width: 10px
-  height: 10px
-  background: silver
-  margin: 3px
-  border-radius: 50%
+.input:checked::after
+  visibility: visible
 
-.is-current-item
-  background: white
 </style>

@@ -3,16 +3,15 @@ div
   SiteHeader
 
   Test.test
-  div.component.g-hidden
-    //- C.abc.g-hidden
-      CItem(v-for="(item, i) in mainProductList" :key="i")
-        img(:src="item.src" :alt="item.alt")
-      //- CItem(v-for="(item, i) in mainProductList" :key="i")
-        | {{ item.alt }}
-    g-carousel.abc
-      g-carousel-item(v-for="(item, i) in mainProductList" :key="i")
-        img(:src="item.src" :alt="item.alt")
+  div.component
+    CItem.group(name="hello" v-model="choice")
+      C.abc(label="email")
+      C.abc(label="phone")
+    //- g-radio-group(name="hello" fontSize="30")
+      g-radio.abc(label="email")
+      g-radio.abc(label="phone")
   Icon.icon
+  p {{ choice }}
 
   Content
   SiteFooter
@@ -35,7 +34,7 @@ export default {
   },
   data(){
     return {
-      // on: false,
+      choice: "",
       mainProductList: [
         { src: "image/mi/main-product/xmad_1.jpg", alt:"a"},
         { src: "image/mi/main-product/xmad_2.jpg", alt:"b"},
@@ -47,7 +46,7 @@ export default {
   },
   methods: {
     click(){
-      console.log(this.$el)
+      console.log("nice")
     },
   },
 }
@@ -62,11 +61,7 @@ export default {
   // height: 100px
   // width: 76rem
   border: 1px solid
-
-.abc
-  margin: 1rem auto
-  width: 76rem
-  height: 29rem
+  margin: 0 5rem
 
 .icon
   margin: 1rem auto
@@ -75,18 +70,12 @@ export default {
   height: 100px
   border: 1px solid
 
-.a
-  background: yellow
+.group
+  display: flex
+  flex-direction: column
 
-.b
-  background: cyan
-
-.c
-  background: red
-
-// .item
-  // width: 5rem
-  // height: 5rem
-  // background: cyan
+.abc
+  margin: 0 0.5rem
+  font-size: 30px
 
 </style>
