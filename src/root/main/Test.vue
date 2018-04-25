@@ -1,5 +1,6 @@
 <template lang="pug">
 div.app
+  div#map
   
   svg.path.g-hidden(width="300" height="300")
     path(d="M 10 10 h 100 v 100 c 20 1, 10 30, -50 50 z" stroke="black" fill="transparent")
@@ -89,6 +90,8 @@ div.app
 </template>
 
 <script>
+let mp = null
+
 export default {
   data() {
     return {
@@ -97,10 +100,18 @@ export default {
   },
   methods: {
   },
+  mounted() {
+    mp = new BMap.Map("map")
+    let point = new BMap.Point(116.404, 39.915)
+    mp.centerAndZoom(point, 11)
+    mp.enableScrollWheelZoom()
+  },
 }
 </script>
 
 <style lang="stylus" scoped>
+#map
+  height: 100px
 
 .svg-triangle
   margin: 10px
